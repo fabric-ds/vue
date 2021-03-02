@@ -7,8 +7,8 @@
     "browser": "./dist/toast.js",
     "node": "./dist/toast.mjs"
   },
-  "author": "Dave - @djh",
-  "license": "ISC",
+  "author": "Dave Honneffer <pearofducks@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w"

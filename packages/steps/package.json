@@ -7,7 +7,7 @@
     "browser": "./dist/steps.js",
     "node": "./dist/steps.mjs"
   },
-  "author": "Dave - @djh",
+  "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
