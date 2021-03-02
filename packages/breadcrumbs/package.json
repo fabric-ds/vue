@@ -1,0 +1,23 @@
+{
+  "name": "@finn-no/fabric-vue-breadcrumbs",
+  "version": "0.9.7",
+  "type": "module",
+  "module": "dist/breadcrumbs.js",
+  "exports": {
+    "browser": "./dist/breadcrumbs.js",
+    "node": "./dist/breadcrumbs.mjs"
+  },
+  "author": "Dave - @djh",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "dependencies": {
+    "@finn-no/fabric-vue-utilities": "^0.9.6"
+  },
+  "files": [
+    "/dist"
+  ],
+  "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
+}

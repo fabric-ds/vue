@@ -1,0 +1,12 @@
+{
+  "name": "@finn-no/fabric-component-classes",
+  "version": "0.0.7",
+  "main": "index.js",
+  "author": "Dave - @djh",
+  "license": "ISC",
+  "scripts": {},
+  "files": [
+    "/dist"
+  ],
+  "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
+}

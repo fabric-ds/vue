@@ -1,0 +1,24 @@
+{
+  "name": "@finn-no/fabric-vue-modal",
+  "version": "0.9.7",
+  "type": "module",
+  "module": "dist/modal.js",
+  "exports": {
+    "browser": "./dist/modal.js",
+    "node": "./dist/modal.mjs"
+  },
+  "author": "Dave - @djh",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "@finn-no/fabric-vue-utilities": "^0.9.6",
+    "dom-focus-lock": "^1.0.4"
+  },
+  "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
+}

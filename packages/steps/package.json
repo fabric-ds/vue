@@ -1,0 +1,23 @@
+{
+  "name": "@finn-no/fabric-vue-steps",
+  "version": "0.9.8",
+  "type": "module",
+  "module": "dist/steps.js",
+  "exports": {
+    "browser": "./dist/steps.js",
+    "node": "./dist/steps.mjs"
+  },
+  "author": "Dave - @djh",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "dependencies": {
+    "@finn-no/fabric-vue-utilities": "^0.9.6"
+  },
+  "files": [
+    "/dist"
+  ],
+  "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
+}

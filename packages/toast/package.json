@@ -1,0 +1,26 @@
+{
+  "name": "@finn-no/fabric-vue-toast",
+  "version": "0.9.7",
+  "type": "module",
+  "module": "dist/toast.js",
+  "exports": {
+    "browser": "./dist/toast.js",
+    "node": "./dist/toast.mjs"
+  },
+  "author": "Dave - @djh",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "@finn-no/fabric-vue-utilities": "^0.9.6"
+  },
+  "devDependencies": {
+    "mount-vue-component": "^0.9.5"
+  },
+  "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
+}

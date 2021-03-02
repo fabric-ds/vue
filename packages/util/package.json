@@ -1,0 +1,20 @@
+{
+  "name": "@finn-no/fabric-vue-utilities",
+  "version": "0.9.6",
+  "type": "module",
+  "module": "dist/util.js",
+  "exports": {
+    "browser": "./dist/util.js",
+    "node": "./dist/util.mjs"
+  },
+  "author": "Dave - @djh",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "/dist"
+  ],
+  "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
+}
