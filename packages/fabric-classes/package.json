@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-component-classes",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
