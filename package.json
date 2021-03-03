@@ -35,5 +35,8 @@
     "rollup-plugin-vue": "^6.0.0",
     "ultra-runner": "^3.9.0",
     "vue": "^3.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

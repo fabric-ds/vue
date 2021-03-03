@@ -16,5 +16,11 @@
   "files": [
     "/dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "gitHead": "4e4c14fec2d4af07732afeeb5f5ee0c801bc01cc"
 }
