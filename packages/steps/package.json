@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-steps",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "type": "module",
   "module": "dist/steps.js",
   "exports": {
@@ -14,7 +14,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.8"
+    "@finn-no/fabric-vue-utilities": "^0.9.9"
   },
   "files": [
     "/dist"

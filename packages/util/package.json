@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-utilities",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "type": "module",
   "module": "dist/util.js",
   "exports": {
@@ -16,9 +16,6 @@
   "files": [
     "/dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "publishConfig": {
     "access": "public"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-slider",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "type": "module",
   "module": "dist/slider.js",
   "exports": {
@@ -17,7 +17,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.8",
+    "@finn-no/fabric-vue-utilities": "^0.9.9",
     "create-v-model": "^2.0.1"
   },
   "publishConfig": {
