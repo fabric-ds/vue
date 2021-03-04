@@ -27,6 +27,7 @@ export default {
     watch(() => props.modelValue, async (showing) => {
       await nextTick() // wait for the DOM to update so that modalEl exists
       focusLock[showing ? 'on' : 'off'](modalEl.value)
+      document?.querySelector('body').classList[showing ? 'add' : 'remove']('modal-showing')
     })
 
     return {
@@ -64,5 +65,10 @@ export default {
     padding: 0 var(--f-modal-padding);
     margin-top: var(--f-modal-padding);
   }
+}
+:global(.modal-showing) {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 </style>
