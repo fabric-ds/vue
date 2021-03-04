@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-modal",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "type": "module",
   "module": "dist/modal.js",
   "exports": {
