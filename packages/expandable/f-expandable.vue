@@ -1,7 +1,7 @@
 <template>
   <div :class="wrapperClasses">
     <button v-if="title || $slots.title" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
-      <slot name="title" />
+      <slot name="title" :expanded="expanded" />
       <span class="h4" v-if="title">{{ title }}</span>
       <div :class="chevronClasses" v-if="chevron">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 5.5L8 11l5.5-5.5"/></svg>
