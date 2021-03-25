@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-toast",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "type": "module",
   "module": "dist/toast.js",
   "exports": {
@@ -17,7 +17,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.9"
+    "@finn-no/fabric-vue-utilities": "^0.9.10"
   },
   "devDependencies": {
     "mount-vue-component": "^0.9.5"
