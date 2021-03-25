@@ -5,7 +5,7 @@
   "module": "dist/slider.js",
   "exports": {
     "browser": "./dist/slider.js",
-    "node": "./dist/slider.mjs"
+    "import": "./dist/slider.mjs"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",

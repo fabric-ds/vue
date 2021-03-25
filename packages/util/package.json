@@ -5,7 +5,7 @@
   "module": "dist/util.js",
   "exports": {
     "browser": "./dist/util.js",
-    "node": "./dist/util.mjs"
+    "import": "./dist/util.mjs"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",

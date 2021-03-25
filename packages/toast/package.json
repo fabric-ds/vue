@@ -5,7 +5,7 @@
   "module": "dist/toast.js",
   "exports": {
     "browser": "./dist/toast.js",
-    "node": "./dist/toast.mjs"
+    "import": "./dist/toast.mjs"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",

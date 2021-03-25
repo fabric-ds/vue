@@ -5,7 +5,7 @@
   "module": "dist/expandable.js",
   "exports": {
     "browser": "./dist/expandable.js",
-    "node": "./dist/expandable.mjs"
+    "import": "./dist/expandable.mjs"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",

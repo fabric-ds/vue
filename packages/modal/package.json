@@ -5,7 +5,7 @@
   "module": "dist/modal.js",
   "exports": {
     "browser": "./dist/modal.js",
-    "node": "./dist/modal.mjs"
+    "import": "./dist/modal.mjs"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
