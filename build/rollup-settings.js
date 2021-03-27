@@ -18,7 +18,7 @@ const getPlugins = ({ SSR } = {}) => [
     target: SSR ? 'node' : 'browser',
     postcssPlugins
   }),
-  getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]]  }),
+  !SSR && getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]]  }),
   nodeResolve(),
   commonjs(),
   postcss(),
@@ -34,7 +34,7 @@ export const getExports = (pkg, { external = [] } = {}) => ({
   outputSsrEsm: {
     input,
     external: [...defaultExternal, ...external],
-    output: { file: pkg.exports.node, format: 'es', exports: 'named' },
+    output: { file: pkg.exports.import, format: 'es', exports: 'named' },
     plugins: getPlugins({ SSR: true })
   }
 })
