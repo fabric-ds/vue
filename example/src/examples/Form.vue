@@ -112,6 +112,14 @@
           <td></td>
         </tr>
         <tr>
+          <td>small</td>
+          <td>
+            <div>boolean</div>
+            <div class="annotation">Will make radio-buttons small size</div>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
           <td>toggles</td>
           <td>array</td>
           <td></td>

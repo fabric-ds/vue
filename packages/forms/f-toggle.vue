@@ -20,6 +20,8 @@ import fToggleItem from './f-toggle-item.vue'
 import { id } from '@finn-no/fabric-vue-utilities'
 import { modelProps, createModel } from 'create-v-model'
 
+const hasLabelAndValue = e => ('value' in e) && ('label' in e)
+
 export default {
   name: 'fToggle',
   components: { fField, fToggleItem },
@@ -30,11 +32,12 @@ export default {
     checkbox: Boolean,
     radioButton: Boolean,
     equalWidth: Boolean,
+    small: Boolean,
     disabled: Boolean,
     toggles: {
       type: Array,
       required: true,
-      validator: (v) => v.every(e => ('value' in e) && ('label' in e))
+      validator: (v) => v.every(hasLabelAndValue)
     }
   },
   setup: (props, { emit }) => ({
@@ -45,6 +48,7 @@ export default {
       'input-toggle--is-disabled': props.disabled && !props.radioButton,
       'segment-control': props.radioButton,
       'segment-control--justified': props.equalWidth,
+      'segment-control--small': props.small,
       'segment-control--is-disabled': props.disabled && props.radioButton,
       'input-toggle': props.radio || props.checkbox
     }))
