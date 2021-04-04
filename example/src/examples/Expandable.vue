@@ -20,12 +20,6 @@
       <h1>I am content</h1>
     </f-expandable>
 
-    <f-expandable box class="bg-red-50" content-class="p-24" button-class="hover:text-red-700" v-model="show" :content="fExpandTransition">
-      <h1>I am content</h1>
-    </f-expandable>
-    <button @click="show = !show">toggle</button>
-
-
     <f-toggle class="mt-32 bg-gray-100 p-16 inline-block rounded-4" no-hint radio label="Expandable type" :toggles="exampleToggles" v-model="activeExample" />
 
     <section-header label="Documentation" />
@@ -136,7 +130,6 @@ import { fToggle } from '@finn-no/fabric-vue-forms'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 
-const show = ref(true)
 const log = () => window.alert('expanded')
 const exampleToggles = [
   { label: 'Normal', value: 'normal' },
