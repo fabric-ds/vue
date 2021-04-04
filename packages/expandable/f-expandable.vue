@@ -1,6 +1,6 @@
 <template>
-  <div :class="wrapperClasses">
-    <button v-if="title || $slots.title" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
+  <div class="f-expandable" :class="wrapperClasses">
+    <button v-if="hasTitle" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
       <slot name="title" :expanded="expanded" />
       <span class="h4" v-if="title">{{ title }}</span>
       <div :class="chevronClasses" v-if="chevron">
@@ -32,6 +32,7 @@ export default {
     bleed: Boolean,
     info: Boolean,
     buttonClass: String,
+    contentClass: String,
     chevron: {
       type: Boolean,
       default: true
@@ -45,8 +46,10 @@ export default {
     },
     ...modelProps()
   },
-  setup: (props, { emit }) => {
+  setup: (props, { emit, slots }) => {
     const expanded = ('modelValue' in props) ? createModel({ props, emit }) : ref(false)
+
+    const hasTitle = computed(() => props.title || slots.title)
 
     const wrapperClasses = computed(() => ({
       'bg-aqua-50': props.info,
@@ -55,7 +58,7 @@ export default {
     }))
 
     const buttonClasses = computed(() => ({
-      [props.buttonClass]: true,
+      [props.buttonClass || '']: true,
       [buttonReset + ' hover:underline focus:underline']: true,
       ['w-full text-left relative ' + boxClasses.box]: props.box,
       'hover:text-aqua-700 active:text-aqua-800': props.info
@@ -69,15 +72,19 @@ export default {
     }))
 
     const contentClasses = computed(() => ({
-      ['pt-0 ' + boxClasses.box]: props.box,
+      [props.contentClass || '']: true,
+      [boxClasses.box + (hasTitle.value ? ' pt-0' : '')]: props.box,
     }))
 
-    return { expanded, buttonClasses, chevronClasses, contentClasses, wrapperClasses }
+    return { expanded, buttonClasses, chevronClasses, contentClasses, wrapperClasses, hasTitle }
   }
 }
 </script>
 
 <style scoped>
+.f-expandable {
+  will-change: height;
+}
 .box-chevron {
   top: calc(50% - 8px);
 }

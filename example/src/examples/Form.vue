@@ -46,247 +46,29 @@
     <show-token v-else-if="activeDocument === 'toggle'" :token="toggleToken" />
     <show-token v-else-if="activeDocument === 'field'" :token="fieldToken" />
 
-    <section v-if="activeDocument === 'input'">
-      <h4 class="mt-64 mb-16">Props</h4>
-      <props-notice />
-
-      <docs-table>
-        <tr>
-          <td>type</td>
-          <td>string</td>
-          <td>text</td>
-        </tr>
-        <tr>
-          <td>autocomplete</td>
-          <td>string</td>
-          <td>off</td>
-        </tr>
-        <tr>
-          <td>mask</td>
-          <td>
-            <div>object</div>
-            <div class="annotation">See the Masking section below for more information</div>
-          </td>
-          <td></td>
-        </tr>
-      </docs-table>
-
-      <h4 class="mt-64 mb-16">Masking</h4>
-      <p class="text-14">To use input masking, first <code>provide</code> the default export from the <code>cleave.js</code> package as shown below. Once you've done that, any <a href="https://github.com/nosir/cleave.js/blob/master/doc/options.md">options</a> from Cleave are valid options on the <code>mask</code> prop.</p>
-      <show-token :token="cleaveToken" />
-
-    </section>
-
+    <form-input-docs v-if="activeDocument === 'input'" />
     <section v-else-if="activeDocument === 'select'">
       <h4 class="mt-64 mb-16">Props</h4>
       <p class="text-12">All typical HTML5 attributes are valid props for select, see Field for additional props.</p>
     </section>
-
-    <section v-else-if="activeDocument === 'toggle'">
-      <h4 class="mt-64 mb-16">Props</h4>
-      <p class="mb-16 text-14">Toggle takes a special prop - <code>toggles</code> - which is an array of objects. Each object must at least have a <code>value</code> and <code>label</code> attribute. Any other attributes will be transferred directly to the individual toggle</p>
-      <props-notice />
-
-      <docs-table>
-        <tr>
-          <td>radio</td>
-          <td>boolean</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>checkbox</td>
-          <td>boolean</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>radio-button</td>
-          <td>boolean</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>equal-width</td>
-          <td>
-            <div>boolean</div>
-            <div class="annotation">Will make each radio-button equal width</div>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>small</td>
-          <td>
-            <div>boolean</div>
-            <div class="annotation">Will make radio-buttons small size</div>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>toggles</td>
-          <td>array</td>
-          <td></td>
-        </tr>
-      </docs-table>
-    </section>
-
-    <section v-else-if="activeDocument === 'field'">
-      <h4 class="mt-64 mb-16">Props</h4>
-
-      <docs-table>
-        <tr>
-          <td>label</td>
-          <td>string</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>hint</td>
-          <td>
-            <div>string</div>
-            <div class="annotation">The string can contain HTML</div>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>invalid</td>
-          <td>boolean</td>
-          <td></td>
-        </tr>
-      </docs-table>
-
-      <h4 class="mt-64 mb-16">Slots</h4>
-
-      <h5 class="mt-32">default</h5>
-      <p class="text-14">This slot is used by all other form elements, and is where one can slot any content that should be wrapped by a field</p>
-
-      <h5 class="mt-32">control</h5>
-      <p class="text-14">The control slot is used to control a form element. It provides one slot attribute, <code>form</code> whose properties are below.</p>
-
-      <docs-table>
-        <template #titles>
-          <th>name</th>
-          <th>info</th>
-        </template>
-        <tr>
-          <td>validate</td>
-          <td class="text-12">A function which, when called, will force all descendants to immediately validate</td>
-        </tr>
-        <tr>
-          <td>valid</td>
-          <td class="text-12">A boolean indicating if all descendants are currently valid</td>
-        </tr>
-        <tr>
-          <td>completed</td>
-          <td class="text-12">A boolean indicating if all descendants are currently completed</td>
-        </tr>
-        <tr>
-          <td>validationElements</td>
-          <td class="text-12">The list of descendants the form has registered</td>
-        </tr>
-      </docs-table>
-
-    </section>
+    <form-toggle-docs v-else-if="activeDocument === 'toggle'" />
+    <form-field-docs v-else-if="activeDocument === 'field'" />
 
     <section-header label="Validation" />
-
-    <h4 class="my-16">Validating Elements</h4>
-
-    <p class="text-14">Every form element accepts a prop <code>rules</code> which takes an array of functions. These functions will be run in order until one returns an object. If all functions return <code>true</code> the field is considered valid.</p>
-    <show-token :token="ruleToken" />
-    <p class="text-12 mt-16 mb-32">The function has one argument, the current value of the form element — and can either return <code>true</code> or an object with attributes described below</p>
-    <docs-table>
-      <template #titles>
-        <th>attribute</th>
-        <th>type</th>
-      </template>
-      <tr>
-        <td>valid</td>
-        <td>
-          <div>boolean</div>
-          <div class="annotation">Whether or not to treat the form element as valid</div>
-        </td>
-      </tr>
-      <tr>
-        <td>hint</td>
-        <td>
-          <div>string</div>
-          <div class="annotation">The hint to show when this result is triggered</div>
-        </td>
-      </tr>
-      <tr>
-        <td>always</td>
-        <td>
-          <div>boolean</div>
-          <div class="annotation">If true, will show the status/hint even if the form element hasn't been touched yet - normally validation is only shown after blur</div>
-        </td>
-      </tr>
-    </docs-table>
-
-    <h4 class="mt-64 mb-16">Collecting Validation with fForm</h4>
-
-    <p class="text-14 mb-32">The <code>fForm</code> component registers element descendants at any level, and provides the aggregate validation status.</p>
-
-    <docs-table>
-      <tr>
-        <td>v-model</td>
-        <td>
-          <div>boolean</div>
-          <div class="annotation">True when all descendants are valid</div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>v-model:completed</td>
-        <td>
-          <div>boolean</div>
-          <div class="annotation">True when all descendants are completed - passing their <code>required</code> rule</div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>should-validate</td>
-        <td>
-          <div>boolean</div>
-          <div class="annotation">Can be set to true to instruct all descendants to immediately validate</div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>as</td>
-        <td>
-          <div>string</div>
-          <div class="annotation">The DOM element to emit for the wrapper</div>
-        </td>
-        <td>form</td>
-      </tr>
-    </docs-table>
-
-    <h4 class="mt-64 mb-16">Programatic validation</h4>
-    <p class="text-14">The <code>fField</code> component can provide access to programatic validation beyond what <code>fForm</code>'s props can. For information on which methods are available, see the documentation on Field.</p>
-    <show-token :token="fieldControlToken" />
-
-    <h4 class="mt-64 mb-16">Validation and <code>required</code> Form Elements</h4>
-    <p class="text-14">If the form element is marked <code>required</code>, <a href="omg">a special rule</a> will be inserted before any user-defined rules.</p>
-    <p class="text-14">The <code>required</code> prop can accept a function that will be used as the required-rule</p>
-
-    <h4 class="mt-64 mb-16">Complete Form Example</h4>
-
-    <f-form class="space-y-32 bg-gray-100 p-16 rounded-4">
-      <f-input v-model="form1" required label="An input with several hints" :rules="[v => v.trim().length > 4 || { valid: false, hint: 'Must be more than 4 characters!' }]" hint="Enter <strong>more</strong> than 4 characters" />
-      <f-toggle checkbox v-model="form2" :toggles="[{ label: 'This must be checked', value: true }]" :required="v => v || { valid: false, hint: 'You must accept the terms!' }" />
-
-      <f-field #control="{ form }">
-        <f-button utility label="Submit" @click="handleSubmit(form)" />
-      </f-field>
-    </f-form>
-
+    <form-validation-docs />
   </div>
 </template>
 
-<script setup>
+<script>
 import { ref, h } from 'vue'
-import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
+import { PropsNotice } from '../util.js'
 import { fInput, fSelect, fToggle, fForm, fField, fSuffix } from '@finn-no/fabric-vue-forms'
 import { fButton } from '@finn-no/fabric-vue-button'
 import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
+import FormToggleDocs from './FormToggleDocs.vue'
+import FormFieldDocs from './FormFieldDocs.vue'
+import FormInputDocs from './FormInputDocs.vue'
+import FormValidationDocs from './FormValidationDocs.vue'
 
 const activeDocument = ref('input')
 
@@ -297,8 +79,6 @@ const Tab = (props, context) => h('button', {
   },
   onClick: () => activeDocument.value = props.name
 }, props.name)
-
-const PropsNotice = () => h('p', { class: 'text-12 mb-32' }, 'The props documented below have defaults set or are unique to this component, all typical HTML5 attributes are valid props. See Field for additional props.')
 
 const exampleToggles = [
   { label: 'Input', value: 'input' },
@@ -346,23 +126,14 @@ const fieldToken =
 `<f-field label="I can be anything!" hint="Isn't that neat?">
   <your-custom-element />
 <f-field>`
-const ruleToken = `[v => v.trim().length > 5 || { valid: false, hint: 'This should be longer' }]`
-const cleaveToken =
-`// in setup, if you only need masking in one component
-import { provide } from 'vue'
-import Cleave from 'cleave.js'
 
 export default {
-  setup() {
-    provide('Cleave', Cleave)
-  }
+  components: { Tab, fInput, fSelect, fToggle, fForm, fField, fSuffix, FormToggleDocs, FormFieldDocs, FormInputDocs, FormValidationDocs, Setup },
+  setup: () => ({
+    activeDocument, activeExample,
+    inputToken, selectToken, toggleToken, fieldToken,
+    form1, form2, handleSubmit,
+    moneyMask, inputModel, numericModel, selectModel, multiToggleModel, checkboxModel, toggles, exampleToggles,
+  })
 }
-
-// or install app-wide by using the provide method on app
-app.provide('Cleave', Cleave)`
-const fieldControlToken =
-`<f-field #control="{ form }">
-  <button @click="submit(form)">Submit</button>
-</f-field>
-`
 </script>

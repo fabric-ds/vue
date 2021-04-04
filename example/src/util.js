@@ -9,3 +9,5 @@ export const VariantHeading = (props) => h('h4', {
 }, props.label)
 
 export const SectionHeader = (props) =>  h('h3', { class: 'h3 mb-32 mt-64 border-b-2 pb-8' }, props.label)
+
+export const PropsNotice = () => h('p', { class: 'text-12 mb-32' }, 'The props documented below have defaults set or are unique to this component, all typical HTML5 attributes are valid props. See Field for additional props.')

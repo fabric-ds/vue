@@ -21,6 +21,6 @@ export default {
   will-change: height;
 }
 .f-can-expand {
-  transition: height 0.2s ease;
+  transition: height 0.3s ease-in-out;
 }
 </style>

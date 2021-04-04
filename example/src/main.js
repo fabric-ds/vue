@@ -3,6 +3,8 @@ import App from './App.vue'
 import Cleave from 'cleave-lite'
 import { createRouter, createWebHistory } from 'vue-router'
 import ToastInstaller from '@finn-no/fabric-vue-toast'
+import { ShowToken, VariantHeading, SectionHeader } from './util.js'
+import DocsTable from './DocsTable.vue'
 
 import Home from './examples/Home.vue'
 import Button from './examples/Button.vue'
@@ -30,4 +32,12 @@ const routes = [
 
 const router = createRouter({ history: createWebHistory(), routes })
 
-createApp(App).provide('Cleave', Cleave).use(router).use(ToastInstaller).mount('#app')
+createApp(App)
+  .provide('Cleave', Cleave)
+  .component('show-token', ShowToken)
+  .component('variant-heading', VariantHeading)
+  .component('section-header', SectionHeader)
+  .component('docs-table', DocsTable)
+  .use(router)
+  .use(ToastInstaller)
+  .mount('#app')
