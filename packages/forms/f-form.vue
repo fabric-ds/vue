@@ -22,7 +22,7 @@ export default {
     const { allChildrenValid, completed, childrenShouldValidate } = createValidationCollector()
     if (props['onUpdate:modelValue']) watchEffect(() => props['onUpdate:modelValue'](allChildrenValid))
     if (props['onUpdate:completed']) watchEffect(() => props['onUpdate:completed'](completed))
-    if ('shouldValidate' in props) watchEffect(() => childrenShouldValidate = props.shouldValidate)
+    if ('shouldValidate' in props) watchEffect(() => childrenShouldValidate.value = props.shouldValidate)
   }
 }
 </script>
