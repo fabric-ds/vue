@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-breadcrumbs",
-  "version": "0.9.13",
+  "version": "0.9.14",
   "type": "module",
   "module": "dist/breadcrumbs.js",
   "exports": {
@@ -14,7 +14,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.12"
+    "@finn-no/fabric-vue-utilities": "^0.9.13"
   },
   "files": [
     "/dist"
