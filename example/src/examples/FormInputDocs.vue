@@ -31,7 +31,7 @@
   </section>
 </template>
 
-<script setup>
+<script>
 import { PropsNotice } from '../util'
 
 const cleaveToken =
@@ -47,4 +47,9 @@ export default {
 
 // or install app-wide by using the provide method on app
 app.provide('Cleave', Cleave)`
+
+export default {
+  components: { PropsNotice },
+  setup: () => ({ cleaveToken })
+}
 </script>
