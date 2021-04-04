@@ -80,10 +80,18 @@
         <td>false</td>
       </tr>
       <tr>
-        <td>button-classes</td>
+        <td>button-class</td>
         <td>
           <div>string</div>
           <div class="annotation">Classes to be applied to the toggle-element</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>content-class</td>
+        <td>
+          <div>string</div>
+          <div class="annotation">Classes to be applied to the content-element</div>
         </td>
         <td></td>
       </tr>
