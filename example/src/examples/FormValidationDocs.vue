@@ -58,7 +58,7 @@
         <td>should-validate</td>
         <td>
           <div>boolean</div>
-          <div class="annotation">Can be set to true to instruct all descendants to immediately validate</div>
+          <div class="annotation">Can be used to instruct all descendants to immediately validate. Note that this will not update if the should-validate logic is updated elsewhere.</div>
         </td>
         <td></td>
       </tr>

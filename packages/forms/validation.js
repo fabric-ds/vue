@@ -1,4 +1,4 @@
-import { ref, reactive, computed, watch, provide, inject, onBeforeUnmount } from 'vue'
+import { ref, toRefs, reactive, computed, watch, provide, inject, onBeforeUnmount } from 'vue'
 
 export const defaultValid = { valid: true }
 export const defaultInvalid = { valid: false, hint: 'Må fylles ut' }
@@ -32,7 +32,7 @@ export const createValidationCollector = () => {
 
   const collectionAttrs = reactive({ registerValidation, unregisterValidation, validationElements, childrenShouldValidate, allChildrenValid, valid: allChildrenValid, completed, validate })
   provide(collectionKey, collectionAttrs)
-  return collectionAttrs
+  return toRefs(collectionAttrs)
 }
 
 export const createValidation = (props) => {
