@@ -11,6 +11,7 @@ export function defaultRequiredRule(v) {
 }
 
 const collectionKey = 'validation:collector'
+export const useForm = () => inject(collectionKey)
 
 export const createValidationCollector = () => {
   const validationElements = ref([])
