@@ -22,5 +22,9 @@ export default {
 }
 .f-can-expand {
   transition: height 0.3s ease-in-out;
+
+  @media (prefers-reduced-motion) {
+    transition-duration: 0s;
+  }
 }
 </style>
