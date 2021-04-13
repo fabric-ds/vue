@@ -9,7 +9,7 @@
         <f-suffix clear @click="handleClear(inputElement)" />
       </f-input>
 
-      <f-input v-model.number="numericModel" number type="tel" :mask="moneyMask" label="A masked (money) input" :hint="`Model value: <code>${numericModel}</code>`" />
+      <f-input v-model.number="numericModel" optional number type="tel" :mask="moneyMask" label="A masked (money) input" :hint="`Model value: <code>${numericModel}</code>`" />
     </section>
 
 
