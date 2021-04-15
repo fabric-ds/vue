@@ -2,7 +2,10 @@ export const slider = {
   wrapper: 'relative w-full h-32',
   track: 'track absolute bg-bluegray-300 h-4 top-14 rounded-4 w-full',
   activeTrack: 'active-track absolute bg-blue-600 h-4 top-14 rounded-4',
-  thumb: 'thumb absolute w-32 h-32 bottom-0 bg-blue-600 rounded-full outline-none border-8 border-white cursor-pointer'
+  activeTrackDisabled: 'bg-bluegray-400 pointer-events-none',
+  thumb: 'thumb absolute w-32 h-32 bottom-0 rounded-full outline-none border-8',
+  thumbEnabled: 'bg-blue-600 border-white cursor-pointer',
+  thumbDisabled: 'disabled bg-bluegray-400 border-bluegray-200 cursor-disabled'
 }
 
 export const modal = {

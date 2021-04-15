@@ -5,7 +5,11 @@
     <section-header label="Example" />
 
     <p class="text-right text-12">Value: {{ largeNumber }}</p>
-    <f-slider v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
+    
+    <div class="space-y-32">
+      <f-slider v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
+      <f-slider disabled v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
+    </div>
 
     <section-header label="Documentation" />
 

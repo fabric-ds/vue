@@ -1,8 +1,8 @@
 <template>
   <div :class="[classes.wrapper, 'f-slider']">
-    <div :class="classes.track" ref="sliderLine" @click="handleClick"></div>
-    <div :class="classes.activeTrack" :style="sliderActiveStyle" @click="handleClick"></div>
-    <div :class="classes.thumb"
+    <div :class="{ 'pointer-events-none': disabled, [classes.track]: true }" ref="sliderLine" @click="handleClick"></div>
+    <div :class="{ [classes.activeTrackDisabled]: disabled, [classes.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick"></div>
+    <div :class="{ [classes.thumbDisabled]: disabled, [classes.thumbEnabled]: !disabled, [classes.thumb]: true }"
       ref="thumb"
       role="slider"
       tabindex="0"
@@ -38,6 +38,7 @@ export default {
     step: Number,
     label: String,
     labelledBy: String,
+    disabled: Boolean,
     ...modelProps()
   },
   setup(props, { emit }) {
@@ -96,6 +97,11 @@ export default {
 .thumb {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1), 0px 3px 1px 0px rgba(0, 0, 0, 0.05), 0px 2px 2px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
 
+  &.disabled {
+    box-shadow: none;
+    pointer-events: none;
+  }
+
   &:hover, &:focus {
     &:before {
       transform: scale(1.3);
@@ -105,7 +111,7 @@ export default {
   &:before {
     content: '';
     position: absolute;
-    background-color: var(--f-blue-600);
+    background-color: inherit;
     height: 16px;
     width: 16px;
     border-radius: 50%;
