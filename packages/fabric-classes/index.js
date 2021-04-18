@@ -4,13 +4,16 @@ export const slider = {
   activeTrack: 'active-track absolute bg-blue-600 h-4 top-14 rounded-4',
   activeTrackDisabled: 'bg-bluegray-400 pointer-events-none',
   thumb: 'thumb absolute w-32 h-32 bottom-0 rounded-full outline-none border-8',
-  thumbEnabled: 'bg-blue-600 border-white cursor-pointer',
-  thumbDisabled: 'disabled bg-bluegray-400 border-bluegray-200 cursor-disabled'
+  thumbEnabled: 'thumb-shadow border-white cursor-pointer',
+  thumbDisabled: 'border-bluegray-200 cursor-disabled pointer-events-none',
+  thumbCenter: 'thumb-center absolute h-16 w-16 rounded-full transition-transform',
+  thumbCenterEnabled: 'bg-blue-600',
+  thumbCenterDisabled: 'bg-bluegray-400'
 }
 
 export const modal = {
-  backdrop: 'fixed inset-0 grid place-content-center backdrop',
-  modal: 'modal rounded-8 bg-white flex flex-col overflow-hidden outline-none',
+  backdrop: 'fixed inset-0 flex place-content-center place-items-center backdrop',
+  modal: 'modal rounded-8 mx-8 md:mx-16 bg-white flex flex-col overflow-hidden outline-none',
   content: 'block overflow-y-auto overflow-x-hidden last-child:mb-0',
   footer: 'flex justify-end'
 }

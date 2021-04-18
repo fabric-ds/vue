@@ -1,7 +1,7 @@
 <template>
   <div :class="[classes.wrapper, 'f-slider']">
-    <div :class="{ 'pointer-events-none': disabled, [classes.track]: true }" ref="sliderLine" @click="handleClick"></div>
-    <div :class="{ [classes.activeTrackDisabled]: disabled, [classes.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick"></div>
+    <div :class="{ 'pointer-events-none': disabled, [classes.track]: true }" ref="sliderLine" @click="handleClick" />
+    <div :class="{ [classes.activeTrackDisabled]: disabled, [classes.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick" />
     <div :class="{ [classes.thumbDisabled]: disabled, [classes.thumbEnabled]: !disabled, [classes.thumb]: true }"
       ref="thumb"
       role="slider"
@@ -13,6 +13,7 @@
       @blur="handleBlur"
       @focus="handleFocus"
       @keydown="handleKeyDown">
+      <div :class="{ [classes.thumbCenter]: true, [classes.thumbCenterEnabled]: !disabled, [classes.thumbCenterDisabled]: disabled }" />
     </div>
   </div>
 </template>
@@ -94,28 +95,13 @@ export default {
 </script>
 
 <style scoped>
-.thumb {
+.thumb-shadow {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1), 0px 3px 1px 0px rgba(0, 0, 0, 0.05), 0px 2px 2px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
 
-  &.disabled {
-    box-shadow: none;
-    pointer-events: none;
-  }
-
   &:hover, &:focus {
-    &:before {
-      transform: scale(1.3);
+    & .thumb-center {
+      transform: scale(1.25);
     }
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    background-color: inherit;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    transition: transform 0.1s linear;
   }
 }
 </style>
