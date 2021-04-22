@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-expandable",
-  "version": "0.9.19",
+  "version": "0.9.20",
   "type": "module",
   "module": "dist/expandable.js",
   "exports": {
