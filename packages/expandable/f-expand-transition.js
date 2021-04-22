@@ -16,9 +16,11 @@ export const fExpandTransition = {
         el.addEventListener('transitionend', () => {
           el.style.height = 'auto'
           done()
+          el.classList.remove('entering')
           emit('expand')
         }, { once: true })
         el.style.height = '0px'
+        el.classList.add('entering')
         el.classList.add('f-can-expand')
         requestAnimationFrame(() => el.style.height = dest + 'px')
       })
@@ -29,9 +31,11 @@ export const fExpandTransition = {
       windowExists && requestAnimationFrame(() => {
         el.addEventListener('transitionend', () => {
           done()
+          el.classList.remove('leaving')
           emit('collapse')
         }, { once: true })
         el.style.height = original + 'px'
+        el.classList.add('leaving')
         el.classList.add('f-can-expand')
         requestAnimationFrame(() => el.style.height = '0px')
       })

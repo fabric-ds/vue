@@ -21,7 +21,15 @@ export default {
   will-change: height;
 }
 .f-can-expand {
-  transition: height 0.3s ease-in-out;
+  transition: height 0.3s;
+
+  &.entering {
+    transition-timing-function: ease-out;
+  }
+
+  &.leaving {
+    transition-timing-function: ease-in;
+  }
 
   @media (prefers-reduced-motion) {
     transition-duration: 0s;
