@@ -132,7 +132,7 @@ export default {
   setup: () => ({
     activeDocument, activeExample,
     inputToken, selectToken, toggleToken, fieldToken,
-    form1, form2, handleSubmit,
+    form1, form2, handleSubmit, handleClear,
     moneyMask, inputModel, numericModel, selectModel, multiToggleModel, checkboxModel, toggles, exampleToggles,
   })
 }

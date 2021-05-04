@@ -1,38 +1,14 @@
 <template>
-  <div class="f-will-expand" :key="key">
+  <div class="overflow-hidden" :key="key">
     <slot />
   </div>
 </template>
 
 <script>
-import { id } from '@finn-no/fabric-vue-utilities'
+import { id as key } from '@finn-no/fabric-vue-utilities'
 
 export default {
   name: 'fWillExpand',
-  props: {
-    key: id
-  }
+  props: { key }
 }
 </script>
-
-<style scoped>
-.f-will-expand {
-  overflow: hidden;
-  will-change: height;
-}
-.f-can-expand {
-  transition: height 0.3s;
-
-  &.entering {
-    transition-timing-function: ease-out;
-  }
-
-  &.leaving {
-    transition-timing-function: ease-in;
-  }
-
-  @media (prefers-reduced-motion) {
-    transition-duration: 0s;
-  }
-}
-</style>

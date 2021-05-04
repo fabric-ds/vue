@@ -3,10 +3,7 @@
   "version": "0.9.15",
   "type": "module",
   "module": "dist/modal.js",
-  "exports": {
-    "browser": "./dist/modal.js",
-    "import": "./dist/modal.mjs"
-  },
+  "exports": "./dist/modal.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

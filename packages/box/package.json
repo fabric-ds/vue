@@ -3,10 +3,7 @@
   "version": "0.9.16",
   "type": "module",
   "module": "dist/box.js",
-  "exports": {
-    "browser": "./dist/box.js",
-    "import": "./dist/box.mjs"
-  },
+  "exports": "./dist/box.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

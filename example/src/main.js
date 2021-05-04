@@ -9,6 +9,7 @@ import DocsTable from './DocsTable.vue'
 import Home from './examples/Home.vue'
 import Button from './examples/Button.vue'
 import Slider from './examples/Slider.vue'
+import Switch from './examples/Switch.vue'
 import Toast from './examples/Toast.vue'
 import Modal from './examples/Modal.vue'
 import Breadcrumbs from './examples/Breadcrumbs.vue'
@@ -21,6 +22,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/button', component: Button },
   { path: '/slider', component: Slider },
+  { path: '/switch', component: Switch },
   { path: '/toast', component: Toast },
   { path: '/modal', component: Modal },
   { path: '/breadcrumbs', component: Breadcrumbs },
@@ -30,7 +32,8 @@ const routes = [
   { path: '/steps', component: Steps },
 ]
 
-const router = createRouter({ history: createWebHistory(), routes })
+const scrollBehavior = () => ({ top: 0 })
+const router = createRouter({ history: createWebHistory(), routes, scrollBehavior })
 
 createApp(App)
   .provide('Cleave', Cleave)

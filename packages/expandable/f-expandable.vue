@@ -8,24 +8,22 @@
       </div>
     </button>
     <component :is="content" @expand="$emit('expand')" @collapse="$emit('collapse')">
-      <f-will-expand v-if="expanded">
+      <div v-if="expanded" class="overflow-hidden">
         <div :class="contentClasses">
           <slot />
         </div>
-      </f-will-expand>
+      </div>
     </component>
   </div>
 </template>
 
 <script>
-import { ref, computed, watchEffect } from 'vue'
+import { ref, computed } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { buttonReset, box as boxClasses } from '@finn-no/fabric-component-classes'
-import fWillExpand from './f-will-expand.vue'
 
 export default {
   name: 'fExpandable',
-  components: { fWillExpand },
   props: {
     title: String,
     box: Boolean,

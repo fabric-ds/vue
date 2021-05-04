@@ -3,10 +3,7 @@
   "version": "0.9.15",
   "type": "module",
   "module": "dist/steps.js",
-  "exports": {
-    "browser": "./dist/steps.js",
-    "import": "./dist/steps.mjs"
-  },
+  "exports": "./dist/steps.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

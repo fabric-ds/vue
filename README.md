@@ -2,8 +2,7 @@
 
 ## repo info
 
-- This repo is configured with yarn workspaces
-- [ultra-runner](https://github.com/folke/ultra-runner) is used to concurrently run tasks (namely Rollup in watch mode)
+- This repo is configured with yarn workspaces and uses lerna for publishing and parallelism in dev/builds
 
 ## development
 

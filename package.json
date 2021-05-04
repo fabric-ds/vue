@@ -6,10 +6,9 @@
   "scripts": {
     "prepare": "yarn build",
     "postinstall": "manypkg check",
-    "dev": "yarn build && ultra --raw -r dev",
-    "build": "ultra --raw -r build",
-    "rebuild": "ultra --raw -r --rebuild build",
-    "site": "yarn build && ultra -r --raw site",
+    "dev": "yarn lerna run --parallel dev",
+    "build": "yarn lerna run build --parallel",
+    "site": "yarn build && yarn lerna run site --parallel",
     "postsite": "cd example/dist && cp index.html 200.html"
   },
   "keywords": [],
@@ -20,8 +19,8 @@
     "example"
   ],
   "dependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.13.12",
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
     "@manypkg/cli": "^0.17.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^18.0.0",
@@ -29,13 +28,12 @@
     "@vue/compiler-sfc": "^3.0.11",
     "@vue/server-renderer": "^3.0.11",
     "lerna": "^4.0.0",
-    "postcss": "^8.2.9",
+    "postcss": "^8.2.13",
     "postcss-preset-env": "^6.7.0",
-    "rollup": "^2.44.0",
+    "rollup": "^2.46.0",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-vue": "^6.0.0",
-    "ultra-runner": "^3.9.0",
     "vue": "^3.0.11"
   },
   "publishConfig": {

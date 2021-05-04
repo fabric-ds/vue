@@ -3,10 +3,7 @@
   "version": "0.9.13",
   "type": "module",
   "module": "dist/util.js",
-  "exports": {
-    "browser": "./dist/util.js",
-    "import": "./dist/util.mjs"
-  },
+  "exports": "./dist/util.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

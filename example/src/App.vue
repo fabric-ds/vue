@@ -6,9 +6,11 @@
         <img class="h-24 ml-8" src="/vue-logo.png" />
       </h1>
 
+
       <h2 class="mt-32 text-16">Components</h2>
       <sidebar-link to="/button" label="Button" />
       <sidebar-link to="/slider" label="Slider" />
+      <sidebar-link to="/switch" label="Switch" />
       <sidebar-link to="/toast" label="Toast" />
       <sidebar-link to="/modal" label="Modal" />
       <sidebar-link to="/breadcrumbs" label="Breadcrumbs" />
@@ -29,6 +31,7 @@
 <script setup>
 import { h } from 'vue'
 import { RouterLink } from 'vue-router'
+import { fExpandTransition } from '@finn-no/fabric-vue-expandable'
 
 const SidebarLink = (props) => h(RouterLink, {
   to: props.to,

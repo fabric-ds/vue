@@ -3,10 +3,7 @@
   "version": "0.9.14",
   "type": "module",
   "module": "dist/breadcrumbs.js",
-  "exports": {
-    "browser": "./dist/breadcrumbs.js",
-    "import": "./dist/breadcrumbs.mjs"
-  },
+  "exports": "./dist/breadcrumbs.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

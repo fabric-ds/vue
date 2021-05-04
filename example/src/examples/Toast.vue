@@ -1,120 +1,151 @@
 <template>
   <div>
-    <h1>f-toast</h1>
-    <p>This component still in development</p>
+    <setup title="Toast" pkg-name="@finn-no/fabric-vue-toast" compName="fToast, makeToast, useToaster" />
 
-    <!-- <button class="button u-mt32" @click="showToast">Toast me!</button> -->
+    <section-header label="Example" />
 
-    <!-- <button @click="val = !val">toggle</button> -->
-    <!-- <f-toast v-model="" success> -->
-    <!-- <teleport to="[data-f-toast]"> -->
-    <!--   <h2>OMG HI</h2> -->
-    <!--   <h1 v-if="val">lel</h1> -->
-    <!-- </teleport> -->
-    <!-- </f-toast> -->
-    <button class="button" @click="showing.good = !showing.good">toggle good</button>
-    <button class="button" @click="showing.meh = !showing.meh">toggle meh</button>
-    <button class="button" @click="showing.bad = !showing.bad">toggle bad</button>
+    <f-toast class="sm:mt-0" v-bind="toastOptions" text="This is how a toast looks! You can bring in the toast component manually for broadcast messages." :can-close="false" />
 
-    <aside class="fixed bottom-16 left-0 right-0 mx-8 sm:mx-16 z-50">
-      <div class="toaster grid auto-rows-auto gap-16 justify-items-center justify-center mx-auto">
-        <transition-group name="toast">
-        <div key="bad" v-if="showing.bad" class="toast flex p-8 rounded-8 border-2 w-full" :class="{ 'bg-green-50 border-green-200': false, 'bg-yellow-50 border-yellow-500': false, 'bg-red-50 border-red-200': true }">
-          <div class="flex-shrink-0 rounded-full w-16 h-16 m-8" :class="{ 'bg-green-300 text-green-800': false, 'bg-yellow-300 text-yellow-800': false, 'bg-red-300 text-red-800': true }">
-            <!-- alert circle -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M8 9V4"/><circle cx="8" cy="11.8" r=".8" fill="currentColor"/></svg>
-            <!-- check circle -->
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.5 9l2 1.5L11 6"/></svg> -->
-          </div>
-          <div class="self-center mr-8 last-child:mb-0" :class="{ 'text-green-800': false, 'text-yellow-800': false, 'text-red-800': true }">
-            <!-- <p>Upload and verification failed. Please try again.</p> -->
-            <p>Upload and verification failed. Please try again. Omg I am just the longest text ever.</p>
-          </div>
+    <f-toggle class="mt-32 bg-gray-100 p-16 inline-block rounded-4" radio label="Toast type" :toggles="exampleToasts" v-model="activeExample" />
 
-          <!-- <span data-f-toast class="toast-content last-child:mb-0" v-html="html" role="alert" /> -->
+    <button @click="make" class="mt-32 block button button--utility">Make some toast</button>
 
-          <div class="ml-auto p-8" :class="{ 'text-green-800': false, 'text-yellow-800': false, 'text-red-800': true }">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.03 2.97a.75.75 0 00-1.06 1.06L6.94 8l-3.97 3.97a.75.75 0 101.06 1.06L8 9.06l3.97 3.97a.75.75 0 101.06-1.06L9.06 8l3.97-3.97a.75.75 0 00-1.06-1.06L8 6.94 4.03 2.97z" clip-rule="evenodd"/></svg>
-          </div>
-        </div>
-        <div key="meh" v-if="showing.meh" class="toast flex p-8 rounded-8 border-2 w-full" :class="{ 'bg-green-50 border-green-200': false, 'bg-yellow-50 border-yellow-500': true }">
-          <div class="flex-shrink-0 rounded-full w-16 h-16 m-8" :class="{ 'bg-green-300 text-green-800': false, 'bg-yellow-300 text-yellow-800': true }">
-            <!-- alert circle -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M8 9V4"/><circle cx="8" cy="11.8" r=".8" fill="currentColor"/></svg>
-            <!-- check circle -->
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.5 9l2 1.5L11 6"/></svg> -->
-          </div>
-          <div class="self-center mr-8 last-child:mb-0" :class="{ 'text-green-800': false, 'text-yellow-800': true }">
-            <p>Sorry! Something went wrong.</p>
-          </div>
+    <section-header label="Documentation" />
 
-          <!-- <span data-f-toast class="toast-content last-child:mb-0" v-html="html" role="alert" /> -->
+    <h4>Token</h4>
+    <show-token :token="token" />
 
-          <div class="ml-auto p-8" :class="{ 'text-green-800': false, 'text-yellow-800': true }">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.03 2.97a.75.75 0 00-1.06 1.06L6.94 8l-3.97 3.97a.75.75 0 101.06 1.06L8 9.06l3.97 3.97a.75.75 0 101.06-1.06L9.06 8l3.97-3.97a.75.75 0 00-1.06-1.06L8 6.94 4.03 2.97z" clip-rule="evenodd"/></svg>
-          </div>
-        </div>
-        <div key="good" v-if="showing.good" class="toast flex p-8 rounded-8 border-2 w-full" :class="{ 'bg-green-50 border-green-200': true }">
-          <div class="flex-shrink-0 rounded-full w-16 h-16 m-8" :class="{ 'bg-green-300 text-green-800': true }">
-            <!-- alert circle -->
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M8 9V4"/><circle cx="8" cy="11.8" r=".8" fill="currentColor"/></svg> -->
-            <!-- check circle -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.5 9l2 1.5L11 6"/></svg>
-          </div>
-          <div class="self-center mr-8 last-child:mb-0" :class="{ 'text-green-800': true }">
-            <p>All good! Move on and keep smiling!</p>
-          </div>
+    <h4 class="mt-64 mb-16">Props</h4>
+    <docs-table>
+      <tr>
+        <td>text</td>
+        <td>string</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>positive</td>
+        <td>boolean</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>warning</td>
+        <td>boolean</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>negative</td>
+        <td>boolean</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>neutral</td>
+        <td>boolean</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>
+          <div>boolean</div>
+          <div class="annotation">Animates the toast-icon</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>can-close</td>
+        <td>
+          <div>boolean</div>
+          <div class="annotation">Hides the close-button when false</div>
+        </td>
+        <td>true</td>
+      </tr>
+    </docs-table>
 
-          <!-- <span data-f-toast class="toast-content last-child:mb-0" v-html="html" role="alert" /> -->
+    <h4 class="mt-64 mb-16">Programmatic toasting</h4>
+    <p class="border-l-8 bg-red-50 border-red-700 p-16 rounded-4 mb-16 text-12">If you know you'll be in a multi-app environment, it's better to use <code>makeToast</code> via either <code>window.fToast.makeToast</code> or <code>useToaster().makeToast</code>.</p>
 
-          <div class="ml-auto p-8" :class="{ 'text-green-800': true }">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.03 2.97a.75.75 0 00-1.06 1.06L6.94 8l-3.97 3.97a.75.75 0 101.06 1.06L8 9.06l3.97 3.97a.75.75 0 101.06-1.06L9.06 8l3.97-3.97a.75.75 0 00-1.06-1.06L8 6.94 4.03 2.97z" clip-rule="evenodd"/></svg>
+    <h5>Making toast</h5>
+    <p class="text-12 mb-16">The most common usecase is showing a one-off toast that expires after some time. <code>makeToast</code> also returns a Toast <code>ref</code> with the properties described below.</p>
+    <show-token :token="makeToastToken" />
 
-          </div>
-        </div>
-        </transition-group>
-      </div>
-    </aside>
-
+    <h5 class="mt-32 mb-16">Toast properties</h5>
+    <p class="border-l-8 bg-green-50 border-green-700 p-16 rounded-4 mb-16 text-12">All props above are valid properties as well!</p>
+    <docs-table>
+      <template #titles>
+        <th>name</th>
+        <th>notes</th>
+        <th>default</th>
+      </template>
+      <tr>
+        <td>duration</td>
+        <td class="annotation">The number of ms to show the toast for, or <code>0</code> to disable auto-removal</td>
+        <td>2400</td>
+      </tr>
+      <tr>
+        <td>show</td>
+        <td class="annotation">A function that shows the toast and sets the timer to start</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>hide</td>
+        <td class="annotation">A function that hides the toast and clears any timers</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>onClose</td>
+        <td class="annotation">The function called when the close button is pressed</td>
+        <td>hide</td>
+      </tr>
+    </docs-table>
   </div>
 </template>
 
 <script>
-import { inject, ref } from 'vue'
+import { ref, computed } from 'vue'
+import { fToggle } from '@finn-no/fabric-vue-forms'
+import { fToast, makeToast } from '@finn-no/fabric-vue-toast'
+import Setup from '../Setup.vue'
+
+const sleep = n => new Promise(r => setTimeout(r, n))
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default {
+  components: { Setup, fToast, fToggle },
   setup() {
-    const showing = ref({
-      good: false,
-      meh: false,
-      bad: false
+    const activeExample = ref('positive')
+    const exampleToasts = [
+      { label: 'Positive', value: 'positive' },
+      { label: 'Warning', value: 'warning' },
+      { label: 'Negative', value: 'negative' },
+      { label: 'Neutral', value: 'neutral' }
+    ]
+    const toastOptions = computed(() => {
+      switch (activeExample.value) {
+        case 'positive': return { positive: true }
+        case 'negative': return { negative: true }
+        case 'warning': return { warning: true }
+        case 'neutral': return { neutral: true }
+      }
     })
-    const toast = inject('toast')
-    toast.push({ html: '<h3>I am a toast!</h3>', classes: 'bg-white text-gray-700', timeout: 0 })
+    const make = async () => {
+      const duration = getRandomInt(2000, 4000)
+      const toast = makeToast({ text: `Hi! I'm an example toast!`, duration, ...toastOptions.value })
+      if (duration > 3750) {
+        await sleep(duration / 2)
+        toast.value.positive = false
+        toast.value.warning = false
+        toast.value.neutral = false
+        toast.value.negative = true
+        toast.value.text = `Whoa, things went bad. I'm outta here!`
+      }
+    }
+    const token = `<f-toast positive text="This is a toast" />`
+    const makeToastToken = `makeToast({ positive: true, text: 'Hello' })`
 
-    const showToast = () => toast.push({ html: '<h2 class="u-strong">Why hello again you amazing human!</h2>' })
-    const val = ref(false)
-
-    return { showToast, val, showing }
+    return { make, activeExample, exampleToasts, toastOptions, token, makeToastToken }
   }
 }
 </script>
-
-<style scoped>
-.toast-enter-active,
-.toast-leave-active,
-.toast-move {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.toast-enter-from,
-.toast-leave-to {
-  transform: translateY(100%);
-  opacity: 0;
-}
-.toast-leave-active {
-  position: absolute;
-}
-.toaster {
-  grid-template-columns: minmax(min-content, 420px);
-}
-</style>

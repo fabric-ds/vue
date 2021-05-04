@@ -13,28 +13,16 @@ const defaultExternal = [
   'create-v-model',
   '@finn-no/fabric-vue-utilities'
 ]
-const getPlugins = ({ SSR } = {}) => [
-  vue({
-    target: SSR ? 'node' : 'browser',
-    postcssPlugins
-  }),
-  !SSR && getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]]  }),
+const plugins = [
+  vue({ postcssPlugins }),
+  getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]]  }),
   nodeResolve(),
   commonjs(),
   postcss(),
 ]
 
 export const getExports = (pkg, { external = [] } = {}) => ({
-  outputBrowser: {
-    input,
-    external: [...defaultExternal, ...external],
-    output: { file: pkg.exports.browser, format: 'es', exports: 'named' },
-    plugins: getPlugins()
-  },
-  outputSsrEsm: {
-    input,
-    external: [...defaultExternal, ...external],
-    output: { file: pkg.exports.import, format: 'es', exports: 'named' },
-    plugins: getPlugins({ SSR: true })
-  }
+  input, plugins,
+  external: [...defaultExternal, ...external],
+  output: { file: pkg.exports, format: 'es', exports: 'named' },
 })

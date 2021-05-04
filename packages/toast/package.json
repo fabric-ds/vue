@@ -3,10 +3,7 @@
   "version": "0.9.14",
   "type": "module",
   "module": "dist/toast.js",
-  "exports": {
-    "browser": "./dist/toast.js",
-    "import": "./dist/toast.mjs"
-  },
+  "exports": "./dist/toast.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -17,6 +14,7 @@
     "/dist"
   ],
   "dependencies": {
+    "@finn-no/fabric-vue-expandable": "^0.9.21",
     "@finn-no/fabric-vue-utilities": "^0.9.13"
   },
   "devDependencies": {

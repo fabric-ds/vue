@@ -3,10 +3,7 @@
   "version": "0.9.22",
   "type": "module",
   "module": "dist/forms.js",
-  "exports": {
-    "browser": "./dist/forms.js",
-    "import": "./dist/forms.mjs"
-  },
+  "exports": "./dist/forms.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

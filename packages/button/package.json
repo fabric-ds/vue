@@ -3,10 +3,7 @@
   "version": "0.9.15",
   "type": "module",
   "module": "dist/button.js",
-  "exports": {
-    "browser": "./dist/button.js",
-    "import": "./dist/button.mjs"
-  },
+  "exports": "./dist/button.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {

@@ -73,10 +73,8 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { ShowToken, SectionHeader } from '../util.js'
 import { fModal } from '@finn-no/fabric-vue-modal'
 import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
 
 const model = ref(false)
 const token =

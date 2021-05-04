@@ -1,5 +1,14 @@
 import { Transition, TransitionGroup, h } from 'vue'
 
+const removeTransition = el => {
+  el.style.transition = ''
+  el.style.backfaceVisibility = ''
+}
+const addTransition = el => {
+  el.style.transition = 'height var(--f-expansion-duration, 0.3s)'
+  el.style.backfaceVisibility = 'hidden'
+}
+
 export const fExpandTransition = {
   name: 'fExpandTransition',
   props: {
@@ -9,38 +18,36 @@ export const fExpandTransition = {
   setup(props, { emit, slots }) {
     const windowExists = (typeof window !== 'undefined')
     const onEnter = (el, done) => {
-      el.classList.remove('f-can-expand')
+      removeTransition(el)
       el.style.height = 'auto'
       let dest = el.scrollHeight
       windowExists && requestAnimationFrame(() => {
-        el.addEventListener('transitionend', () => {
-          el.style.height = 'auto'
-          done()
-          el.classList.remove('entering')
-          emit('expand')
-        }, { once: true })
+        el.addEventListener('transitionend', () => done(), { once: true })
         el.style.height = '0px'
-        el.classList.add('entering')
-        el.classList.add('f-can-expand')
+        el.style.transitionTimingFunction = 'ease-out'
+        addTransition(el)
         requestAnimationFrame(() => el.style.height = dest + 'px')
       })
     }
+    const onAfterEnter = (el) => {
+      el.style.height = 'auto'
+      emit('expand')
+    }
     const onLeave = (el, done) => {
-      el.classList.remove('f-can-expand')
+      removeTransition(el)
       let original = el.scrollHeight
       windowExists && requestAnimationFrame(() => {
-        el.addEventListener('transitionend', () => {
-          done()
-          el.classList.remove('leaving')
-          emit('collapse')
-        }, { once: true })
+        el.addEventListener('transitionend', () => done(), { once: true })
         el.style.height = original + 'px'
-        el.classList.add('leaving')
-        el.classList.add('f-can-expand')
+        el.style.transitionTimingFunction = 'ease-in'
+        addTransition(el)
         requestAnimationFrame(() => el.style.height = '0px')
       })
     }
+    const onAfterLeave = () => {
+      emit('collapse')
+    }
     const transition = props.group ? TransitionGroup : Transition
-    return () => h(transition, { css: false, onEnter, onLeave, tag: props.tag }, slots)
+    return () => h(transition, { css: false, onEnter, onAfterEnter, onLeave, onAfterLeave, tag: props.tag }, slots)
   }
 }
