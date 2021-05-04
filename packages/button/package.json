@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-button",
-  "version": "0.9.15",
+  "version": "0.9.16",
   "type": "module",
   "module": "dist/button.js",
   "exports": "./dist/button.js",
@@ -11,7 +11,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.13"
+    "@finn-no/fabric-vue-utilities": "^0.9.14"
   },
   "files": [
     "/dist"

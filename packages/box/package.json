@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-box",
-  "version": "0.9.16",
+  "version": "0.9.17",
   "type": "module",
   "module": "dist/box.js",
   "exports": "./dist/box.js",
@@ -11,7 +11,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.13"
+    "@finn-no/fabric-vue-utilities": "^0.9.14"
   },
   "files": [
     "/dist"
