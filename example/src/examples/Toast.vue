@@ -1,6 +1,7 @@
 <template>
   <div>
     <setup title="Toast" pkg-name="@finn-no/fabric-vue-toast" compName="fToast, makeToast, useToaster" />
+    <p class="border-l-8 bg-red-50 border-red-700 p-16 rounded-4 my-16 text-12">The toaster is a singleton that should be installed app-wide as shown above, <code>fToast</code> should only be imported manually for broadcast messages.</p>
 
     <section-header label="Example" />
 
