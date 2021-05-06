@@ -12,13 +12,13 @@
       <f-input v-model.number="numericModel" optional number type="tel" :mask="moneyMask" label="A masked (money) input" :hint="`Model value: <code>${numericModel}</code>`" />
     </section>
 
+    <f-textarea v-else-if="activeExample === 'textarea'" v-model="textareaModel" label="A textarea lies below" />
 
     <f-select v-else-if="activeExample === 'select'" v-model="selectModel" label="A useful and informative label">
       <option disabled selected value="">Pick something</option>
       <option value="foo">Foo</option>
       <option value="bar">Bar</option>
     </f-select>
-
 
     <f-toggle v-else-if="activeExample === 'radio'" radio v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" />
     <f-toggle v-else-if="activeExample === 'checkbox'" checkbox v-model="checkboxModel" label="A very toggly label" :toggles="toggles" />
@@ -33,6 +33,7 @@
     <div class="text-12 text-gray-400 flex mb-32">
       <div class="flex-1 p-16 pt-0 mb-16 border-b-2 border-gray-200" />
       <tab name="input">Input</tab>
+      <tab name="textarea">Select</tab>
       <tab name="select">Select</tab>
       <tab name="toggle">Toggle</tab>
       <tab name="field">Field</tab>
@@ -42,11 +43,16 @@
     <h4>Token</h4>
 
     <show-token v-if="activeDocument === 'input'" :token="inputToken" />
+    <show-token v-else-if="activeDocument === 'textarea'" :token="textareaToken" />
     <show-token v-else-if="activeDocument === 'select'" :token="selectToken" />
     <show-token v-else-if="activeDocument === 'toggle'" :token="toggleToken" />
     <show-token v-else-if="activeDocument === 'field'" :token="fieldToken" />
 
     <form-input-docs v-if="activeDocument === 'input'" />
+    <section v-else-if="activeDocument === 'textarea'">
+      <h4 class="mt-64 mb-16">Props</h4>
+      <p class="text-12">All typical HTML5 attributes are valid props for textarea, see Field for additional props.</p>
+    </section>
     <section v-else-if="activeDocument === 'select'">
       <h4 class="mt-64 mb-16">Props</h4>
       <p class="text-12">All typical HTML5 attributes are valid props for select, see Field for additional props.</p>
@@ -62,7 +68,7 @@
 <script>
 import { ref, h } from 'vue'
 import { PropsNotice } from '../util.js'
-import { fInput, fSelect, fToggle, fForm, fField, fSuffix } from '@finn-no/fabric-vue-forms'
+import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix } from '@finn-no/fabric-vue-forms'
 import { fButton } from '@finn-no/fabric-vue-button'
 import Setup from '../Setup.vue'
 import FormToggleDocs from './FormToggleDocs.vue'
@@ -82,6 +88,7 @@ const Tab = (props, context) => h('button', {
 
 const exampleToggles = [
   { label: 'Input', value: 'input' },
+  { label: 'Textarea', value: 'textarea' },
   { label: 'Select', value: 'select' },
   { label: 'Radio', value: 'radio' },
   { label: 'Checkbox', value: 'checkbox' },
@@ -96,6 +103,7 @@ const handleClear = (el) => {
 const moneyMask = { numeral: true, numeralPositiveOnly: true, numeralIntegerScale: 8, delimiter: ' ' }
 const inputModel = ref('I am an input element')
 const numericModel = ref('')
+const textareaModel = ref('')
 const selectModel = ref('')
 const multiToggleModel = ref('')
 const checkboxModel = ref([])
@@ -112,6 +120,7 @@ const handleSubmit = form => {
 }
 
 const inputToken = `<f-input label="A label" hint="A hint" v-model="model" />`
+const textareaToken = `<f-textarea label="A label" hint="A hint" v-model="model" />`
 const selectToken =
 `<f-select v-model="model" label="A label">
   <option disabled selected value="">Pick something</option>
@@ -128,12 +137,12 @@ const fieldToken =
 <f-field>`
 
 export default {
-  components: { Tab, fInput, fSelect, fToggle, fForm, fField, fSuffix, FormToggleDocs, FormFieldDocs, FormInputDocs, FormValidationDocs, Setup },
+  components: { Tab, fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix, FormToggleDocs, FormFieldDocs, FormInputDocs, FormValidationDocs, Setup },
   setup: () => ({
     activeDocument, activeExample,
-    inputToken, selectToken, toggleToken, fieldToken,
+    inputToken, textareaToken, selectToken, toggleToken, fieldToken,
     form1, form2, handleSubmit, handleClear,
-    moneyMask, inputModel, numericModel, selectModel, multiToggleModel, checkboxModel, toggles, exampleToggles,
+    moneyMask, inputModel, numericModel, textareaModel, selectModel, multiToggleModel, checkboxModel, toggles, exampleToggles,
   })
 }
 </script>
