@@ -9,7 +9,6 @@ export default {
     utility: Boolean,
     quiet: Boolean,
     small: Boolean,
-    red: Boolean,
     link: Boolean,
     pill: Boolean,
     loading: Boolean,
