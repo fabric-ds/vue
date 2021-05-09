@@ -6,15 +6,14 @@
 
     <button class="button button--utility" @click="model = true">Show modal</button>
 
-    <f-modal style="--f-modal-width: 320px; --f-modal-max-height: 32vh;" @dismiss="model = false" v-model="model">
-      <template #default>
-        <h1 class="h3 mb-16">Modal content</h1>
+    <f-modal title="Oh hello" style="--f-modal-width: 640px; --f-modal-max-height: 32vh;" :left="show" @dismiss="model = false" v-model="model" @right="model = false">
+        <button @click="show = !show">toggle</button>
+        <h1 class="h4 mb-16">This is a title for the content area</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-      </template>
       <template #footer>
         <button class="button button--cta" @click="model = false">Click me</button>
       </template>
@@ -76,6 +75,7 @@ import { ref, reactive } from 'vue'
 import { fModal } from '@finn-no/fabric-vue-modal'
 import Setup from '../Setup.vue'
 
+const show = ref(false)
 const model = ref(false)
 const token =
 `<f-modal @dismiss="modalIsOpen = false" v-model="modalIsOpen">
