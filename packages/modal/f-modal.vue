@@ -1,5 +1,5 @@
 <template>
-  <div :class="[classes.backdrop, 'f-modal']" v-if="modelValue" @click.self="emitDismiss" ref="modalEl" @keyup.esc="emitDismiss">
+  <div :class="[classes.backdrop, 'f-modal']" v-if="modelValue" @click.self="emitDismiss" ref="modalEl">
     <div class="space-y-16 py-16 sm:py-32 rounded-b-0 sm:rounded-b-8" :class="[classes.modal]" tabindex="-1" aria-modal="true" role="dialog">
       <!-- what should the real conditional here be? -->
       <div v-if="$slots.title || title || $slots.right || right" class="-mt-4 sm:-mt-8 h-32 sm:h-48 grid grid-cols-3 items-center px-16 sm:px-32 border-b sm:border-b-0">
@@ -23,10 +23,10 @@
           </div>
         </transition-group>
       </div>
-      <div class="px-16 sm:px-32" :class="[classes.content, 'default slot']" v-if="$slots.default">
+      <div class="px-16 sm:px-32" :class="[classes.content, 'content-slot']" v-if="$slots.default">
         <slot />
       </div>
-      <div class="px-16 sm:px-32" :class="[classes.footer, 'footer slot']" v-if="$slots.footer">
+      <div class="px-16 sm:px-32" :class="[classes.footer]" v-if="$slots.footer">
         <slot name="footer" />
       </div>
     </div>
@@ -37,6 +37,8 @@
 import { ref, watch, nextTick } from 'vue'
 import { modal as classes } from '@finn-no/fabric-component-classes'
 import focusLock from 'dom-focus-lock'
+
+const escape = 27
 
 export default {
   name: 'fModal',
@@ -49,16 +51,23 @@ export default {
   emits: ['dismiss', 'left', 'right'],
   setup(props, { emit }) {
     const modalEl = ref(null)
+    const emitDismiss = () => emit('dismiss')
+    const emitIfEscape = e => {
+      if (e.keyCode === escape) emitDismiss()
+    }
+
     watch(() => props.modelValue, async (showing) => {
       await nextTick() // wait for the DOM to update so that modalEl exists
       focusLock[showing ? 'on' : 'off'](modalEl.value)
       document?.querySelector('body').classList[showing ? 'add' : 'remove']('modal-showing')
+      if (showing) addEventListener('keydown', emitIfEscape, { passive: true })
+      else removeEventListener('keydown', emitIfEscape)
     })
 
     return {
       classes,
       modalEl,
-      emitDismiss: () => emit('dismiss')
+      emitDismiss
     }
   }
 }
@@ -77,7 +86,7 @@ export default {
 .backdrop {
   background-color: rgba(0, 0, 0, 0.35);
 }
-.slot.default :slotted(*:last-child) {
+.content-slot :slotted(*:last-child) {
   margin-bottom: 0;
 }
 :global(.modal-showing) {
