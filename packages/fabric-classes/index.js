@@ -12,8 +12,8 @@ export const slider = {
 }
 
 export const modal = {
-  backdrop: 'fixed inset-0 flex place-content-center place-items-center backdrop',
-  modal: 'modal rounded-8 mx-8 md:mx-16 bg-white flex flex-col overflow-hidden outline-none',
+  backdrop: 'fixed inset-0 flex sm:place-content-center sm:place-items-center backdrop items-end',
+  modal: 'modal rounded-8 mx-0 sm:mx-16 bg-white flex flex-col overflow-hidden outline-none',
   content: 'block overflow-y-auto overflow-x-hidden last-child:mb-0',
   footer: 'flex justify-end'
 }
