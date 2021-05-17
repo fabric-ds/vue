@@ -11,7 +11,7 @@
     <p class="text-14 mb-32">If you don't need to style the icon, you can simply bring it in as an image from the module. Using Rollup you'll either be able to bundle this into the final package, or exclude it from the build and upload it to Eik.</p>
 
     <h5>Icons as Vue components</h5>
-    <p class="text-14">To style the icon, or if you otherwise need the SVG in the DOM, you can bring it in as a component.</p>
+    <p class="text-14">To style the icon, or if you otherwise need the SVG in the DOM, you can bring it in as a component. Only the icons imported will be brought into the bundle.</p>
     <p class="bg-gray-100 p-16 rounded-4 text-12">
       <code>
         import { IconWifi32 } from '@finn-no/fabric-icons/vue'<br/>
