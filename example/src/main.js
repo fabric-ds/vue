@@ -7,6 +7,7 @@ import { ShowToken, VariantHeading, SectionHeader } from './util.js'
 import DocsTable from './DocsTable.vue'
 
 import Home from './examples/Home.vue'
+import Icons from './examples/Icons.vue'
 import Button from './examples/Button.vue'
 import Slider from './examples/Slider.vue'
 import Switch from './examples/Switch.vue'
@@ -20,6 +21,7 @@ import Steps from './examples/Steps.vue'
 
 const routes = [
   { path: '/', component: Home },
+  { path: '/icons', component: Icons },
   { path: '/button', component: Button },
   { path: '/slider', component: Slider },
   { path: '/switch', component: Switch },
