@@ -26,28 +26,28 @@ export const box = {
 
 export const step = {
   stepVertical: 'step-v relative pb-16',
-  stepVerticalLeft: 'ml-24 pl-16',
-  stepVerticalRight: 'mr-24 pr-16 text-right',
+  stepVerticalLeft: 'ml-20 pl-16',
+  stepVerticalRight: 'mr-20 pr-16 text-right',
   stepHorizontal: 'step-h flex items-center flex-1',
 
-  stepDot: 'rounded-full border-4 h-24 w-24 transition-colors duration-300',
-  stepDotVertical: 'absolute top-4',
-  stepDotVerticalLeft: '-left-24',
-  stepDotVerticalRight: '-right-24',
+  stepDot: 'rounded-full border-2 h-20 w-20 transition-colors duration-300',
+  stepDotVertical: 'absolute top-2',
+  stepDotVerticalLeft: '-left-20',
+  stepDotVerticalRight: '-right-20',
   stepDotHorizontal: '',
 
-  stepDotActive: 'border-aqua-400 bg-white',
-  stepDotComplete: 'border-aqua-400 bg-aqua-400',
+  stepDotActive: 'border-blue-600 bg-white',
+  stepDotComplete: 'border-blue-600 bg-blue-600',
   stepDotIncomplete: 'border-bluegray-300 bg-white',
 
   stepLine: 'step-line transition-colors duration-300',
-  stepLineVertical: 'absolute w-4 h-full top-28',
-  stepLineVerticalLeft: '-left-14',
-  stepLineVerticalRight: '-right-14',
-  stepLineHorizontal: 'h-4 w-full top-10 flex-1',
+  stepLineVertical: 'absolute w-2 h-full step-line-vertical-top',
+  stepLineVerticalLeft: 'step-line-left',
+  stepLineVerticalRight: 'step-line-right',
+  stepLineHorizontal: 'h-2 w-full top-10 flex-1',
 
   stepLineIncomplete: 'bg-bluegray-300',
-  stepLineComplete: 'bg-aqua-400'
+  stepLineComplete: 'bg-blue-600'
 }
 
 export const buttonReset = 'focus:outline-none appearance-none cursor-pointer bg-transparent border-0 m-0 p-0 inline-block'

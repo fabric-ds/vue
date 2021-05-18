@@ -6,15 +6,15 @@
 
     <f-steps class="mb-32" :right="right" :horizontal="horizontal">
       <f-step :active="current === 1" :complete="current > 1">
-        <h3>Step 1</h3>
+        <p class="font-bold">Step 1</p>
         <p>Some more text describing step 1.</p>
       </f-step>
       <f-step :active="current === 2" :complete="current > 2">
-        <h3>Step 2</h3>
+        <p class="font-bold">Step 2</p>
         <p>Something amazing probably happens during step 2.</p>
       </f-step>
       <f-step :active="current === 3" :complete="current > 3">
-        <h3>Step 3</h3>
+        <p class="font-bold">Step 3</p>
         <p>There is no step 3.</p>
       </f-step>
     </f-steps>

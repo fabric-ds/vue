@@ -1,22 +1,4 @@
 
-
-// Older browsers don't support event options, feature detect it.
-
-// Adopted and modified solution from Bohdan Didukh (2017)
-// https://stackoverflow.com/questions/41594997/ios-10-safari-prevent-scrolling-behind-a-fixed-overlay-and-maintain-scroll-posi
-
-let hasPassiveEvents = false;
-if (typeof window !== 'undefined') {
-  const passiveTestOptions = {
-    get passive() {
-      hasPassiveEvents = true;
-      return undefined;
-    }
-  };
-  window.addEventListener('testPassive', null, passiveTestOptions);
-  window.removeEventListener('testPassive', null, passiveTestOptions);
-}
-
 const isIosDevice = true
   // typeof window !== 'undefined' && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1);
 
@@ -94,32 +76,32 @@ const restoreOverflowSetting = () => {
   }
 };
 
-const setPositionFixed = () => window.requestAnimationFrame(() => {
-  // If previousBodyPosition is already set, don't set it again.
-  if (previousBodyPosition === undefined) {
-    previousBodyPosition = {
-      position: document.body.style.position,
-      top: document.body.style.top,
-      left: document.body.style.left
-    };
+// const setPositionFixed = () => window.requestAnimationFrame(() => {
+//   // If previousBodyPosition is already set, don't set it again.
+//   if (previousBodyPosition === undefined) {
+//     previousBodyPosition = {
+//       position: document.body.style.position,
+//       top: document.body.style.top,
+//       left: document.body.style.left
+//     };
 
-    // Update the dom inside an animation frame 
-    const { scrollY, scrollX, innerHeight } = window;
-    console.log("POSITIONING", scrollY)
-    // document.body.style.position = 'fixed';
-    // document.body.style.top = -scrollY;
-    // document.body.style.left = -scrollX;
+//     // Update the dom inside an animation frame 
+//     const { scrollY, scrollX, innerHeight } = window;
+//     console.log("POSITIONING", scrollY)
+//     // document.body.style.position = 'fixed';
+//     // document.body.style.top = -scrollY;
+//     // document.body.style.left = -scrollX;
 
-    // setTimeout(() => window.requestAnimationFrame(() => {
-    //   // Attempt to check if the bottom bar appeared due to the position change
-    //   const bottomBarHeight = innerHeight - window.innerHeight;
-    //   if (bottomBarHeight && scrollY >= innerHeight) {
-    //     // Move the content further up so that the bottom bar doesn't hide it
-    //     document.body.style.top = -(scrollY + bottomBarHeight);
-    //   }
-    // }), 300);
-  }
-});
+//     // setTimeout(() => window.requestAnimationFrame(() => {
+//     //   // Attempt to check if the bottom bar appeared due to the position change
+//     //   const bottomBarHeight = innerHeight - window.innerHeight;
+//     //   if (bottomBarHeight && scrollY >= innerHeight) {
+//     //     // Move the content further up so that the bottom bar doesn't hide it
+//     //     document.body.style.top = -(scrollY + bottomBarHeight);
+//     //   }
+//     // }), 300);
+//   }
+// });
 
 const restorePositionSetting = () => {
   if (previousBodyPosition !== undefined) {
@@ -183,11 +165,11 @@ export const disableBodyScroll = (targetElement, options) => {
 
   locks.push(lock);
 
-  if (isIosDevice) {
+  // if (isIosDevice) {
     // setPositionFixed();
-  } else {
+  // } else {
     setOverflowHidden(options);
-  }
+  // }
 
   if (isIosDevice) {
     targetElement.ontouchstart = event => {
@@ -204,7 +186,7 @@ export const disableBodyScroll = (targetElement, options) => {
     };
 
     if (!documentListenerAdded) {
-      document.addEventListener('touchmove', preventDefault, hasPassiveEvents ? { passive: false } : undefined);
+      document.addEventListener('touchmove', preventDefault, { passive: false });
       documentListenerAdded = true;
     }
   }
@@ -219,7 +201,7 @@ export const clearAllBodyScrollLocks = () => {
     });
 
     if (documentListenerAdded) {
-      document.removeEventListener('touchmove', preventDefault, hasPassiveEvents ? { passive: false } : undefined);
+      document.removeEventListener('touchmove', preventDefault, { passive: false });
       documentListenerAdded = false;
     }
 
@@ -250,7 +232,7 @@ export const enableBodyScroll = targetElement => {
     targetElement.ontouchmove = null;
 
     if (documentListenerAdded && locks.length === 0) {
-      document.removeEventListener('touchmove', preventDefault, hasPassiveEvents ? { passive: false } : undefined);
+      document.removeEventListener('touchmove', preventDefault, { passive: false });
       documentListenerAdded = false;
     }
   }
