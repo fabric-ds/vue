@@ -50,7 +50,7 @@ export const step = {
   stepLineComplete: 'bg-blue-600',
 
   content: 'last-child:mb-0',
-  contentVertical: 'row-span-2 pb-16',
+  contentVertical: 'row-span-2 pb-32',
   contentHorizontal: 'col-span-3 px-16 row-start-1 text-center'
 
 }
