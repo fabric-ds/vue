@@ -6,7 +6,7 @@
 
     <button class="button button--utility" @click="model = true">Show modal</button>
 
-    <f-modal title="Oh hello" style="--f-modal-width: 640px; --f-modal-max-height: 32vh" :left="show" right @dismiss="model = false" v-model="model" @right="model = false">
+    <f-modal title="Oh hello" style="--f-modal-width: 640px;" :left="show" right @dismiss="model = false" v-model="model" @right="model = false">
       <h1 class="h4 mb-16">This is a title for the content area</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
       <button @click="show = !show">toggle</button>

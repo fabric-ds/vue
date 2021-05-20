@@ -12,10 +12,15 @@ export const slider = {
 }
 
 export const modal = {
-  backdrop: 'fixed inset-0 flex sm:place-content-center sm:place-items-center backdrop items-end',
-  modal: 'modal rounded-8 mx-0 sm:mx-16 bg-white flex flex-col overflow-hidden outline-none',
+  backdrop: 'f-modal-backdrop fixed inset-0 flex sm:place-content-center sm:place-items-center items-end',
+  modal: 'f-modal rounded-8 mx-0 sm:mx-16 bg-white flex flex-col overflow-hidden outline-none',
   content: 'block overflow-y-auto overflow-x-hidden last-child:mb-0',
-  footer: 'flex justify-end'
+  footer: 'flex justify-end',
+  titleText: 'mb-0 h4 sm:h3',
+  titleButton: 'button button--pill smaller-mobile-kill-sometime',
+  titleButtonLeft: '-ml-8 sm:-ml-12',
+  titleButtonRight: '-mr-8 sm:-mr-12',
+  titleButtonIcon: 'h-16 w-16 sm:h-24 sm:w-24'
 }
 
 export const box = {
