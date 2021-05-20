@@ -2,9 +2,8 @@
   <transition name="fade">
     <div :class="classes.backdrop" v-if="showModal" @click.self="emitDismiss" ref="modalEl">
       <transition name="slide">
-        <div class="space-y-16 pt-8 sm:pt-32 f-modal-mobile-padding sm:pb-32 rounded-b-0 sm:rounded-b-8" v-if="showContent" :class="[classes.modal]" tabindex="-1" aria-modal="true" role="dialog">
-          <!-- what should the real conditional here be? -->
-          <div v-if="$slots.title || title || $slots.right || right" class="-mt-4 sm:-mt-8 h-40 sm:h-48 grid grid-cols-3 items-center px-16 sm:px-32 border-b sm:border-b-0">
+        <div v-if="showContent" :class="classes.modal" tabindex="-1" aria-modal="true" role="dialog">
+          <div v-if="$slots.title || title || $slots.right || right" :class="classes.title">
             <transition-group name="title">
               <!-- what should we call these areas? -->
               <div v-if="$slots.left || left" class="title-child justify-self-start" key="left">
@@ -129,6 +128,12 @@ export default {
   position: relative;
   height: 100%;
 }
+.smaller-mobile-kill-sometime {
+  @media (max-width: 480px) {
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
 /* vue-specific transitions handlers */
 .title-child {
   transition: all 0.3s ease;
@@ -139,12 +144,6 @@ export default {
 }
 .title-leave-active {
   position: absolute;
-}
-.smaller-mobile-kill-sometime {
-  @media (max-width: 480px) {
-    min-width: 32px;
-    min-height: 32px;
-  }
 }
 .fade-enter-active,
 .fade-leave-active {
