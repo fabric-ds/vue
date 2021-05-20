@@ -103,23 +103,23 @@ const restoreOverflowSetting = () => {
 //   }
 // });
 
-const restorePositionSetting = () => {
-  if (previousBodyPosition !== undefined) {
-    // Convert the position from "px" to Int
-    const y = -parseInt(document.body.style.top, 10);
-    const x = -parseInt(document.body.style.left, 10);
+// const restorePositionSetting = () => {
+//   if (previousBodyPosition !== undefined) {
+//     // Convert the position from "px" to Int
+//     const y = -parseInt(document.body.style.top, 10);
+//     const x = -parseInt(document.body.style.left, 10);
 
-    // Restore styles
-    document.body.style.position = previousBodyPosition.position;
-    document.body.style.top = previousBodyPosition.top;
-    document.body.style.left = previousBodyPosition.left;
+//     // Restore styles
+//     document.body.style.position = previousBodyPosition.position;
+//     document.body.style.top = previousBodyPosition.top;
+//     document.body.style.left = previousBodyPosition.left;
 
-    // Restore scroll
-    window.scrollTo(x, y);
+//     // Restore scroll
+//     window.scrollTo(x, y);
 
-    previousBodyPosition = undefined;
-  }
-};
+//     previousBodyPosition = undefined;
+//   }
+// };
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
 const isTargetElementTotallyScrolled = targetElement => targetElement ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight : false;
@@ -209,11 +209,11 @@ export const clearAllBodyScrollLocks = () => {
     initialClientY = -1;
   }
 
-  if (isIosDevice) {
-    restorePositionSetting();
-  } else {
+  // if (isIosDevice) {
+    // restorePositionSetting();
+  // } else {
     restoreOverflowSetting();
-  }
+  // }
 
   locks = [];
 };
@@ -237,10 +237,10 @@ export const enableBodyScroll = targetElement => {
     }
   }
 
-  if (isIosDevice) {
-    restorePositionSetting();
-  } else {
+  // if (isIosDevice) {
+  //   restorePositionSetting();
+  // } else {
     restoreOverflowSetting();
-  }
+  // }
 };
 

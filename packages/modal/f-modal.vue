@@ -1,45 +1,44 @@
 <template>
-  <!-- <transition name="fade" @after-enter="doIt = true"> -->
   <transition name="fade">
-  <div :class="[classes.backdrop, 'f-modal']" v-if="modelValue" @click.self="emitDismiss" ref="modalEl">
-    <transition name="slide" @after-enter="tryThing">
-    <div class="space-y-16 pt-8 sm:pt-32 f-modal-mobile-padding sm:pb-32 rounded-b-0 sm:rounded-b-8" v-if="doIt" :class="[classes.modal]" tabindex="-1" aria-modal="true" role="dialog">
-      <!-- what should the real conditional here be? -->
-      <div v-if="$slots.title || title || $slots.right || right" class="-mt-4 sm:-mt-8 h-40 sm:h-48 grid grid-cols-3 items-center px-16 sm:px-32 border-b sm:border-b-0">
-        <transition-group name="title">
-          <!-- what should we call these areas? -->
-          <div v-if="$slots.left || left" class="title-child justify-self-start" key="left">
-            <button class="button button--pill -ml-8 sm:-ml-12 smaller-mobile-kill-sometime" @click="$emit('left')">
-              <svg class="transform rotate-90 h-16 w-16 sm:h-24 sm:w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="nonzero" d="M8 2.25a.75.75 0 01.743.648L8.75 3v8.189l3.72-3.72a.75.75 0 011.133.977l-.073.084-5 5a.747.747 0 01-.374.204l-.104.014h-.104a.747.747 0 01-.478-.218l-5-5a.75.75 0 01.976-1.133l.084.073 3.72 3.719V3A.75.75 0 018 2.25z"></path></svg>
-              <slot name="left" />
-            </button>
-          </div>
-          <div class="title-child" :class="{ 'justify-self-center': left, 'col-span-2': !left }" key="title">
-            <p class="mb-0 h4 sm:h3" v-if="title">{{ title }}</p>
-            <slot name="title" />
-          </div>
-          <div v-if="$slots.right || right" class="title-child justify-self-end" key="right">
-            <button class="button button--pill -mr-8 sm:-mr-12" @click="$emit('right')">
-              <svg class="h-16 w-16 sm:h-24 sm:w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l6 6-6-6-6 6 6-6zm0 0L6 6l6 6 6-6-6 6z"/></svg>
-              <slot name="right" />
-            </button>
-          </div>
-        </transition-group>
+    <div :class="[classes.backdrop, 'f-modal']" v-if="showModal" @click.self="emitDismiss" ref="modalEl">
+      <transition name="slide">
+      <div class="space-y-16 pt-8 sm:pt-32 f-modal-mobile-padding sm:pb-32 rounded-b-0 sm:rounded-b-8" v-if="showContent" :class="[classes.modal]" tabindex="-1" aria-modal="true" role="dialog">
+        <!-- what should the real conditional here be? -->
+        <div v-if="$slots.title || title || $slots.right || right" class="-mt-4 sm:-mt-8 h-40 sm:h-48 grid grid-cols-3 items-center px-16 sm:px-32 border-b sm:border-b-0">
+          <transition-group name="title">
+            <!-- what should we call these areas? -->
+            <div v-if="$slots.left || left" class="title-child justify-self-start" key="left">
+              <button class="button button--pill -ml-8 sm:-ml-12 smaller-mobile-kill-sometime" @click="$emit('left')">
+                <svg class="transform rotate-90 h-16 w-16 sm:h-24 sm:w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="nonzero" d="M8 2.25a.75.75 0 01.743.648L8.75 3v8.189l3.72-3.72a.75.75 0 011.133.977l-.073.084-5 5a.747.747 0 01-.374.204l-.104.014h-.104a.747.747 0 01-.478-.218l-5-5a.75.75 0 01.976-1.133l.084.073 3.72 3.719V3A.75.75 0 018 2.25z"></path></svg>
+                <slot name="left" />
+              </button>
+            </div>
+            <div class="title-child" :class="{ 'justify-self-center': left, 'col-span-2': !left }" key="title">
+              <p class="mb-0 h4 sm:h3" v-if="title">{{ title }}</p>
+              <slot name="title" />
+            </div>
+            <div v-if="$slots.right || right" class="title-child justify-self-end" key="right">
+              <button class="button button--pill -mr-8 sm:-mr-12" @click="$emit('right')">
+                <svg class="h-16 w-16 sm:h-24 sm:w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l6 6-6-6-6 6 6-6zm0 0L6 6l6 6 6-6-6 6z"/></svg>
+                <slot name="right" />
+              </button>
+            </div>
+          </transition-group>
+        </div>
+        <div class="px-16 sm:px-32" :class="[classes.content, 'content-slot']" v-if="$slots.default" ref="contentEl">
+          <slot />
+        </div>
+        <div class="px-16 sm:px-32" :class="[classes.footer]" v-if="$slots.footer">
+          <slot name="footer" />
+        </div>
       </div>
-      <div class="px-16 sm:px-32" :class="[classes.content, 'content-slot']" v-if="$slots.default" ref="contentEl">
-        <slot />
-      </div>
-      <div class="px-16 sm:px-32" :class="[classes.footer]" v-if="$slots.footer">
-        <slot name="footer" />
-      </div>
+      </transition>
     </div>
-    </transition>
-  </div>
   </transition>
 </template>
 
 <script>
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
 import { modal as classes } from '@finn-no/fabric-component-classes'
 import focusLock from 'dom-focus-lock'
 import { disableBodyScroll, clearAllBodyScrollLocks } from './scroll-lock'
@@ -58,39 +57,47 @@ export default {
   setup(props, { emit }) {
     const modalEl = ref(null)
     const contentEl = ref(null)
-    const doIt = ref(false)
+    const showModal = ref(false)
+    const showContent = ref(false)
     const emitDismiss = () => emit('dismiss')
     const emitIfEscape = e => {
       if (e.keyCode === escape) emitDismiss()
     }
 
-    // TODO: refactor all 'clearing' code to a common method we can call beforeUnmount too
-    watch(() => props.modelValue, async (showing) => {
-      await nextTick() // wait for the DOM to update so that modalEl exists
+    // because we have nested transitions we need to fire this in order
+    // we use nextTick to ensure DOM elements are available
+    async function handleTransitions(showing) {
+      if (showing) showModal.value = showing
+      else showContent.value = showing
+      await nextTick()
+      if (showing) showContent.value = showing
+      else showModal.value = showing
+      await nextTick()
+    }
+
+    async function handleShow(showing) {
+      await handleTransitions(showing)
       focusLock[showing ? 'on' : 'off'](modalEl.value)
       document?.querySelector('body').classList[showing ? 'add' : 'remove']('modal-showing')
       if (showing) {
         addEventListener('keydown', emitIfEscape, { passive: true })
-        // console.log("CONTENT", contentEl.value)
+        disableBodyScroll(contentEl.value)
       } else {
         removeEventListener('keydown', emitIfEscape)
         clearAllBodyScrollLocks()
       }
-
-      doIt.value = showing
-    })
-    const tryThing = () => {
-      disableBodyScroll(contentEl.value)
-      console.log("READY", contentEl.value)
     }
+
+    watch(() => props.modelValue, async (showing) => await handleShow(showing))
+    onBeforeUnmount(async () => handleShow(false))
 
     return {
       classes,
       modalEl,
       emitDismiss,
       contentEl,
-      tryThing,
-      doIt
+      showModal,
+      showContent
     }
   }
 }
@@ -154,5 +161,9 @@ export default {
 .slide-enter-from,
 .slide-leave-to {
   transform: translateY(100%);
+
+  @media (min-width: 480px) {
+    transform: translateY(50%);
+  }
 }
 </style>
