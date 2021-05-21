@@ -1,11 +1,10 @@
 <template>
-  <component :is="as" tabindex="0" role="button" class="rounded-8 f-card" :class="{ 'f-card-selected': selected }" @click="selected = !selected">
+  <component :is="as" tabindex="0" role="button" class="rounded-8 f-card" :class="{ 'f-card-selected': selected }">
     <slot />
   </component>
 </template>
 
 <script>
-import { ref } from 'vue'
 // import { box as classes } from '@finn-no/fabric-component-classes'
 
 export default {
@@ -15,10 +14,8 @@ export default {
       type: String,
       default: 'div'
     },
+    selected: Boolean
   },
-  setup: () => ({
-    selected: ref(false)
-  })
 }
 </script>
 
