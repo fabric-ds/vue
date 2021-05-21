@@ -16,6 +16,7 @@
       <sidebar-link to="/breadcrumbs" label="Breadcrumbs" />
       <sidebar-link to="/forms" label="Forms" />
       <sidebar-link to="/box" label="Box" />
+      <sidebar-link to="/card" label="Card" />
       <sidebar-link to="/expandable" label="Expandable" />
       <sidebar-link to="/steps" label="Steps" />
 

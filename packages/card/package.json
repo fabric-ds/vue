@@ -1,25 +1,21 @@
 {
-  "name": "@finn-no/fabric-vue-toast",
-  "version": "0.9.15",
+  "name": "@finn-no/fabric-vue-card",
+  "version": "0.9.0",
   "type": "module",
-  "module": "dist/toast.js",
-  "exports": "./dist/toast.js",
+  "module": "dist/card.js",
+  "exports": "./dist/card.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
+  "dependencies": {
+    "@finn-no/fabric-vue-utilities": "^0.9.14"
+  },
   "files": [
     "/dist"
   ],
-  "dependencies": {
-    "@finn-no/fabric-vue-expandable": "^0.9.22",
-    "@finn-no/fabric-vue-utilities": "^0.9.14"
-  },
-  "devDependencies": {
-    "mount-vue-component": "^0.10.0"
-  },
   "publishConfig": {
     "access": "public"
   },
