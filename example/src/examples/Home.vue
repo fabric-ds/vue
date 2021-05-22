@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>Home</h1>
-  <!-- <h2>Info about functional components in Vue 3</h2> -->
-  <!-- <h2>Note about the 'browser' field + Rollup</h2> -->
-  <!-- <h2>Rollup template</h2> -->
+
+    <section-header label="Functional components" />
+      <p class="text-14">Functional components are quite handy when working with Tailwind/Fabric, since one is often combining several classes to create a style, rather than placing one CSS class on an element, and adding styles to that class.</p>
   </div>
 </template>
 
