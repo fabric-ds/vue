@@ -87,7 +87,7 @@ export default {
       }
     }
 
-    watch(() => props.modelValue, async (showing) => await handleShow(showing))
+    watch(() => props.modelValue, handleShow)
     onBeforeUnmount(async () => handleShow(false))
 
     return {
