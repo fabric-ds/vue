@@ -47,12 +47,12 @@
     <div class="flex gap-32 mt-32">
       <f-card :selected="radioModel === 'foo'" class="w-max">
         <div class="p-24">
-          <f-toggle class="in-card -mb-4" radio :toggles="[{ label: 'Radio in a box - A', value: 'foo' }]" v-model="radioModel" />
+          <f-toggle class="in-card -mb-4" radio :toggles="[{ label: 'Radio in a box - A', value: 'foo', name: 'radio-group' }]" v-model="radioModel" />
         </div>
       </f-card>
       <f-card :selected="radioModel === 'bar'" class="w-max">
         <div class="p-24">
-          <f-toggle class="in-card -mb-4" radio :toggles="[{ label: 'Radio in a box - B', value: 'bar' }]" v-model="radioModel" />
+          <f-toggle class="in-card -mb-4" radio :toggles="[{ label: 'Radio in a box - B', value: 'bar', name: 'radio-group' }]" v-model="radioModel" />
         </div>
       </f-card>
     </div>
