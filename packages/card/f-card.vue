@@ -1,5 +1,6 @@
 <template>
-  <component :is="as" tabindex="0" role="button" class="rounded-8 f-card" :class="{ 'f-card-selected': selected }">
+  <component :is="as" tabindex="0" role="button" class="cursor-pointer rounded-8 overflow-hidden relative transition-all outline-none f-card" :class="{ 'f-card-selected': selected }">
+    <div class="absolute rounded-8 inset-0 transition-all border-2 border-transparent p-card-inner" />
     <slot />
   </component>
 </template>
@@ -19,31 +20,53 @@ export default {
 }
 </script>
 
+<style>
+.f-card .field.in-card {
+  position: static;
+
+  & .input-toggle {
+    position: static;
+  }
+
+  & .input-toggle input {
+    width: 100%;
+    height: 100%;
+    clip: auto;
+    appearance: none;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+}
+</style>
+
 <style scoped>
 .f-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
-  border: 2px solid transparent;
-  transition: 0.3s ease;
-  outline: none !important;
 
   &:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
-    transform: translateY(-2px);
     /* box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23); */
   }
 
   &:active {
-    transform: translateY(0);
     box-shadow: none;
-    border-color: var(--f-gray-300);
+    & .p-card-inner {
+      border-color: var(--f-gray-300);
+    }
   }
 
   &:focus-visible {
-    border-color: var(--f-aqua-400);
+    & .p-card-inner {
+      border-color: var(--f-aqua-400);
+    }
   }
 }
 .f-card-selected {
-  border-color: var(--f-blue-600);
   background-color: var(--f-blue-50);
+
+  & .p-card-inner {
+    border-color: var(--f-blue-600);
+  }
 }
 </style>
