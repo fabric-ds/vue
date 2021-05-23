@@ -5,7 +5,7 @@
         v-model="model"
         :type="type"
         :disabled="disabled"
-        :name="name || (id + ':toggles')"
+        :name="id + ':toggles'"
         :key="id + i + type"
         v-bind="toggle"
         @blur="triggerValidation" />

@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
-    <div :class="classes.backdrop" v-if="showModal" @click.self="emitDismiss" ref="modalEl">
+    <div :class="classes.backdrop" v-if="showModal" @click.self="emitDismiss">
       <transition name="slide">
-        <div v-if="showContent" :class="classes.modal" tabindex="-1" aria-modal="true" role="dialog">
+        <div v-if="showContent" :class="classes.modal" tabindex="-1" aria-modal="true" role="dialog" ref="modalEl">
           <div v-if="$slots.title || title || $slots.right || right" :class="classes.title">
             <transition-group name="title">
               <!-- what should we call these areas? -->
@@ -63,8 +63,9 @@ export default {
       if (e.keyCode === escape) emitDismiss()
     }
 
+    // vue-ism
     // because we have nested transitions we need to fire this in order
-    // we use nextTick to ensure DOM elements are available
+    // we use nextTick to ensure DOM elements are available for later
     async function handleTransitions(showing) {
       if (showing) showModal.value = showing
       else showContent.value = showing
@@ -74,12 +75,20 @@ export default {
       await nextTick()
     }
 
+    // change the modal's border radius when within 2% of full height
+    const modifyBorderRadius = () => {
+      if (modalEl.value.scrollHeight * 1.02 > innerHeight) modalEl.value.style.borderRadius = '0px'
+      else modalEl.value.style.borderRadius = null
+    }
+
     async function handleShow(showing) {
       await handleTransitions(showing)
       focusLock[showing ? 'on' : 'off'](modalEl.value)
       document?.querySelector('body').classList[showing ? 'add' : 'remove']('f-modal-showing')
       if (showing) {
         addEventListener('keydown', emitIfEscape, { passive: true })
+        // we do not remove this event listener because the element itself is getting reaped
+        modalEl.value.addEventListener('transitionend', modifyBorderRadius, { passive: true })
         disableBodyScroll(contentEl.value)
       } else {
         removeEventListener('keydown', emitIfEscape)
@@ -88,7 +97,7 @@ export default {
     }
 
     watch(() => props.modelValue, handleShow)
-    onBeforeUnmount(async () => handleShow(false))
+    onBeforeUnmount(handleShow)
 
     return {
       classes,
