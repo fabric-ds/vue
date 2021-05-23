@@ -23,5 +23,6 @@ export default {
 <style scoped>
 .toaster {
   grid-template-columns: minmax(min-content, 420px);
+  margin-bottom: env(safe-area-inset-bottom, 0px);
 }
 </style>

@@ -110,6 +110,7 @@ export default {
 }
 .f-modal {
   max-height: var(--f-modal-max-height);
+  height: var(--f-modal-height);
   width: var(--f-modal-width);
   will-change: max-height;
   backface-visibility: hidden;

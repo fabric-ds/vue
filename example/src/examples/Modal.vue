@@ -7,8 +7,8 @@
     <button class="button button--utility" @click="model = true">Show modal</button>
 
     <f-modal title="Oh hello" style="--f-modal-width: 640px; --f-modal-max-height: 45vh" :left="show" right @dismiss="model = false" v-model="model" @right="model = false">
-      <button @click="show = !show" class="mb-32">toggle</button>
-      <div v-if="!show">
+      <button @click="foo = !foo" class="mb-32">toggle</button>
+      <div v-if="!foo">
         <h1 class="h4 mb-16">This is a title for the content area</h1>
         <input />
         <p>Life as a shorty shouldn't be so rough. Behold the bold soldier control the globe slowly, proceeds to blow, swinging swords like Shinobi. The game of chess, is like a swordfight, you must think first before you move. My beats travel like a vortex through your spine, to the top of your cerebral cortex. I smoke on the mic like smoking Joe Frazier, the hell raiser, raising hell with the flavor.</p>
@@ -81,6 +81,7 @@ import { ref, reactive } from 'vue'
 import { fModal } from '@finn-no/fabric-vue-modal'
 import Setup from '../Setup.vue'
 
+const foo = ref(false)
 const show = ref(false)
 const model = ref(false)
 const token =
