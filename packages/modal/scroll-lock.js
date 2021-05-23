@@ -1,13 +1,7 @@
-
-const isIosDevice = true
-  // typeof window !== 'undefined' && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1);
-
-
 let locks = [];
 let documentListenerAdded = false;
 let initialClientY = -1;
 let previousBodyOverflowSetting;
-let previousBodyPosition;
 let previousBodyPaddingRight;
 
 // returns true if `el` should be allowed to receive touchmove events.
@@ -76,51 +70,6 @@ const restoreOverflowSetting = () => {
   }
 };
 
-// const setPositionFixed = () => window.requestAnimationFrame(() => {
-//   // If previousBodyPosition is already set, don't set it again.
-//   if (previousBodyPosition === undefined) {
-//     previousBodyPosition = {
-//       position: document.body.style.position,
-//       top: document.body.style.top,
-//       left: document.body.style.left
-//     };
-
-//     // Update the dom inside an animation frame 
-//     const { scrollY, scrollX, innerHeight } = window;
-//     console.log("POSITIONING", scrollY)
-//     // document.body.style.position = 'fixed';
-//     // document.body.style.top = -scrollY;
-//     // document.body.style.left = -scrollX;
-
-//     // setTimeout(() => window.requestAnimationFrame(() => {
-//     //   // Attempt to check if the bottom bar appeared due to the position change
-//     //   const bottomBarHeight = innerHeight - window.innerHeight;
-//     //   if (bottomBarHeight && scrollY >= innerHeight) {
-//     //     // Move the content further up so that the bottom bar doesn't hide it
-//     //     document.body.style.top = -(scrollY + bottomBarHeight);
-//     //   }
-//     // }), 300);
-//   }
-// });
-
-// const restorePositionSetting = () => {
-//   if (previousBodyPosition !== undefined) {
-//     // Convert the position from "px" to Int
-//     const y = -parseInt(document.body.style.top, 10);
-//     const x = -parseInt(document.body.style.left, 10);
-
-//     // Restore styles
-//     document.body.style.position = previousBodyPosition.position;
-//     document.body.style.top = previousBodyPosition.top;
-//     document.body.style.left = previousBodyPosition.left;
-
-//     // Restore scroll
-//     window.scrollTo(x, y);
-
-//     previousBodyPosition = undefined;
-//   }
-// };
-
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
 const isTargetElementTotallyScrolled = targetElement => targetElement ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight : false;
 
@@ -165,82 +114,63 @@ export const disableBodyScroll = (targetElement, options) => {
 
   locks.push(lock);
 
-  // if (isIosDevice) {
-    // setPositionFixed();
-  // } else {
-    setOverflowHidden(options);
-  // }
+  setOverflowHidden(options);
 
-  if (isIosDevice) {
-    targetElement.ontouchstart = event => {
-      if (event.targetTouches.length === 1) {
-        // detect single touch.
-        initialClientY = event.targetTouches[0].clientY;
-      }
-    };
-    targetElement.ontouchmove = event => {
-      if (event.targetTouches.length === 1) {
-        // detect single touch.
-        handleScroll(event, targetElement);
-      }
-    };
-
-    if (!documentListenerAdded) {
-      document.addEventListener('touchmove', preventDefault, { passive: false });
-      documentListenerAdded = true;
+  targetElement.ontouchstart = event => {
+    if (event.targetTouches.length === 1) {
+      // detect single touch.
+      initialClientY = event.targetTouches[0].clientY;
     }
+  };
+  targetElement.ontouchmove = event => {
+    if (event.targetTouches.length === 1) {
+      // detect single touch.
+      handleScroll(event, targetElement);
+    }
+  };
+
+  if (!documentListenerAdded) {
+    document.addEventListener('touchmove', preventDefault, { passive: false });
+    documentListenerAdded = true;
   }
 };
 
 export const clearAllBodyScrollLocks = () => {
-  if (isIosDevice) {
-    // Clear all locks ontouchstart/ontouchmove handlers, and the references.
-    locks.forEach(lock => {
-      lock.targetElement.ontouchstart = null;
-      lock.targetElement.ontouchmove = null;
-    });
+  // Clear all locks ontouchstart/ontouchmove handlers, and the references.
+  locks.forEach(lock => {
+    lock.targetElement.ontouchstart = null;
+    lock.targetElement.ontouchmove = null;
+  });
 
-    if (documentListenerAdded) {
-      document.removeEventListener('touchmove', preventDefault, { passive: false });
-      documentListenerAdded = false;
-    }
-
-    // Reset initial clientY.
-    initialClientY = -1;
+  if (documentListenerAdded) {
+    document.removeEventListener('touchmove', preventDefault, { passive: false });
+    documentListenerAdded = false;
   }
 
-  // if (isIosDevice) {
-    // restorePositionSetting();
-  // } else {
-    restoreOverflowSetting();
-  // }
+  // Reset initial clientY.
+  initialClientY = -1;
+
+  restoreOverflowSetting();
 
   locks = [];
 };
 
 export const enableBodyScroll = targetElement => {
   if (!targetElement) {
-    // eslint-disable-next-line no-console
     console.error('enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.');
     return;
   }
 
   locks = locks.filter(lock => lock.targetElement !== targetElement);
 
-  if (isIosDevice) {
-    targetElement.ontouchstart = null;
-    targetElement.ontouchmove = null;
+  targetElement.ontouchstart = null;
+  targetElement.ontouchmove = null;
 
-    if (documentListenerAdded && locks.length === 0) {
-      document.removeEventListener('touchmove', preventDefault, { passive: false });
-      documentListenerAdded = false;
-    }
+  if (documentListenerAdded && locks.length === 0) {
+    document.removeEventListener('touchmove', preventDefault, { passive: false });
+    documentListenerAdded = false;
   }
 
-  // if (isIosDevice) {
-  //   restorePositionSetting();
-  // } else {
-    restoreOverflowSetting();
-  // }
+  restoreOverflowSetting();
 };
 
