@@ -7557,10 +7557,10 @@ rollup@^2.38.5:
   optionalDependencies:
     fsevents "~2.3.1"
 
-rollup@^2.48.0:
-  version "2.48.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.48.0.tgz#fceb01ed771f991f29f7bd2ff7838146e55acb74"
-  integrity sha512-wl9ZSSSsi5579oscSDYSzGn092tCS076YB+TQrzsGuSfYyJeep8eEWj0eaRjuC5McuMNmcnR8icBqiE/FWNB1A==
+rollup@^2.49.0:
+  version "2.49.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.49.0.tgz#f0e5bb2b770ddf1be8cc30d4cce3457574c8c871"
+  integrity sha512-UnrCjMXICx9q0jF8L7OYs7LPk95dW0U5UYp/VANnWqfuhyr66FWi/YVlI34Oy8Tp4ZGLcaUDt4APJm80b9oPWQ==
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -7615,10 +7615,10 @@ sax@~1.2.4:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scroll-doctor@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/scroll-doctor/-/scroll-doctor-0.9.0.tgz#e460722f5453ca601d47f6ffda9821ad7a0610dc"
-  integrity sha512-K9PeecaXMxjbiq0r/MiVkj1lqdw09rZHYenlc2WeRB1SyTpgmMhT9ZxdnxOE+mO+7rsWhm8X/3XbiOT1jqUdwg==
+scroll-doctor@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/scroll-doctor/-/scroll-doctor-0.9.1.tgz#c7f36084f096da1e6ecbd847a4c2d71185ff9828"
+  integrity sha512-Njcar8Vv1zhF8q2VxAuYn13jB9V6OAb/MipT9YwSYW4O2aKSdnVRgjZVccutUiB1m2mFsJ7sk7tX8E3zstZN7Q==
 
 sembear@^0.5.0:
   version "0.5.2"

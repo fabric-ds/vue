@@ -30,7 +30,7 @@
     "lerna": "^4.0.0",
     "postcss": "^8.3.0",
     "postcss-preset-env": "^6.7.0",
-    "rollup": "^2.48.0",
+    "rollup": "^2.49.0",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-vue": "^6.0.0",

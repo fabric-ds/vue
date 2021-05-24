@@ -16,7 +16,7 @@
   "dependencies": {
     "@finn-no/fabric-vue-utilities": "^0.9.14",
     "dom-focus-lock": "^1.0.4",
-    "scroll-doctor": "^0.9.0"
+    "scroll-doctor": "^0.9.1"
   },
   "publishConfig": {
     "access": "public"

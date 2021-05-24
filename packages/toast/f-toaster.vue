@@ -1,5 +1,5 @@
 <template>
-  <aside class="fixed bottom-16 left-0 right-0 mx-8 sm:mx-16 z-50 pointer-events-none">
+  <aside class="fixed fix-fixed bottom-16 left-0 right-0 mx-8 sm:mx-16 z-50 pointer-events-none">
     <div class="toaster grid auto-rows-auto justify-items-center justify-center mx-auto pointer-events-none">
       <f-expand-transition group>
         <f-toast v-for="t in shownToasts" v-bind="t.value" :key="t.value.key" />
@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style scoped>
+.fix-fixed {
+  transform: translate3d(0,0,0);
+}
 .toaster {
   grid-template-columns: minmax(min-content, 420px);
   margin-bottom: env(safe-area-inset-bottom, 0px);
