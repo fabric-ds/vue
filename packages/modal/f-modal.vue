@@ -40,7 +40,7 @@
 import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
 import { modal as classes } from '@finn-no/fabric-component-classes'
 import focusLock from 'dom-focus-lock'
-import { disableBodyScroll, clearAllBodyScrollLocks } from './scroll-lock'
+import { setup as setupScrollLock, teardown as teardownScrollLock } from 'scroll-doctor'
 
 const escape = 27
 
@@ -84,15 +84,14 @@ export default {
     async function handleShow(showing) {
       await handleTransitions(showing)
       focusLock[showing ? 'on' : 'off'](modalEl.value)
-      document?.querySelector('body').classList[showing ? 'add' : 'remove']('f-modal-showing')
       if (showing) {
         addEventListener('keydown', emitIfEscape, { passive: true })
         // we do not remove this event listener because the element itself is getting reaped
         modalEl.value.addEventListener('transitionend', modifyBorderRadius, { passive: true })
-        disableBodyScroll(contentEl.value)
+        setupScrollLock(contentEl.value)
       } else {
         removeEventListener('keydown', emitIfEscape)
-        clearAllBodyScrollLocks()
+        teardownScrollLock()
       }
     }
 

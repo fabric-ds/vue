@@ -7,6 +7,9 @@
 
     <section-header label="Use" />
 
+    <h5>List of icons</h5>
+    <p class="text-14 mb-32">You can find the available icons <a href="http://fabric-icons.surge.sh">here</a></p>
+
     <h5>Simple image use</h5>
     <p class="text-14 mb-32">If you don't need to style the icon, you can simply bring it in as an image from the module. Using Rollup you'll either be able to bundle this into the final package, or exclude it from the build and upload it to Eik.</p>
 
