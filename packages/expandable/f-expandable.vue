@@ -82,6 +82,8 @@ export default {
 <style scoped>
 .f-expandable {
   will-change: height;
+  /* also do box+clickable */
+  -webkit-tap-highlight-color: transparent;
 }
 .box-chevron {
   top: calc(50% - 8px);

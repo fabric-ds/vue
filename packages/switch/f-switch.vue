@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="f-switch">
     <input type="checkbox" class="sr-only" :id="id" v-model="model" :disabled="disabled" />
     <label :for="id" class="block relative h-24 w-44 cursor-pointer group" :class="{ 'pointer-events-none': disabled }">
       <div class="absolute h-full w-full rounded-full transition-colors" :class="{
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+.f-switch {
+  -webkit-tap-highlight-color: transparent;
+}
 .hw-accel {
   backface-visibility: hidden;
 }
