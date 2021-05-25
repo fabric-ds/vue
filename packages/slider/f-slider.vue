@@ -1,8 +1,8 @@
 <template>
-  <div :class="[classes.wrapper, 'f-slider']">
-    <div :class="{ 'pointer-events-none': disabled, [classes.track]: true }" ref="sliderLine" @click="handleClick" />
-    <div :class="{ [classes.activeTrackDisabled]: disabled, [classes.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick" />
-    <div :class="{ [classes.thumbDisabled]: disabled, [classes.thumbEnabled]: !disabled, [classes.thumb]: true }"
+  <div :class="c.wrapper">
+    <div :class="{ [c.trackDisabled]: disabled, [c.track]: true }" ref="sliderLine" @click="handleClick" />
+    <div :class="{ [c.activeTrackDisabled]: disabled, [c.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick" />
+    <div :class="{ [c.thumbDisabled]: disabled, [c.thumbEnabled]: !disabled, [c.thumb]: true }"
       ref="thumb"
       role="slider"
       tabindex="0"
@@ -13,7 +13,7 @@
       @blur="handleBlur"
       @focus="handleFocus"
       @keydown="handleKeyDown">
-      <div :class="{ [classes.thumbCenter]: true, [classes.thumbCenterEnabled]: !disabled, [classes.thumbCenterDisabled]: disabled }" />
+      <div :class="{ [c.thumbCenter]: true, [c.thumbCenterEnabled]: !disabled, [c.thumbCenterDisabled]: disabled }" />
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@
 <script>
 import { computed, ref, watch } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
-import { slider as classes } from '@finn-no/fabric-component-classes'
+import { slider as c } from '@finn-no/fabric-component-classes'
 import { useDimensions } from './util.js'
 import { createHandlers } from './handlers.js'
 
@@ -89,19 +89,7 @@ export default {
 
     const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleMouseUp, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
 
-    return { classes, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
+    return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }
 }
 </script>
-
-<style scoped>
-.thumb-shadow {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1), 0px 3px 1px 0px rgba(0, 0, 0, 0.05), 0px 2px 2px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
-
-  &:hover, &:focus {
-    & .thumb-center {
-      transform: scale(1.25);
-    }
-  }
-}
-</style>

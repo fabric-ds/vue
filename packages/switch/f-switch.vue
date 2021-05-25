@@ -1,22 +1,25 @@
 <template>
-  <div class="f-switch">
+  <div class="tap-highlight-transparent">
     <input type="checkbox" class="sr-only" :id="id" v-model="model" :disabled="disabled" />
-    <label :for="id" class="block relative h-24 w-44 cursor-pointer group" :class="{ 'pointer-events-none': disabled }">
-      <div class="absolute h-full w-full rounded-full transition-colors" :class="{
-        'bg-blue-600 group-hover:bg-blue-700': model && !disabled,
-        'bg-gray-300 group-hover:bg-gray-400': !model && !disabled,
-        'bg-bluegray-200': disabled
+    <label :for="id" :class="{ [c.label]: true, [c.labelDisabled]: disabled }">
+      <div :class="{
+        [c.switchTrack]: true,
+        [c.switchTrackSelected]: model && !disabled,
+        [c.switchTrackUnselected]: !model && !disabled,
+        [c.switchTrackDisabled]: disabled
       }" />
-      <div class="absolute hw-accel h-16 w-16 top-4 left-4 rounded-full transition-transform" :class="{
-        'translate-x': model,
-        'bg-white shadow-sm': !disabled,
-        'bg-bluegray-300': disabled
+      <div :class="{
+        [c.switchThumb]: true,
+        [c.switchThumbSelected]: model,
+        [c.switchThumbNotDisabled]: !disabled,
+        [c.switchThumbDisabled]: disabled
       }" />
     </label>
   </div>
 </template>
 
 <script>
+import { switchToggle as c } from '@finn-no/fabric-component-classes'
 import { createModel, modelProps } from 'create-v-model'
 import { id } from '@finn-no/fabric-vue-utilities'
 
@@ -30,19 +33,7 @@ export default {
   setup(props) {
     const model = createModel({ props })
 
-    return { model }
+    return { model, c }
   }
 }
 </script>
-
-<style scoped>
-.f-switch {
-  -webkit-tap-highlight-color: transparent;
-}
-.hw-accel {
-  backface-visibility: hidden;
-}
-.translate-x {
-  transform: translateX(20px);
-}
-</style>

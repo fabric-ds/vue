@@ -1,6 +1,6 @@
 <template>
-  <aside class="fixed fix-fixed bottom-16 left-0 right-0 mx-8 sm:mx-16 z-50 pointer-events-none">
-    <div class="toaster grid auto-rows-auto justify-items-center justify-center mx-auto pointer-events-none">
+  <aside :class="c.toasterContainer">
+    <div :class="c.toaster">
       <f-expand-transition group>
         <f-toast v-for="t in shownToasts" v-bind="t.value" :key="t.value.key" />
       </f-expand-transition>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { toaster as c } from '@finn-no/fabric-component-classes'
 import { shownToasts } from './controller.js'
 import fToast from './f-toast.vue'
 import { fExpandTransition } from '@finn-no/fabric-vue-expandable'
@@ -16,16 +17,6 @@ import { fExpandTransition } from '@finn-no/fabric-vue-expandable'
 export default {
   name: 'fToastController',
   components: { fToast, fExpandTransition },
-  setup: () => ({ shownToasts })
+  setup: () => ({ shownToasts, c })
 }
 </script>
-
-<style scoped>
-.fix-fixed {
-  transform: translate3d(0,0,0);
-}
-.toaster {
-  grid-template-columns: minmax(min-content, 420px);
-  margin-bottom: env(safe-area-inset-bottom, 0px);
-}
-</style>
