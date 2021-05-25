@@ -1,20 +1,12 @@
 <template>
-  <component :is="as" :tabindex="clickable ? 0 : undefined" :role="clickable ? 'button' : undefined" :class="{
-    [classes.box]: true,
-    [classes.bleed]: bleed,
-    [classes.clickable]: clickable,
-    'bg-aqua-50': info,
-    'hover:bg-aqua-100 active:bg-aqua-200': info && clickable,
-    'bg-bluegray-100': neutral,
-    'hover:bg-bluegray-200 active:bg-bluegray-300': neutral && clickable,
-    'border-2 border-bluegray-300': bordered
-  }">
+  <component :is="as" :tabindex="clickable ? 0 : undefined" :role="clickable ? 'button' : undefined" :class="boxClasses">
     <slot />
   </component>
 </template>
 
 <script>
-import { box as classes } from '@finn-no/fabric-component-classes'
+import { box as c } from '@finn-no/fabric-component-classes'
+import { computed } from 'vue'
 
 export default {
   name: 'fBox',
@@ -29,6 +21,17 @@ export default {
     neutral: Boolean,
     bordered: Boolean
   },
-  setup: () => ({ classes })
+  setup: (props) => ({
+    boxClasses: computed(() => ({
+      [c.box]: true,
+      [c.bleed]: props.bleed,
+      [c.clickable]: props.clickable,
+      'bg-aqua-50': props.info,
+      'hover:bg-aqua-100 active:bg-aqua-200': props.info && props.clickable,
+      'bg-bluegray-100': props.neutral,
+      'hover:bg-bluegray-200 active:bg-bluegray-300': props.neutral && props.clickable,
+      'border-2 border-bluegray-300': props.bordered
+    }))
+  })
 }
 </script>

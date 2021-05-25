@@ -2,12 +2,12 @@
   <f-field v-bind="{ ...$attrs, ...$props }" :role="role" #default="{ triggerValidation }">
     <div :class="wrapperClasses">
       <f-toggle-item v-for="(toggle, i) in toggles"
-        v-bind="toggle"
         v-model="model"
         :type="type"
         :disabled="disabled"
         :name="id + ':toggles'"
         :key="id + i + type"
+        v-bind="toggle"
         @blur="triggerValidation" />
     </div>
   </f-field>

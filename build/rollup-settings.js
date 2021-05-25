@@ -15,7 +15,7 @@ const defaultExternal = [
 ]
 const plugins = [
   vue({ postcssPlugins }),
-  getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]]  }),
+  getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]] }),
   nodeResolve(),
   commonjs(),
   postcss(),

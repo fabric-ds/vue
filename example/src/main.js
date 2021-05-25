@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import App from './App.vue'
 import Cleave from 'cleave-lite'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -7,6 +7,7 @@ import { ShowToken, VariantHeading, SectionHeader } from './util.js'
 import DocsTable from './DocsTable.vue'
 
 import Home from './examples/Home.vue'
+import Icons from './examples/Icons.vue'
 import Button from './examples/Button.vue'
 import Slider from './examples/Slider.vue'
 import Switch from './examples/Switch.vue'
@@ -15,11 +16,13 @@ import Modal from './examples/Modal.vue'
 import Breadcrumbs from './examples/Breadcrumbs.vue'
 import Form from './examples/Form.vue'
 import Box from './examples/Box.vue'
+import Card from './examples/Card.vue'
 import Expandable from './examples/Expandable.vue'
 import Steps from './examples/Steps.vue'
 
 const routes = [
   { path: '/', component: Home },
+  { path: '/icons', component: Icons },
   { path: '/button', component: Button },
   { path: '/slider', component: Slider },
   { path: '/switch', component: Switch },
@@ -28,6 +31,7 @@ const routes = [
   { path: '/breadcrumbs', component: Breadcrumbs },
   { path: '/forms', component: Form },
   { path: '/box', component: Box },
+  { path: '/card', component: Card },
   { path: '/expandable', component: Expandable },
   { path: '/steps', component: Steps },
 ]

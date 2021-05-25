@@ -18,7 +18,7 @@
     "@finn-no/fabric-vue-utilities": "^0.9.14"
   },
   "devDependencies": {
-    "mount-vue-component": "^0.9.5"
+    "mount-vue-component": "^0.10.0"
   },
   "publishConfig": {
     "access": "public"

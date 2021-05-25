@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full" :class="{ 'flex items-center': horizontal }">
+  <div class="w-full" :class="{ 'flex': horizontal }">
     <slot />
   </div>
 </template>

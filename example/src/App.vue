@@ -16,11 +16,13 @@
       <sidebar-link to="/breadcrumbs" label="Breadcrumbs" />
       <sidebar-link to="/forms" label="Forms" />
       <sidebar-link to="/box" label="Box" />
+      <sidebar-link to="/card" label="Card" />
       <sidebar-link to="/expandable" label="Expandable" />
       <sidebar-link to="/steps" label="Steps" />
 
       <h2 class="mt-32 text-16">General</h2>
       <sidebar-link to="/" label="Home" />
+      <sidebar-link to="/icons" label="Icons" />
     </nav>
     <main class="p-16 lg:p-64 mx-auto">
       <router-view />

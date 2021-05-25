@@ -66,7 +66,7 @@ export default {
       'inline-block align-middle transform transition-transform': true,
       '-rotate-180': expanded.value,
       'relative left-8': !props.box,
-      'box-chevron absolute right-16': props.box
+      'f-expandable-chevron absolute right-16': props.box
     }))
 
     const contentClasses = computed(() => ({
@@ -78,12 +78,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.f-expandable {
-  will-change: height;
-}
-.box-chevron {
-  top: calc(50% - 8px);
-}
-</style>
