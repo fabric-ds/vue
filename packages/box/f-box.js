@@ -1,12 +1,5 @@
-<template>
-  <component :is="as" :tabindex="clickable ? 0 : undefined" :role="clickable ? 'button' : undefined" :class="boxClasses">
-    <slot />
-  </component>
-</template>
-
-<script>
 import { box as c } from '@finn-no/fabric-component-classes'
-import { computed } from 'vue'
+import { h } from 'vue'
 
 export default {
   name: 'fBox',
@@ -21,8 +14,8 @@ export default {
     neutral: Boolean,
     bordered: Boolean
   },
-  setup: (props) => ({
-    boxClasses: computed(() => ({
+  setup: (props, { slots }) => () => h(props.as, {
+    class: {
       [c.box]: true,
       [c.bleed]: props.bleed,
       [c.clickable]: props.clickable,
@@ -31,7 +24,8 @@ export default {
       'bg-bluegray-100': props.neutral,
       'hover:bg-bluegray-200 active:bg-bluegray-300': props.neutral && props.clickable,
       'border-2 border-bluegray-300': props.bordered
-    }))
-  })
+    },
+    tabindex: props.clickable ? 0 : undefined,
+    role: props.clickable ? 'button' : undefined
+  }, slots.default())
 }
-</script>
