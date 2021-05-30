@@ -77,7 +77,7 @@ export const switchToggle = {
   switchTrackDisabled: 'bg-bluegray-200',
   switchThumb: 'absolute transition-gpu h-16 w-16 top-4 left-4 rounded-full transition-transform',
   switchThumbSelected: 'f-switch-translate-x',
-  switchThumbNotDisabled: 'bg-white shadow-sm',
+  switchThumbNotDisabled: 'bg-white shadow',
   switchThumbDisabled: 'bg-bluegray-300'
 }
 

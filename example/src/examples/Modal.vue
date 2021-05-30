@@ -54,18 +54,19 @@
     </docs-table>
 
     <h4 class="mt-64 mb-16">Custom Properties</h4>
+    <p class="border-l-8 bg-red-50 border-red-700 p-16 rounded-4 mb-16 text-12">Use percentage-based units as opposed to <code>vh</code> for adjusting heights. This ensures correct behavior on mobile devices when toolbars show/hide and cause changes to the inner height.</p>
     <docs-table>
       <template #titles>
         <th>name</th>
         <th>notes</th>
       </template>
       <tr>
-        <td>--f-modal-padding</td>
-        <td class="annotation">The inner padding of the modal dialog</td>
-      </tr>
-      <tr>
         <td>--f-modal-max-height</td>
         <td class="annotation">The max-height of the modal dialog</td>
+      </tr>
+      <tr>
+        <td>--f-modal-height</td>
+        <td class="annotation">The height of the modal dialog</td>
       </tr>
       <tr>
         <td>--f-modal-width</td>
@@ -82,8 +83,8 @@ import Setup from '../Setup.vue'
 
 const heightToggle = ref(false)
 const demoStyles = computed(() => ({
-  '--f-modal-max-height': heightToggle.value ? '100vh' : '64vh',
-  '--f-modal-height': '100vh'
+  '--f-modal-max-height': heightToggle.value ? '100%' : '64%',
+  '--f-modal-height': '100%'
 }))
 const changeHeight = () => heightToggle.value = !heightToggle.value
 const show = ref(false)

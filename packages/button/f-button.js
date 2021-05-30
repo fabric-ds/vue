@@ -15,7 +15,7 @@ export default {
     href: String,
     label: String
   },
-  setup: (props, { slots }) => () => h(props.href ? 'a' : 'button', {
+  setup: (props, { slots, attrs }) => () => h(props.href ? 'a' : 'button', {
     class: {
       'button': true,
       // primary buttons

@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div :class="c.backdrop" v-if="showModal" @click.self="emitDismiss">
+    <div :class="c.backdrop" v-if="showModal" @click.self="emitDismiss" ref="backdropEl">
       <transition name="slide">
         <div v-if="showContent" :class="c.modal" tabindex="-1" aria-modal="true" role="dialog" ref="modalEl">
           <div v-if="$slots.title || title || $slots.right || right" :class="c.title">
@@ -55,6 +55,7 @@ export default {
   setup(props, { emit }) {
     const modalEl = ref(null)
     const contentEl = ref(null)
+    const backdropEl = ref(null)
     const showModal = ref(false)
     const showContent = ref(false)
     const emitDismiss = () => emit('dismiss')
@@ -76,22 +77,30 @@ export default {
 
     // change the modal's border radius when within 2% of full height
     const modifyBorderRadius = () => {
-      if (modalEl.value.scrollHeight * 1.02 > innerHeight) modalEl.value.style.borderRadius = '0px'
+      if (modalEl.value?.scrollHeight * 1.02 > innerHeight) modalEl.value.style.borderRadius = '0px'
       else modalEl.value.style.borderRadius = null
     }
 
-    async function handleShow(showing) {
-      await handleTransitions(showing)
-      focusLock[showing ? 'on' : 'off'](modalEl.value)
-      if (showing) {
-        addEventListener('keydown', emitIfEscape, { passive: true })
-        // we do not remove this event listener because the element itself is getting reaped
-        modalEl.value.addEventListener('transitionend', modifyBorderRadius, { passive: true })
-        setupScrollLock(contentEl.value)
-      } else {
-        removeEventListener('keydown', emitIfEscape)
-        teardownScrollLock()
+    async function setupHandlers() {
+      focusLock.on(modalEl.value)
+      modalEl.value.addEventListener('transitionend', modifyBorderRadius, { passive: true })
+      addEventListener('keydown', emitIfEscape, { passive: true })
+      setupScrollLock(contentEl.value)
+    }
+    async function teardownHandlers() {
+      // if the modal's parent component is getting unmounted our refs won't exist
+      if (modalEl.value) {
+        focusLock.off(modalEl.value)
+        modalEl.value.removeEventListener('transitionend', modifyBorderRadius, { passive: true })
       }
+      removeEventListener('keydown', emitIfEscape)
+      teardownScrollLock()
+    }
+
+    async function handleShow(showing) {
+      if (!showing) await teardownHandlers()
+      await handleTransitions(showing)
+      if (showing) await setupHandlers()
     }
 
     watch(() => props.modelValue, handleShow)
@@ -100,6 +109,7 @@ export default {
     return {
       c,
       modalEl,
+      backdropEl,
       emitDismiss,
       contentEl,
       showModal,
