@@ -11,8 +11,7 @@
       <div :class="{
         [c.switchThumb]: true,
         [c.switchThumbSelected]: model,
-        [c.switchThumbNotDisabled]: !disabled,
-        [c.switchThumbDisabled]: disabled
+        [disabled ? c.switchThumbDisabled : c.switchThumbNotDisabled]: true
       }" />
     </label>
   </div>

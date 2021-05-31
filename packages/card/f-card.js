@@ -13,9 +13,13 @@ export default {
   setup: (props, { slots }) => () => h(props.as, {
     class: {
       [c.card]: true,
-      'f-card-selected': props.selected
+      [c.cardSelected]: props.selected
     },
     tabindex: 0,
     role: 'button'
-  }, [h('div', { class: c.cardOutline }), slots.default()])
+  }, [h('div', { class: {
+    [c.cardOutline]: true,
+    [props.selected ? c.cardOutlineSelected : c.cardOutlineUnselected]: true
+  }
+  }), slots.default()])
 }
