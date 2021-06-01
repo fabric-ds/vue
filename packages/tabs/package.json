@@ -1,24 +1,23 @@
 {
-  "name": "@finn-no/fabric-vue-modal",
-  "version": "0.9.17",
+  "name": "@finn-no/fabric-vue-tabs",
+  "version": "0.9.0",
   "type": "module",
-  "module": "dist/modal.js",
-  "exports": "./dist/modal.js",
+  "module": "dist/tabs.js",
+  "exports": "./dist/tabs.js",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
+  "dependencies": {
+    "@finn-no/fabric-vue-utilities": "^0.9.14",
+    "create-v-model": "^2.0.1",
+    "femtobounce": "^1.0.0"
+  },
   "files": [
     "/dist"
   ],
-  "dependencies": {
-    "@finn-no/fabric-component-classes": "^0.0.18",
-    "@finn-no/fabric-vue-utilities": "^0.9.14",
-    "dom-focus-lock": "^1.0.4",
-    "scroll-doctor": "^0.9.1"
-  },
   "publishConfig": {
     "access": "public"
   },

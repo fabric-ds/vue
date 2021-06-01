@@ -11,7 +11,8 @@ const defaultExternal = [
   'vue',
   '@vue/server-renderer',
   'create-v-model',
-  '@finn-no/fabric-vue-utilities'
+  '@finn-no/fabric-vue-utilities',
+  '@finn-no/fabric-component-classes'
 ]
 const plugins = [
   vue({ postcssPlugins }),

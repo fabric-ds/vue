@@ -7,9 +7,9 @@
     "site": "vite build"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.2",
+    "@vitejs/plugin-vue": "^1.2.3",
     "cleave-lite": "^1.0.0",
-    "vite": "^2.3.4"
+    "vite": "^2.3.5"
   },
   "dependencies": {
     "vue-router": "^4.0.8"

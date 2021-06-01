@@ -1,6 +1,16 @@
 import { card as c } from '@finn-no/fabric-component-classes'
 import { h } from 'vue'
 
+const children = ({ props, slots }) => ([
+  h('div', {
+    class: {
+      [c.cardOutline]: true,
+      [props.selected ? c.cardOutlineSelected : c.cardOutlineUnselected]: true
+    }
+  }),
+  slots.default()
+])
+
 export default {
   name: 'fCard',
   props: {
@@ -17,9 +27,5 @@ export default {
     },
     tabindex: 0,
     role: 'button'
-  }, [h('div', { class: {
-    [c.cardOutline]: true,
-    [props.selected ? c.cardOutlineSelected : c.cardOutlineUnselected]: true
-  }
-  }), slots.default()])
+  }, children({ props, slots }))
 }
