@@ -103,7 +103,7 @@ export default {
       if (showing) await setupHandlers()
     }
 
-    watch(() => props.modelValue, handleShow)
+    watch(() => props.modelValue, handleShow, { immediate: true })
     onBeforeUnmount(handleShow)
 
     return {
