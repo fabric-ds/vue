@@ -18,7 +18,10 @@ export default {
   name: 'fTab',
   props: {
     label: String,
-    name: String
+    name: {
+      type: String,
+      required: true
+    }
   },
   setup(props) {
     const controller = inject('tab-controller')

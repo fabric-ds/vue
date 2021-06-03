@@ -6,7 +6,7 @@
           <div v-if="$slots.title || title || $slots.right || right" :class="c.title">
             <transition-group name="f-modal-title">
               <div v-if="$slots.left || left" :class="[c.transitionTitle, 'justify-self-start']" key="left">
-                <button :class="[c.titleButton, c.titleButtonLeft]" @click="$emit('left')">
+                <button :class="[c.titleButton, c.titleButtonLeft]" @click="$emit('left')" v-bind="left">
                   <svg v-if="!$slots.left" :class="[c.titleButtonIcon, 'transform rotate-90']" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="nonzero" d="M8 2.25a.75.75 0 01.743.648L8.75 3v8.189l3.72-3.72a.75.75 0 011.133.977l-.073.084-5 5a.747.747 0 01-.374.204l-.104.014h-.104a.747.747 0 01-.478-.218l-5-5a.75.75 0 01.976-1.133l.084.073 3.72 3.719V3A.75.75 0 018 2.25z"></path></svg>
                   <slot name="left" />
                 </button>
@@ -16,7 +16,7 @@
                 <slot name="title" />
               </div>
               <div v-if="$slots.right || right" :class="[c.transitionTitle, 'justify-self-end']" key="right">
-                <button :class="[c.titleButton, c.titleButtonRight]" @click="$emit('right')">
+                <button :class="[c.titleButton, c.titleButtonRight]" @click="$emit('right')" v-bind="right">
                   <svg v-if="!$slots.right" :class="c.titleButtonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l6 6-6-6-6 6 6-6zm0 0L6 6l6 6 6-6-6 6z"/></svg>
                   <slot name="right" />
                 </button>
@@ -46,8 +46,8 @@ const escape = 27
 export default {
   name: 'fModal',
   props: {
-    left: Boolean,
-    right: Boolean,
+    left: [Object, Boolean],
+    right: [Object, Boolean],
     title: String,
     modelValue: Boolean
   },

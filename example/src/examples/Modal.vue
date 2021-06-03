@@ -6,7 +6,7 @@
 
     <button class="button button--utility" @click="model = true">Show modal</button>
 
-    <f-modal title="Oh hello" :style="demoStyles" :left="show" right @dismiss="model = false" v-model="model" @right="model = false">
+    <f-modal title="Oh hello" :style="demoStyles" :left="show" :right="{ 'aria-label': 'Close' }" @dismiss="model = false" v-model="model" @right="model = false">
       <div class="space-x-8">
         <button @click="changeHeight" class="button button--utility button--small mb-32">Modify height</button>
         <button @click="show = !show" class="button button--utility button--small mb-32">Toggle the back-button</button>
