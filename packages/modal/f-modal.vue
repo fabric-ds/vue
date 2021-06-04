@@ -19,7 +19,7 @@
               </button>
             </transition-group>
           </div>
-          <div class="px-16 sm:px-32" :class="[c.content]" v-if="$slots.default" ref="contentEl">
+          <div class="px-16 sm:px-32" :class="[c.content]" v-if="$slots.default" ref="contentEl" id="f-modal-content">
             <slot />
           </div>
           <div class="px-16 sm:px-32" :class="[c.footer]" v-if="$slots.footer">

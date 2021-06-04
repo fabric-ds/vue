@@ -39,6 +39,46 @@
         </td>
         <td></td>
       </tr>
+      <tr>
+        <td>left</td>
+        <td>
+          <div>boolean | object</div>
+          <div class="annotation">When truthy, will show the left button of the header. Object properties will be used as attributes on the button.</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>right</td>
+        <td>
+          <div>boolean | object</div>
+          <div class="annotation">When truthy, will show the right button of the header. Object properties will be used as attributes on the button.</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>
+          <div>string</div>
+          <div class="annotation"></div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>titleAttrs</td>
+        <td>
+          <div>Object</div>
+          <div class="annotation">Properties will be set as attributes of the title in the header</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>headerClasses</td>
+        <td>
+          <div>string | object</div>
+          <div class="annotation">Classes here will be set on the wrapper for the header</div>
+        </td>
+        <td></td>
+      </tr>
     </docs-table>
 
     <h4 class="mt-64 mb-16">Events</h4>
