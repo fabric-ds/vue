@@ -1120,10 +1120,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@finn-no/fabric-component-classes@^0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@finn-no/fabric-component-classes/-/fabric-component-classes-0.0.19.tgz#75c81e52bf23c50001bc943255d36188843da085"
-  integrity sha512-WtlVzeauTs35ZE9GiVtc1JDfVcl058cOhxhJDQ7/PcmHk22Vvn8HJFvYSkz29gpiaTlMyN3TAm2L0ylrAo5jFQ==
+"@finn-no/fabric-component-classes@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@finn-no/fabric-component-classes/-/fabric-component-classes-0.0.20.tgz#bf6e7b6e9887c9757ce3da359909181db60dcf66"
+  integrity sha512-Od260bq3Q32Ac7bUQGFeQNhOH5wT3XK3CXZYj4xeGkx2npFBywYP2KeDRXcn1FQzh7I4rMJ/xS3zUqfJujp4+Q==
 
 "@lerna/add@4.0.0":
   version "4.0.0"
