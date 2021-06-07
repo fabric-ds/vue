@@ -11,7 +11,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@finn-no/fabric-component-classes": "^0.0.20",
+    "@finn-no/fabric-component-classes": "^0.0.21",
     "@finn-no/fabric-vue-utilities": "^0.9.14"
   },
   "files": [

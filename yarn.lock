@@ -1120,10 +1120,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@finn-no/fabric-component-classes@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@finn-no/fabric-component-classes/-/fabric-component-classes-0.0.20.tgz#bf6e7b6e9887c9757ce3da359909181db60dcf66"
-  integrity sha512-Od260bq3Q32Ac7bUQGFeQNhOH5wT3XK3CXZYj4xeGkx2npFBywYP2KeDRXcn1FQzh7I4rMJ/xS3zUqfJujp4+Q==
+"@finn-no/fabric-component-classes@^0.0.21":
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/@finn-no/fabric-component-classes/-/fabric-component-classes-0.0.21.tgz#5d57c15bb2573c2e115ca0f32e8be8c42d408eff"
+  integrity sha512-zCuJ0QKymV3gfz/iVlHSS9zi4DhWhBqz0NOyLdyN2iRAl+fAO5dkvdxNkzbIhJAU+j+9fnk2ebcNreVztdaUCg==
 
 "@lerna/add@4.0.0":
   version "4.0.0"
@@ -7611,10 +7611,10 @@ rollup@^2.38.5:
   optionalDependencies:
     fsevents "~2.3.1"
 
-rollup@^2.50.6:
-  version "2.50.6"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.50.6.tgz#24e2211caf9031081656e98a5e5e94d3b5e786e2"
-  integrity sha512-6c5CJPLVgo0iNaZWWliNu1Kl43tjP9LZcp6D/tkf2eLH2a9/WeHxg9vfTFl8QV/2SOyaJX37CEm9XuGM0rviUg==
+rollup@^2.51.0:
+  version "2.51.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.51.0.tgz#ffd847882283998fc8611cd57af917f173b4ab5c"
+  integrity sha512-ITLt9sScNCBVspSHauw/W49lEZ0vjN8LyCzSNsNaqT67vTss2lYEfOyxltX8hjrhr1l/rQwmZ2wazzEqhZ/fUg==
   optionalDependencies:
     fsevents "~2.3.1"
 
