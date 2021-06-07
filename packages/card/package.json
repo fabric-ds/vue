@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-card",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "type": "module",
   "module": "dist/card.js",
   "exports": "./dist/card.js",
