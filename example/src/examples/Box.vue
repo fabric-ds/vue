@@ -10,7 +10,12 @@
     <f-box v-else-if="activeExample === 'bordered'" as="section" bordered>
       <h1>I am some content</h1>
     </f-box>
-    <f-box v-else-if="activeExample === 'clickable'" info clickable>
+    <f-box
+      v-else-if="activeExample === 'clickable'"
+      info
+      clickable
+      @click="clickAction"
+    >
       <h1>I am some content</h1>
     </f-box>
 
@@ -95,6 +100,7 @@ const exampleToggles = [
   { label: 'Clickable', value: 'clickable' }
 ]
 const activeExample = ref('bleed')
+const clickAction = () => alert(`You clicked me!`)
 
 const token =
 `<f-box info>
