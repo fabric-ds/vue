@@ -14,7 +14,7 @@ export default {
     neutral: Boolean,
     bordered: Boolean
   },
-  setup: (props, { slots }) => () => h(props.as, {
+  setup: (props, { slots, attrs }) => () => h(props.as, {
     class: {
       [c.box]: true,
       [c.bleed]: props.bleed,
@@ -26,6 +26,19 @@ export default {
       'border-2 border-bluegray-300': props.bordered
     },
     tabindex: props.clickable ? 0 : undefined,
-    role: props.clickable ? 'button' : undefined
-  }, slots.default())
+    onKeydown: props.clickable ? (event) => {
+      // Manually mapping Enter and Space keydown events to the click event (if there is one).
+      // The browser doesn't do this automatically unless the element is a button or an a-element.
+      // The Box element can't be a button or link in case someone puts an interactive element inside the box, which would result in invalid HTML and severe a11y issues.
+      if (typeof attrs.onClick === 'function' && (event.keyCode === 13 || event.keyCode === 32)) {
+        attrs.onClick(event)
+      }
+    } : undefined
+  }, props.clickable ? [
+    slots.default(),
+    h('span', {
+      role: 'button',
+      'aria-label': 'Les mer'
+    })
+  ] : slots.default())
 }
