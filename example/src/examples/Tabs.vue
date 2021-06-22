@@ -17,8 +17,8 @@
     </f-tabs>
     <div :class="{ 'bg-aqua-50 p-24 last-child:mb-0': contained, 'mb-16': !contained }">
       <f-tab-panel name="home" v-if="model === 'home'"><h3>Welcome home!</h3></f-tab-panel>
-      <h3 v-else-if="model === 'car'">I am a car page</h3>
-      <h3 v-else-if="model === 'motorcycle'">Something something two wheels</h3>
+      <f-tab-panel name="car" v-if="model === 'car'"><h3>I am a car page</h3></f-tab-panel>
+      <f-tab-panel name="motorcycle" v-if="model === 'motorcycle'"><h3>Something something two wheels</h3></f-tab-panel>
     </div>
 
     <button class="button button--utility mt-32" @click="contained = !contained">Toggle tab style</button>
