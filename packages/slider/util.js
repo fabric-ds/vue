@@ -20,14 +20,14 @@ export const useDimensions = (sliderLine) => {
 }
 
 export const validKeys = Object.freeze({
-  up: 38,
-  down: 40,
-  left: 37,
-  right: 39,
-  end: 35,
-  home: 36,
-  pageup: 33,
-  pagedown: 34
+  up: 'ArrowUp',
+  down: 'ArrowDown',
+  left: 'ArrowLeft',
+  right: 'ArrowRight',
+  end: 'End',
+  home: 'Home',
+  pageup: 'PageUp',
+  pagedown: 'PageDown'
 })
 
 export const validKeyCodes = Object.values(validKeys)
