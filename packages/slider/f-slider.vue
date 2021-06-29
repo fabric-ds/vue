@@ -13,7 +13,6 @@
       @blur="handleBlur"
       @focus="handleFocus"
       @keydown="handleKeyDown">
-      <div :class="{ [c.thumbCenter]: true, [c.thumbCenterEnabled]: !disabled, [c.thumbCenterDisabled]: disabled }" />
     </div>
   </div>
 </template>
@@ -21,9 +20,19 @@
 <script>
 import { computed, ref, watch } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
-import { slider as c } from '@finn-no/fabric-component-classes'
+// import { slider as c } from '@finn-no/fabric-component-classes'
 import { useDimensions } from './util.js'
 import { createHandlers } from './handlers.js'
+const c = {
+    wrapper: 'f-slider relative w-full h-44',
+    track: 'track absolute bg-blue-200 h-4 top-20 rounded-4 w-full',
+    trackDisabled: 'pointer-events-none bg-gray-200',
+    activeTrack: 'active-track absolute bg-blue-600 h-4 top-20 rounded-4',
+    activeTrackDisabled: 'bg-bluegray-300 pointer-events-none',
+    thumb: 'f-thumb absolute w-24 h-24 bottom-10 rounded-4 outline-none',
+    thumbEnabled: 'shadow bg-blue-600 cursor-pointer',
+    thumbDisabled: 'bg-bluegray-300 cursor-disabled pointer-events-none'
+}
 
 export default {
   name: 'fSlider',
@@ -93,3 +102,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.active-track {
+  height: 6px;
+  top: 19px;
+}
+.f-thumb {
+  transition: 0.1s box-shadow;
+}
+.f-thumb:hover, .f-thumb:focus {
+  box-shadow: 0 0 0 6px rgba(var(--f-blue-400-rgb), 0.4);
+}
+.f-thumb:active {
+  box-shadow: 0 0 0 8px rgba(var(--f-blue-400-rgb), 0.4);
+}
+</style>
