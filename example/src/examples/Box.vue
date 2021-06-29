@@ -10,10 +10,9 @@
     <f-box v-else-if="activeExample === 'bordered'" as="section" bordered>
       <h1>I am some content</h1>
     </f-box>
-    <f-box v-else-if="activeExample === 'clickable'" info :clickable="maybeClickable" @click="clickAction">
+    <f-box v-else-if="activeExample === 'clickable'" info clickable @click="clickAction">
       <h1>I am some content</h1>
     </f-box>
-    <button @click="maybeClickable = !maybeClickable">toggle that</button>
 
     <f-toggle class="mt-32 bg-gray-100 p-16 inline-block rounded-4" no-hint radio label="Box type" :toggles="exampleToggles" v-model="activeExample" />
       <!-- <f-box as="article" clickable class="bg-red-50 hover:bg-red-100 active:bg-red-200 text-red-800 active:text-red-900"> -->
@@ -97,7 +96,6 @@ const exampleToggles = [
 ]
 const activeExample = ref('bleed')
 const clickAction = () => alert(`You clicked me!`)
-const maybeClickable = ref(false)
 
 const token =
 `<f-box info>
