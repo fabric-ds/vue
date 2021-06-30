@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-forms",
-  "version": "0.9.25",
+  "version": "0.9.26",
   "type": "module",
   "module": "dist/forms.js",
   "exports": "./dist/forms.js",
