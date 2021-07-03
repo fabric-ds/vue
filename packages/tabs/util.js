@@ -7,7 +7,8 @@ const validEvents = Object.freeze({
   end: 'End'
 })
 const validEventNames = Object.values(validEvents)
-const shouldExitEarly = (evt) => !(validEventNames.includes(evt.key))
+const hasModifierKey = (evt) => evt.altKey || evt.ctrlKey || evt.shiftKey
+const shouldExitEarly = (evt) => !(!hasModifierKey(evt) && validEventNames.includes(evt.key))
 
 export const useKeydownHandler = ({ tabs, activeTab, focusActive }) => async (event) => {
   if (shouldExitEarly(event)) return
