@@ -33,6 +33,7 @@ export const fExpandTransition = {
     }
     const onAfterEnter = (el) => {
       el.style.height = 'auto'
+      el.style.overflow = null
       emit('expand')
     }
     const onLeave = (el, done) => {
