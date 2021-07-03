@@ -5,6 +5,9 @@
     <section-header label="Example" />
 
     <f-breadcrumbs>
+      <a v-for="a in ['a', 'b', 'c']" :key="a" :href="a">{{a}}</a>
+    </f-breadcrumbs>
+    <f-breadcrumbs>
       <a href="#/foo">Foo</a>
       <a href="#/bar">Bar</a>
       <a href="#/baz" aria-current="page">Baz</a>
