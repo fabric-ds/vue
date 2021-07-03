@@ -20,6 +20,7 @@
 <script>
 import { ref, computed } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
+import { absentProp } from '@finn-no/fabric-vue-utilities'
 import { buttonReset, box as boxClasses } from '@finn-no/fabric-component-classes'
 
 export default {
@@ -42,10 +43,10 @@ export default {
     content: {
       default: 'div'
     },
-    ...modelProps()
+    ...modelProps({ modelDefault: absentProp })
   },
   setup: (props, { emit, slots }) => {
-    const expanded = ('modelValue' in props) ? createModel({ props, emit }) : ref(false)
+    const expanded = (props.modelValue === absentProp) ? ref(false) : createModel({ props, emit })
 
     const hasTitle = computed(() => props.title || slots.title)
 

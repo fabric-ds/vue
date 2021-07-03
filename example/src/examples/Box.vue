@@ -5,19 +5,19 @@
     <section-header label="Example" />
 
     <f-box v-if="activeExample === 'bleed'" bleed class="bg-aqua-300">
-      <h1>I am some content</h1>
+      <h3 class="h1">I am some content</h3>
     </f-box>
     <f-box v-else-if="activeExample === 'bordered'" as="section" bordered>
-      <h1>I am some content</h1>
+      <h3 class="h1">I am some content</h3>
     </f-box>
-    <f-box v-else-if="activeExample === 'clickable'" info clickable @click="clickAction">
-      <h1>I am some content</h1>
+    <f-box v-else-if="activeExample === 'clickable'" info clickable>
+      <h3 class="h1"><f-clickable @click="clickAction" class="font-bold">I am some content</f-clickable></h3>
     </f-box>
 
     <f-toggle class="mt-32 bg-gray-100 p-16 inline-block rounded-4" no-hint radio label="Box type" :toggles="exampleToggles" v-model="activeExample" />
-      <!-- <f-box as="article" clickable class="bg-red-50 hover:bg-red-100 active:bg-red-200 text-red-800 active:text-red-900"> -->
-      <!--   <h1 class="group-hover:text-blue-800">I am some content</h1> -->
-      <!-- </f-box> -->
+    <!-- <f-box as="article" clickable class="bg-red-50 hover:bg-red-100 active:bg-red-200 text-red-800 active:text-red-900"> -->
+    <!--   <h1 class="group-hover:text-blue-800">I am some content</h1> -->
+    <!-- </f-box> -->
 
     <section-header label="Documentation" />
 
@@ -84,7 +84,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
-import { fBox } from '@finn-no/fabric-vue-box'
+import { fBox, fClickable } from '@finn-no/fabric-vue-box'
 import { fToggle } from '@finn-no/fabric-vue-forms'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'

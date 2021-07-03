@@ -1,5 +1,5 @@
 <template>
-  <button :class="tabClasses" @click="setActive" role="tab" :id="`fabric-tab-${name}`" :aria-selected="isActive" :aria-controls="isActive ? `fabric-tabpanel-${name}` : undefined" :tabindex="isActive ? 0 : -1">
+  <button :class="tabClasses" @click="setActive" role="tab" :id="`fabric-tab-${name}`" :aria-selected="isActive" :aria-controls="isActive ? `fabric-tabpanel-${name}` : undefined" :tabindex="isActive ? 0 : -1" @keydown="onKeydown">
     <span v-if="$slots.default" :class="iconClasses">
       <slot />
     </span>
@@ -54,7 +54,7 @@ export default {
       [c.tabContainedActive]: contained.value && isActive.value
     }))
 
-    return { isActive, setActive, contentClasses, iconClasses, tabClasses }
+    return { isActive, setActive, contentClasses, iconClasses, tabClasses, onKeydown: controller.onKeydown }
   }
 }
 </script>

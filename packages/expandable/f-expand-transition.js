@@ -1,12 +1,14 @@
 import { Transition, TransitionGroup, h } from 'vue'
 
 const removeTransition = el => {
-  el.style.transition = ''
-  el.style.backfaceVisibility = ''
+  el.style.transition = null
+  el.style.backfaceVisibility = null
+  el.style.overflow = null
 }
 const addTransition = el => {
   el.style.transition = 'height var(--f-expansion-duration, 0.3s)'
   el.style.backfaceVisibility = 'hidden'
+  el.style.overflow = 'hidden'
 }
 
 export const fExpandTransition = {

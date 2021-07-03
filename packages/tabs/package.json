@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@finn-no/fabric-vue-utilities": "^0.9.14",
-    "create-v-model": "^2.0.1",
+    "create-v-model": "^2.1.2",
     "femtobounce": "^1.0.0"
   },
   "files": [

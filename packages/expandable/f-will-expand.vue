@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden" :key="key">
+  <div :key="key">
     <slot />
   </div>
 </template>
