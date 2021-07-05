@@ -1,8 +1,12 @@
-import { h } from 'vue'
+import { h, Fragment } from 'vue'
 
 const separator = () => h('span', { ariaHidden: true, class: 'select-none' }, '/')
 // from https://stackoverflow.com/a/55387306/966362
-const interleave = (arr, el) => [].concat(...arr.map(n => [n, el])).slice(0, -1)
+const interleave = (slot, el) => {
+  // check if the default slot is using v-for or just normal elements
+  const arr = slot[0].type === Fragment ? slot[0].children : slot
+  return [].concat(...arr.map(n => [n, el])).slice(0, -1)
+}
 
 export default {
   name: 'fBreadcrumbs',

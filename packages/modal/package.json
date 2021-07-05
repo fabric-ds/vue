@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-modal",
-  "version": "0.9.24",
+  "version": "0.9.27",
   "type": "module",
   "module": "dist/modal.js",
   "exports": "./dist/modal.js",
@@ -14,8 +14,8 @@
     "/dist"
   ],
   "dependencies": {
-    "@finn-no/fabric-component-classes": "^0.0.22",
-    "@finn-no/fabric-vue-utilities": "^0.9.14",
+    "@finn-no/fabric-component-classes": "^0.0.24",
+    "@finn-no/fabric-vue-utilities": "^0.9.15",
     "dom-focus-lock": "^1.0.4",
     "scroll-doctor": "^0.9.1"
   },

@@ -11,8 +11,8 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
   }
 
   function handleKeyDown(e) {
-    const key = e.keyCode
-    if (![...validKeyCodes].includes(key)) return
+    const key = e.key
+    if (!validKeyCodes.includes(key)) return
     e.preventDefault()
     if ([validKeys.left, validKeys.right, validKeys.up, validKeys.down].includes(key)) {
       const direction = [validKeys.right, validKeys.up].includes(key) ? 1 : -1

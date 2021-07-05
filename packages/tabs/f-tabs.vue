@@ -12,6 +12,9 @@ import { tabs as c } from '@finn-no/fabric-component-classes'
 import { provide, computed, ref, toRef, watch, nextTick, onMounted } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import debounce from 'femtobounce'
+import { useKeydownHandler } from './util'
+
+const useGetActiveTab = (tabContainer) => () => tabContainer.value.querySelector('.active-tab')
 
 export default {
   name: 'fTabs',
@@ -30,7 +33,9 @@ export default {
       if (idx !== -1) tabs.value.splice(idx, 1)
     }
     const numberOfTabs = computed(() => tabs.value.length)
-    provide('tab-controller', { registerTab, unregisterTab })
+    const getActiveTab = useGetActiveTab(tabContainer)
+    const focusActive = () => getActiveTab()?.focus()
+    provide('tab-controller', { registerTab, unregisterTab, onKeydown: useKeydownHandler({ tabs, activeTab, focusActive }) })
     provide('activeTab', activeTab)
     provide('contained', toRef(props, 'contained'))
 
@@ -38,7 +43,7 @@ export default {
       if (props.contained) return
       await nextTick()
       try {
-        const activeEl = tabContainer.value.querySelector('.active-tab')
+        const activeEl = getActiveTab()
         const { left: parentLeft } = tabContainer.value.getBoundingClientRect()
         const { left, width } = activeEl.getBoundingClientRect()
         wunderbar.value.style.left = (left - parentLeft) + 'px'

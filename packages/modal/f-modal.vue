@@ -58,7 +58,7 @@ export default {
     const showContent = ref(false)
     const emitDismiss = () => emit('dismiss')
     const emitIfEscape = e => {
-      if (e.keyCode === escape) emitDismiss()
+      if (e.key === 'Escape') emitDismiss()
     }
 
     // vue-ism

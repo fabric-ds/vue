@@ -6,7 +6,7 @@ export const useDimensions = (sliderLine) => {
   // we use boundingClient because other observer attributes don't calculate X offset in a useful way
   const onResize = entries => {
     const { left, width: w } = entries[0].target.getBoundingClientRect()
-    dimensions.value = { left, width: w - 29 } // so the thumb can't run off the track to the right because Troika's slider is built 'wrong' UI-wise
+    dimensions.value = { left, width: w - 24 } // so the thumb can't run off the track to the right because Troika's slider is built 'wrong' UI-wise
   }
   onMounted(() => {
     dimensions.value = sliderLine.value.getBoundingClientRect()
@@ -20,14 +20,14 @@ export const useDimensions = (sliderLine) => {
 }
 
 export const validKeys = Object.freeze({
-  up: 38,
-  down: 40,
-  left: 37,
-  right: 39,
-  end: 35,
-  home: 36,
-  pageup: 33,
-  pagedown: 34
+  up: 'ArrowUp',
+  down: 'ArrowDown',
+  left: 'ArrowLeft',
+  right: 'ArrowRight',
+  end: 'End',
+  home: 'Home',
+  pageup: 'PageUp',
+  pagedown: 'PageDown'
 })
 
 export const validKeyCodes = Object.values(validKeys)

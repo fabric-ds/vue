@@ -6,6 +6,8 @@
 
 <script>
 import { watchEffect } from 'vue'
+import { absentProp } from '@finn-no/fabric-vue-utilities'
+import { modelProps } from 'create-v-model'
 import { createValidationCollector } from './validation'
 
 export default {
@@ -14,15 +16,18 @@ export default {
     as: {
       default: 'form'
     },
-    shouldValidate: null,
-    'onUpdate:modelValue': Function,
-    'onUpdate:completed': Function
+    shouldValidate: {
+      type: null,
+      default: absentProp
+    },
+    ...modelProps({ modelDefault: absentProp }),
+    ...modelProps({ modelName: 'completed', modelDefault: absentProp }),
   },
-  setup(props) {
+  setup(props, { emit }) {
     const { allChildrenValid, completed, childrenShouldValidate } = createValidationCollector()
-    if ('onUpdate:modelValue' in props) watchEffect(() => props['onUpdate:modelValue'](allChildrenValid.value))
-    if ('onUpdate:completed' in props) watchEffect(() => props['onUpdate:completed'](completed.value))
-    if ('shouldValidate' in props) watchEffect(() => childrenShouldValidate.value = props.shouldValidate)
+    if (props.modelValue !== absentProp) watchEffect(() => emit('update:modelValue', allChildrenValid.value))
+    if (props.completed !== absentProp) watchEffect(() => emit('update:completed', completed.value))
+    if (props.shouldValidate !== absentProp) watchEffect(() => childrenShouldValidate.value = props.shouldValidate)
   }
 }
 </script>

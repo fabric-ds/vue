@@ -6,3 +6,5 @@ let _id = 0
 export const id = {
   default: () => 'f-' + prefix + _id++
 }
+
+export const absentProp = Symbol()

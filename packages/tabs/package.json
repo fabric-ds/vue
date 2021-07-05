@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-tabs",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "type": "module",
   "module": "dist/tabs.js",
   "exports": "./dist/tabs.js",
@@ -11,8 +11,9 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.14",
-    "create-v-model": "^2.0.1",
+    "@finn-no/fabric-component-classes": "^0.0.24",
+    "@finn-no/fabric-vue-utilities": "^0.9.15",
+    "create-v-model": "^2.1.2",
     "femtobounce": "^1.0.0"
   },
   "files": [

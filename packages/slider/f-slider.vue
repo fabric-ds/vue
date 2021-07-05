@@ -13,7 +13,6 @@
       @blur="handleBlur"
       @focus="handleFocus"
       @keydown="handleKeyDown">
-      <div :class="{ [c.thumbCenter]: true, [c.thumbCenterEnabled]: !disabled, [c.thumbCenterDisabled]: disabled }" />
     </div>
   </div>
 </template>
