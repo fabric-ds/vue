@@ -1,6 +1,6 @@
 <template>
   <div class="f-expandable" :class="wrapperClasses">
-    <button v-if="hasTitle" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
+    <button v-if="hasTitle" type="button" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
       <slot name="title" :expanded="expanded" />
       <span class="h4" v-if="title">{{ title }}</span>
       <div :class="chevronClasses" v-if="chevron">
