@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-box",
-  "version": "0.9.26",
+  "version": "0.9.27",
   "type": "module",
   "module": "dist/box.js",
   "exports": "./dist/box.js",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@finn-no/fabric-component-classes": "^0.0.24",
-    "@finn-no/fabric-vue-utilities": "^0.9.15"
+    "@finn-no/fabric-vue-utilities": "^0.9.16"
   },
   "files": [
     "/dist"

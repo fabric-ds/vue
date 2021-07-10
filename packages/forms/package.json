@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-forms",
-  "version": "0.9.27",
+  "version": "0.9.28",
   "type": "module",
   "module": "dist/forms.js",
   "exports": "./dist/forms.js",
@@ -14,7 +14,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@finn-no/fabric-vue-utilities": "^0.9.15",
+    "@finn-no/fabric-vue-utilities": "^0.9.16",
     "create-v-model": "^2.1.2"
   },
   "publishConfig": {
