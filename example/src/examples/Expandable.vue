@@ -111,7 +111,7 @@
       </template>
       <tr>
         <td>title</td>
-        <td>Content inside toggle-button - this can be used if more control over styling is needed than the title prop allows</td>
+        <td>Content inside toggle-button - this can be used if more control over styling is needed than the title prop allows. Also receives <code>expanded</code> as a slot-prop for v-model-less use cases.</td>
       </tr>
       <tr>
         <td>default</td>
