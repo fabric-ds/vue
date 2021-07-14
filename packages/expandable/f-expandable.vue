@@ -21,7 +21,7 @@
 import { ref, computed } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { absentProp } from '@finn-no/fabric-vue-utilities'
-import { buttonReset, box as boxClasses } from '@finn-no/fabric-component-classes'
+import { expandable as c, box } from '@finn-no/fabric-component-classes'
 
 export default {
   name: 'fExpandable',
@@ -51,28 +51,28 @@ export default {
     const hasTitle = computed(() => props.title || slots.title)
 
     const wrapperClasses = computed(() => ({
-      'bg-aqua-50': props.info,
-      ['py-0 px-0 ' + boxClasses.box]: props.box,
-      [boxClasses.bleed]: props.bleed
+      [c.expandable]: true,
+      [c.expandableInfo]: props.info,
+      [c.expandableBox]: props.box,
+      [c.expandableBleed]: props.bleed
     }))
 
     const buttonClasses = computed(() => ({
       [props.buttonClass || '']: true,
-      [buttonReset + ' hover:underline focus:underline']: true,
-      ['w-full text-left relative ' + boxClasses.box]: props.box,
-      'hover:text-aqua-700 active:text-aqua-800': props.info
+      [c.button]: true,
+      [c.buttonBox]: props.box,
+      [c.buttonInfo]: props.info
     }))
 
     const chevronClasses = computed(() => ({
-      'inline-block align-middle transform transition-transform': true,
-      '-rotate-180': expanded.value,
-      'relative left-8': !props.box,
-      'f-expandable-chevron absolute right-16': props.box
+      [c.chevron]: true,
+      [props.box ? c.chevronBox : c.chevronNonBox]: true,
+      [c.chevronExpanded]: expanded.value,
     }))
 
     const contentClasses = computed(() => ({
       [props.contentClass || '']: true,
-      [boxClasses.box + (hasTitle.value ? ' pt-0' : '')]: props.box,
+      [box.box + (hasTitle.value ? ' pt-0' : '')]: props.box,
     }))
 
     return { expanded, buttonClasses, chevronClasses, contentClasses, wrapperClasses, hasTitle }
