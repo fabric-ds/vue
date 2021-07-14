@@ -8,7 +8,7 @@
       </div>
     </button>
     <component :is="content" @expand="$emit('expand')" @collapse="$emit('collapse')">
-      <div v-if="expanded" class="overflow-hidden">
+      <div v-if="expanded">
         <div :class="contentClasses">
           <slot />
         </div>
