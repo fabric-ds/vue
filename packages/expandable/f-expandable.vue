@@ -7,7 +7,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 5.5L8 11l5.5-5.5"/></svg>
       </div>
     </button>
-    <component :is="content" @expand="$emit('expand')" @collapse="$emit('collapse')">
+    <component :is="contentComponent" @expand="$emit('expand')" @collapse="$emit('collapse')">
       <div v-if="expanded">
         <div :class="contentClasses">
           <slot />
@@ -40,13 +40,14 @@ export default {
       type: String,
       default: 'div'
     },
-    content: {
-      default: 'div'
-    },
+    content: { default: absentProp },
     ...modelProps({ modelDefault: absentProp })
   },
   setup: (props, { emit, slots }) => {
     const expanded = (props.modelValue === absentProp) ? ref(false) : createModel({ props, emit })
+    const contentComponent = (props.content === absentProp) ? 'div' : props.content
+    // fExpandTransition emits its own events and we just bubble them, but for a normal DOM element we need to create them
+    if (props.content === absentProp) watch(expanded, (isExpanded) => emit(isExpanded ? 'expand' : 'collapse'))
 
     const hasTitle = computed(() => props.title || slots.title)
 
@@ -75,7 +76,7 @@ export default {
       [box.box + (hasTitle.value ? ' pt-0' : '')]: props.box,
     }))
 
-    return { expanded, buttonClasses, chevronClasses, contentClasses, wrapperClasses, hasTitle }
+    return { expanded, contentComponent, buttonClasses, chevronClasses, contentClasses, wrapperClasses, hasTitle }
   }
 }
 </script>
