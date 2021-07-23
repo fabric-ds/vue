@@ -1,6 +1,7 @@
 import { h } from 'vue'
 
 export default {
+  name: 'fTabPanel',
   props: {
     name: {
       type: String,

@@ -46,7 +46,7 @@ export default {
     const thumb = ref(null)
     const { dimensions } = useDimensions(sliderLine)
     const sliderPressed = ref(false)
-    const v = createModel({ props })
+    const v = createModel({ props, emit })
     const position = ref(v.value)
 
     // step is a computed so we can check if props.step is set or not
