@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { absentProp } from '@finn-no/fabric-vue-utilities'
 import { expandable as c, box } from '@finn-no/fabric-component-classes'
