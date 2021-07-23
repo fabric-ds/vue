@@ -73,11 +73,15 @@
       </tr>
     </docs-table>
 
+    <h4 class="mt-64 mb-16">Clickable boxes</h4>
+    <p class="text-14">The Box component supplies <code>f-clickable</code> which is a button that will cover the entire box.</p>
+    <show-token :token="clickableToken" />
+
     <h4 class="mt-64 mb-16">Adding utility classes</h4>
     <h5 class="text-gray-500">Styling slotted content</h5>
-    <p>The box component applies the <span class="token">group</span> utility, so the hover state can be styled using <a href="https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover"><span class="token">group-hover:*</span></a></p>
+    <p class="text-14">The box component applies the <span class="token">group</span> utility, so the hover state can be styled using <a href="https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover"><span class="token">group-hover:*</span></a></p>
     <h5 class="mt-16 text-gray-500">Styling clickable boxes</h5>
-    <p>If creating a custom clickable box - one can use <span class="token">hover:*</span> and <span class="token">active:*</span> to style the respective states.</p>
+    <p class="text-14">If creating a custom clickable box - one can use <span class="token">hover:*</span> and <span class="token">active:*</span> to style the respective states.</p>
   </div>
 </template>
 
@@ -100,5 +104,9 @@ const clickAction = () => alert(`You clicked me!`)
 const token =
 `<f-box info>
   <h1>I am some content</h1>
+</f-box>`
+const clickableToken =
+`<f-box>
+  <h3 class="h1"><f-clickable @click="clickAction">I am informative content for the click action</f-clickable></h3>
 </f-box>`
 </script>

@@ -9,7 +9,6 @@ import { browsers } from './browsers'
 const input = './entry.js'
 const defaultExternal = [
   'vue',
-  '@vue/server-renderer',
   'create-v-model',
   '@finn-no/fabric-vue-utilities'
 ]

@@ -16,7 +16,7 @@
       <h1>I am content</h1>
     </f-expandable>
 
-    <f-expandable v-else-if="activeExample === 'animated'" box class="bg-green-50" button-class="hover:text-green-700" title="Click to expand" :content="fExpandTransition">
+    <f-expandable v-else-if="activeExample === 'animated'" box animated class="bg-green-50" button-class="hover:text-green-700" title="Click to expand">
       <h1>I am content</h1>
     </f-expandable>
 
@@ -42,14 +42,6 @@
         <td>
           <div>string</div>
           <div class="annotation">The DOM element to emit for the parent element</div>
-        </td>
-        <td>div</td>
-      </tr>
-      <tr>
-        <td>content</td>
-        <td>
-          <div>string | component</div>
-          <div class="annotation">The DOM element to emit for the content area</div>
         </td>
         <td>div</td>
       </tr>
@@ -122,7 +114,7 @@
     <h4 class="mt-64 mb-16">Animation</h4>
     <p class="border-l-8 bg-red-50 border-red-700 p-16 rounded-4 mb-16 text-12">You should only use this feature under careful supervision of your friendly local UXer.</p>
 
-    <p class="text-12 mt-32 mb-16">The <code>f-expandable</code> component can be animated by passing <code>fExpandTransition</code> to the <code>content</code> prop.</p>
+    <p class="text-12 mt-32 mb-16">The <code>f-expandable</code> component can be animated by using the <code>animated</code> prop.</p>
     <show-token :token="animatedExpandableToken" />
 
     <p class="text-12 mt-32 mb-16">The <code>fExpandTransition</code> component can wrap one or more <code>fWillExpand</code> components.</p>
@@ -152,7 +144,7 @@ const token =
   <p>Hello there I am some informative content</p>
 </f-expandable>`
 const animatedExpandableToken =
-`<f-expandable title="Click to expand" :content="fExpandTransition">
+`<f-expandable title="Click to expand" animated>
   <p>Hello there I am some informative content</p>
 </f-expandable>`
 const expandTransitionToken =

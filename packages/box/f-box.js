@@ -16,8 +16,6 @@ export default {
   },
   setup: (props, { slots }) => () => h(props.as, {
     class: {
-      // FIXME: add to the main box class
-      'relative': true,
       [c.box]: true,
       [c.bleed]: props.bleed,
       // [c.clickable]: props.clickable,

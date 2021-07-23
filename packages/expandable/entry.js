@@ -6,5 +6,5 @@ export default {
 }
 
 export { fExpandable }
-export * from './f-expand-transition'
+export { default as fExpandTransition } from './f-expand-transition.js'
 export { default as fWillExpand } from './f-will-expand.vue'

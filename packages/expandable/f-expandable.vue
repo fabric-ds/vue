@@ -1,5 +1,5 @@
 <template>
-  <div class="f-expandable" :class="wrapperClasses">
+  <component :is="as" class="f-expandable" :class="wrapperClasses" >
     <button v-if="hasTitle" type="button" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
       <slot name="title" :expanded="expanded" />
       <span class="h4" v-if="title">{{ title }}</span>
@@ -14,13 +14,14 @@
         </div>
       </div>
     </component>
-  </div>
+  </component>
 </template>
 
 <script>
 import { ref, computed, watch } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { absentProp } from '@finn-no/fabric-vue-utilities'
+import expandTransition from './f-expand-transition.js'
 import { expandable as c, box } from '@finn-no/fabric-component-classes'
 
 export default {
@@ -40,14 +41,14 @@ export default {
       type: String,
       default: 'div'
     },
-    content: { default: absentProp },
+    animated: Boolean,
     ...modelProps({ modelDefault: absentProp })
   },
   setup: (props, { emit, slots }) => {
     const expanded = (props.modelValue === absentProp) ? ref(false) : createModel({ props, emit })
-    const contentComponent = (props.content === absentProp) ? 'div' : props.content
+    const contentComponent = props.animated ? expandTransition : 'div'
     // fExpandTransition emits its own events and we just bubble them, but for a normal DOM element we need to create them
-    if (props.content === absentProp) watch(expanded, (isExpanded) => emit(isExpanded ? 'expand' : 'collapse'))
+    if (!props.animated) watch(expanded, (isExpanded) => emit(isExpanded ? 'expand' : 'collapse'))
 
     const hasTitle = computed(() => props.title || slots.title)
 
