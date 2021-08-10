@@ -3,7 +3,7 @@
     <nav class="sidebar bg-gray-50 p-16">
       <h1 class="text-22 flex items-center">
         Fabric
-        <img class="h-24 ml-8" src="/fabric-vue/vue-logo.png" />
+        <img class="h-24 ml-8" src="/vue-logo.png" />
       </h1>
 
 
