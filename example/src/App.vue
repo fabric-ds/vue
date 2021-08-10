@@ -3,27 +3,27 @@
     <nav class="sidebar bg-gray-50 p-16">
       <h1 class="text-22 flex items-center">
         Fabric
-        <img class="h-24 ml-8" src="/vue-logo.png" />
+        <img class="h-24 ml-8" src="/fabric-vue/vue-logo.png" />
       </h1>
 
 
       <h2 class="mt-32 text-16">Components</h2>
-      <sidebar-link to="/button" label="Button" />
-      <sidebar-link to="/slider" label="Slider" />
-      <sidebar-link to="/switch" label="Switch" />
-      <sidebar-link to="/toast" label="Toast" />
-      <sidebar-link to="/modal" label="Modal" />
-      <sidebar-link to="/breadcrumbs" label="Breadcrumbs" />
-      <sidebar-link to="/forms" label="Forms" />
-      <sidebar-link to="/box" label="Box" />
-      <sidebar-link to="/card" label="Card" />
-      <sidebar-link to="/tabs" label="Tabs" />
-      <sidebar-link to="/expandable" label="Expandable" />
-      <sidebar-link to="/steps" label="Steps" />
+      <sidebar-link to="/fabric-vue/button" label="Button" />
+      <sidebar-link to="/fabric-vue/slider" label="Slider" />
+      <sidebar-link to="/fabric-vue/switch" label="Switch" />
+      <sidebar-link to="/fabric-vue/toast" label="Toast" />
+      <sidebar-link to="/fabric-vue/modal" label="Modal" />
+      <sidebar-link to="/fabric-vue/breadcrumbs" label="Breadcrumbs" />
+      <sidebar-link to="/fabric-vue/forms" label="Forms" />
+      <sidebar-link to="/fabric-vue/box" label="Box" />
+      <sidebar-link to="/fabric-vue/card" label="Card" />
+      <sidebar-link to="/fabric-vue/tabs" label="Tabs" />
+      <sidebar-link to="/fabric-vue/expandable" label="Expandable" />
+      <sidebar-link to="/fabric-vue/steps" label="Steps" />
 
       <h2 class="mt-32 text-16">General</h2>
-      <sidebar-link to="/" label="Home" />
-      <sidebar-link to="/icons" label="Icons" />
+      <sidebar-link to="/fabric-vue" label="Home" />
+      <sidebar-link to="/fabric-vue/icons" label="Icons" />
     </nav>
     <main class="p-16 lg:p-64 mx-auto">
       <router-view />
