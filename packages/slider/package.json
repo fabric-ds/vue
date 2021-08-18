@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-slider",
-  "version": "0.9.30",
+  "version": "0.10.0",
   "type": "module",
   "module": "dist/slider.js",
   "exports": "./dist/slider.js",

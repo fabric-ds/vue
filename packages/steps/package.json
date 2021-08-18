@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-steps",
-  "version": "0.9.27",
+  "version": "0.10.0",
   "type": "module",
   "module": "dist/steps.js",
   "exports": "./dist/steps.js",
