@@ -19,7 +19,7 @@
               </button>
             </transition-group>
           </div>
-          <div :class="c.content" v-if="$slots.default" ref="contentEl" id="f-modal-content">
+          <div :class="c.content" v-if="$slots.default" ref="contentEl" :id="contentId">
             <slot />
           </div>
           <div :class="c.footer" v-if="$slots.footer">
@@ -35,6 +35,7 @@
 import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
 import { modal as c } from '@finn-no/fabric-component-classes'
 import focusLock from 'dom-focus-lock'
+import { id } from '@finn-no/fabric-vue-utilities'
 import { setup as setupScrollLock, teardown as teardownScrollLock } from 'scroll-doctor'
 
 const escape = 27
@@ -47,7 +48,8 @@ export default {
     title: String,
     titleAttrs: Object,
     headerClasses: [String, Object],
-    modelValue: Boolean
+    modelValue: Boolean,
+    contentId: id
   },
   emits: ['dismiss', 'left', 'right'],
   setup(props, { emit }) {

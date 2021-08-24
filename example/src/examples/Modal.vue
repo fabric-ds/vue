@@ -79,6 +79,14 @@
         </td>
         <td></td>
       </tr>
+      <tr>
+        <td>contentId</td>
+        <td>
+          <div>string</div>
+          <div class="annotation">This id is useful if you need to programatically scroll content in the modal</div>
+        </td>
+        <td></td>
+      </tr>
     </docs-table>
 
     <h4 class="mt-64 mb-16">Events</h4>
