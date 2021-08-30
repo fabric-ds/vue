@@ -9,7 +9,7 @@
     "dev": "yarn lerna run --parallel dev",
     "build": "yarn lerna run build --parallel",
     "site": "yarn build && yarn lerna run site --parallel",
-    "postsite": "cd example/dist && cp index.html 200.html"
+    "postsite": "cd example/dist && cp index.html 200.html && cp index.html 404.html"
   },
   "keywords": [],
   "author": "Dave Honneffer <pearofducks@gmail.com>",
