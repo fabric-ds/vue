@@ -4,7 +4,6 @@
   "description": "",
   "private": true,
   "scripts": {
-    "prepare": "yarn build",
     "postinstall": "manypkg check",
     "dev": "yarn lerna run --parallel dev",
     "build": "yarn lerna run build --parallel",
