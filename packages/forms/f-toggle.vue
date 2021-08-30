@@ -54,8 +54,7 @@ export default {
       'input-toggle': props.radio || props.checkbox
     })),
     optionsClasses: computed(() => ({
-      'flex flex-row': props.radioButton,
-      'segment-control-options': props.radioButton,
+      'flex flex-row segment-control-options': props.radioButton,
     }))
   })
 }
