@@ -65,7 +65,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, h } from 'vue'
 import { PropsNotice } from '../util.js'
 import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix } from '@finn-no/fabric-vue-forms'
@@ -76,7 +76,8 @@ import FormFieldDocs from './FormFieldDocs.vue'
 import FormInputDocs from './FormInputDocs.vue'
 import FormValidationDocs from './FormValidationDocs.vue'
 
-const activeDocument = ref('input')
+const initialDoc = window.location.hash.replace('#', '') || 'input'
+const activeDocument = ref(initialDoc)
 
 const Tab = (props, context) => h('button', {
   class: {
@@ -94,7 +95,7 @@ const exampleToggles = [
   { label: 'Checkbox', value: 'checkbox' },
   { label: 'Radio-button', value: 'radio-button' }
 ]
-const activeExample = ref('input')
+const activeExample = ref(initialDoc)
 
 const handleClear = (el) => {
   inputModel.value = ''
@@ -135,14 +136,4 @@ const fieldToken =
 `<f-field label="I can be anything!" hint="Isn't that neat?">
   <your-custom-element />
 <f-field>`
-
-export default {
-  components: { Tab, fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix, FormToggleDocs, FormFieldDocs, FormInputDocs, FormValidationDocs, Setup },
-  setup: () => ({
-    activeDocument, activeExample,
-    inputToken, textareaToken, selectToken, toggleToken, fieldToken,
-    form1, form2, handleSubmit, handleClear,
-    moneyMask, inputModel, numericModel, textareaModel, selectModel, multiToggleModel, checkboxModel, toggles, exampleToggles,
-  })
-}
 </script>

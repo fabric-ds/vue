@@ -16,7 +16,7 @@ jobs:
           yarn
       - name: Build Docs
         run: |
-          cd example && yarn site
+          yarn site
       - name: Deploy
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
