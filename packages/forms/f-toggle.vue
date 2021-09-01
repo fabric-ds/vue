@@ -1,5 +1,5 @@
 <template>
-  <f-field v-bind="{ ...$attrs, ...$props }" :role="role" #default="{ triggerValidation }">
+  <f-field as="fieldset" v-bind="{ ...$attrs, ...$props }" :role="role" #default="{ triggerValidation }">
     <div :class="wrapperClasses">
       <div :class="optionsClasses">
         <f-toggle-item v-for="(toggle, i) in toggles"

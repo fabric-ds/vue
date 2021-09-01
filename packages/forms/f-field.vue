@@ -1,5 +1,5 @@
 <template>
-  <fieldset class="field" :class="{ 'is-invalid': hasErrorMessage, 'is-disabled': disabled, [$attrs.class || '']: true }" :role="role" v-bind="aria">
+  <component :is="as" class="field" :class="{ 'is-invalid': hasErrorMessage, 'is-disabled': disabled, [$attrs.class || '']: true }" :role="role" v-bind="aria">
     <label v-if="label" class="field-label" :id="labelId" :for="id">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></label>
     <slot :triggerValidation="triggerValidation" :for="id" :labelId="labelId" />
     <slot name="control" :form="collector" />
@@ -8,7 +8,7 @@
       <span v-if="hint && hasErrorMessage">, </span>
       <span :id="errorId" v-if="hasErrorMessage">{{ validationMsg }}</span>
     </div>
-  </fieldset>
+  </component>
 </template>
 
 <script>
@@ -36,6 +36,10 @@ export default {
   inheritAttrs: false,
   props: {
     ...fieldProps,
+    as: {
+      type: String,
+      default: 'div',
+    },
     required: [Boolean, Function],
     disabled: Boolean,
   },
