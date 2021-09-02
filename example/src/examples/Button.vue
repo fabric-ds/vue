@@ -9,6 +9,7 @@
       <f-button secondary>Click me!</f-button>
       <f-button secondary quiet>Click me!</f-button>
       <f-button secondary quiet small>Click me!</f-button>
+      <f-button loading>Click me!</f-button>
     </div>
 
     <section-header label="Documentation" />
