@@ -15,7 +15,7 @@ export default {
     href: String,
     label: String
   },
-  setup: (props, { slots, attrs }) => () => h('span', null, [
+  setup: (props, { slots, attrs }) => () => [
     h(props.href ? 'a' : 'button', {
       class: {
         'button': true,
@@ -41,5 +41,5 @@ export default {
       'aria-valuenow': 0,
       'aria-valuetext': 'Laster...',
     }) : null
-  ])
+  ]
 }
