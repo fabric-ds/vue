@@ -40,6 +40,7 @@ export default {
       role: 'progressbar',
       'aria-valuenow': 0,
       'aria-valuetext': 'Laster...',
+      class: 'sr-only',
     }) : null
   ]
 }
