@@ -22,20 +22,20 @@ import Expandable from "./examples/Expandable.vue";
 import Steps from "./examples/Steps.vue";
 
 const routes = [
-  { path: "/fabric-vue/", component: Home },
-  { path: "/fabric-vue/icons", component: Icons },
-  { path: "/fabric-vue/button", component: Button },
-  { path: "/fabric-vue/slider", component: Slider },
-  { path: "/fabric-vue/switch", component: Switch },
-  { path: "/fabric-vue/toast", component: Toast },
-  { path: "/fabric-vue/modal", component: Modal },
-  { path: "/fabric-vue/breadcrumbs", component: Breadcrumbs },
-  { path: "/fabric-vue/forms", component: Form },
-  { path: "/fabric-vue/box", component: Box },
-  { path: "/fabric-vue/card", component: Card },
-  { path: "/fabric-vue/tabs", component: Tabs },
-  { path: "/fabric-vue/expandable", component: Expandable },
-  { path: "/fabric-vue/steps", component: Steps },
+  { path: "/fabric-vue/", component: Home, name: 'home' },
+  { path: "/fabric-vue/icons", component: Icons, name: 'icons' },
+  { path: "/fabric-vue/button", component: Button, name: 'button' },
+  { path: "/fabric-vue/slider", component: Slider, name: 'slider' },
+  { path: "/fabric-vue/switch", component: Switch, name: 'switch' },
+  { path: "/fabric-vue/toast", component: Toast, name: 'toast' },
+  { path: "/fabric-vue/modal", component: Modal, name: 'modal' },
+  { path: "/fabric-vue/breadcrumbs", component: Breadcrumbs, name: 'breadcrumbs' },
+  { path: "/fabric-vue/forms", component: Form, name: 'forms' },
+  { path: "/fabric-vue/box", component: Box, name: 'box' },
+  { path: "/fabric-vue/card", component: Card, name: 'card' },
+  { path: "/fabric-vue/tabs", component: Tabs, name: 'tabs' },
+  { path: "/fabric-vue/expandable", component: Expandable, name: 'expandable' },
+  { path: "/fabric-vue/steps", component: Steps, name: 'steps' },
 ];
 
 const scrollBehavior = () => ({ top: 0 });

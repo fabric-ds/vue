@@ -13,22 +13,22 @@
       <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://opensource.finn.no/fabric-elements">Fabric Elements</a>
 
       <h2 class="mt-32 text-16">Components</h2>
-      <sidebar-link to="/fabric-vue/button" label="Button" />
-      <sidebar-link to="/fabric-vue/slider" label="Slider" />
-      <sidebar-link to="/fabric-vue/switch" label="Switch" />
-      <sidebar-link to="/fabric-vue/toast" label="Toast" />
-      <sidebar-link to="/fabric-vue/modal" label="Modal" />
-      <sidebar-link to="/fabric-vue/breadcrumbs" label="Breadcrumbs" />
-      <sidebar-link to="/fabric-vue/forms" label="Forms" />
-      <sidebar-link to="/fabric-vue/box" label="Box" />
-      <sidebar-link to="/fabric-vue/card" label="Card" />
-      <sidebar-link to="/fabric-vue/tabs" label="Tabs" />
-      <sidebar-link to="/fabric-vue/expandable" label="Expandable" />
-      <sidebar-link to="/fabric-vue/steps" label="Steps" />
+      <sidebar-link :to="{ name: 'button' }" label="Button" />
+      <sidebar-link :to="{ name: 'slider' }" label="Slider" />
+      <sidebar-link :to="{ name: 'switch' }" label="Switch" />
+      <sidebar-link :to="{ name: 'toast' }" label="Toast" />
+      <sidebar-link :to="{ name: 'modal' }" label="Modal" />
+      <sidebar-link :to="{ name: 'breadcrumbs' }" label="Breadcrumbs" />
+      <sidebar-link :to="{ name: 'forms' }" label="Forms" />
+      <sidebar-link :to="{ name: 'box' }" label="Box" />
+      <sidebar-link :to="{ name: 'card' }" label="Card" />
+      <sidebar-link :to="{ name: 'tabs' }" label="Tabs" />
+      <sidebar-link :to="{ name: 'expandable' }" label="Expandable" />
+      <sidebar-link :to="{ name: 'steps' }" label="Steps" />
 
       <h2 class="mt-32 text-16">General</h2>
-      <sidebar-link to="/fabric-vue" label="Home" />
-      <sidebar-link to="/fabric-vue/icons" label="Icons" />
+      <sidebar-link :to="{ name: 'home' }" label="Home" />
+      <sidebar-link :to="{ name: 'icons' }" label="Icons" />
     </nav>
     <main class="p-16 lg:p-64 mx-auto">
       <router-view />
