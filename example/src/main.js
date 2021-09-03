@@ -22,25 +22,25 @@ import Expandable from "./examples/Expandable.vue";
 import Steps from "./examples/Steps.vue";
 
 const routes = [
-  { path: "/fabric-vue/", component: Home, name: 'home' },
-  { path: "/fabric-vue/icons", component: Icons, name: 'icons' },
-  { path: "/fabric-vue/button", component: Button, name: 'button' },
-  { path: "/fabric-vue/slider", component: Slider, name: 'slider' },
-  { path: "/fabric-vue/switch", component: Switch, name: 'switch' },
-  { path: "/fabric-vue/toast", component: Toast, name: 'toast' },
-  { path: "/fabric-vue/modal", component: Modal, name: 'modal' },
-  { path: "/fabric-vue/breadcrumbs", component: Breadcrumbs, name: 'breadcrumbs' },
-  { path: "/fabric-vue/forms", component: Form, name: 'forms' },
-  { path: "/fabric-vue/box", component: Box, name: 'box' },
-  { path: "/fabric-vue/card", component: Card, name: 'card' },
-  { path: "/fabric-vue/tabs", component: Tabs, name: 'tabs' },
-  { path: "/fabric-vue/expandable", component: Expandable, name: 'expandable' },
-  { path: "/fabric-vue/steps", component: Steps, name: 'steps' },
+  { path: "/", component: Home, name: 'home' },
+  { path: "/icons", component: Icons, name: 'icons' },
+  { path: "/button", component: Button, name: 'button' },
+  { path: "/slider", component: Slider, name: 'slider' },
+  { path: "/switch", component: Switch, name: 'switch' },
+  { path: "/toast", component: Toast, name: 'toast' },
+  { path: "/modal", component: Modal, name: 'modal' },
+  { path: "/breadcrumbs", component: Breadcrumbs, name: 'breadcrumbs' },
+  { path: "/forms", component: Form, name: 'forms' },
+  { path: "/box", component: Box, name: 'box' },
+  { path: "/card", component: Card, name: 'card' },
+  { path: "/tabs", component: Tabs, name: 'tabs' },
+  { path: "/expandable", component: Expandable, name: 'expandable' },
+  { path: "/steps", component: Steps, name: 'steps' },
 ];
 
 const scrollBehavior = () => ({ top: 0 });
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/fabric-vue'),
   routes,
   scrollBehavior,
 });
