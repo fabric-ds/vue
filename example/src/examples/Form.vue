@@ -22,7 +22,10 @@
 
     <f-toggle v-else-if="activeExample === 'radio'" radio v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" />
     <f-toggle v-else-if="activeExample === 'checkbox'" checkbox v-model="checkboxModel" label="A very toggly label" :toggles="toggles" />
-    <f-toggle v-else-if="activeExample === 'radio-button'" radio-button v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" />
+    <div v-else-if="activeExample === 'radio-button'">
+      <f-toggle radio-button :equal-width="isJustified" v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" />
+      <f-button class="mt-16" small utility @click="isJustified = !isJustified">{{ isJustified ? 'Unjustify' : 'Justify' }}</f-button>
+    </div>
 
     <f-toggle class="mt-32 bg-gray-100 p-16 inline-block rounded-4" no-hint radio label="Form element" :toggles="exampleToggles" v-model="activeExample" />
 
@@ -78,6 +81,7 @@ import FormValidationDocs from './FormValidationDocs.vue'
 
 const initialDoc = window.location.hash.replace('#', '') || 'input'
 const activeDocument = ref(initialDoc)
+const isJustified = ref(false)
 
 const Tab = (props, context) => h('button', {
   class: {
