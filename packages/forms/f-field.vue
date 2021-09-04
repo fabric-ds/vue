@@ -1,6 +1,6 @@
 <template>
   <component :is="as" class="field" :class="{ 'is-invalid': hasErrorMessage, 'is-disabled': disabled, [$attrs.class || '']: true }" :role="role" v-bind="aria">
-    <label v-if="label" class="field-label" :id="labelId" :for="id">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></label>
+    <component :is="labelType" v-if="label" class="field-label" :id="labelId" :for="id">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></component>
     <slot :triggerValidation="triggerValidation" :for="id" :labelId="labelId" />
     <slot name="control" :form="collector" />
     <div class="field-hint">
@@ -47,6 +47,7 @@ export default {
 
     const { triggerValidation, valid, validationMsg, hasErrorMessage, collector } = createValidation(props)
 
+    const labelType = computed(() => props.as === 'fieldset' ? 'legend' : 'label')
     const labelId = computed(() => (props.label || slots.label) && (props.id + ':label'))
     const hintId = computed(() => props.id + ':hint')
     const errorId = computed(() => hasErrorMessage.value ? props.id + ':error' : undefined)
@@ -58,7 +59,7 @@ export default {
       'aria-required': props.required && true
     }))
 
-    return { triggerValidation, validationMsg, hasErrorMessage, labelId, hintId, errorId, aria, collector }
+    return { triggerValidation, validationMsg, hasErrorMessage, labelType, labelId, hintId, errorId, aria, collector }
   }
 }
 </script>

@@ -1,16 +1,14 @@
 <template>
   <f-field as="fieldset" v-bind="{ ...$attrs, ...$props }" :role="role" #default="{ triggerValidation }">
     <div :class="wrapperClasses">
-      <div :class="optionsClasses">
-        <f-toggle-item v-for="(toggle, i) in toggles"
-          v-model="model"
-          :type="type"
-          :disabled="disabled"
-          :name="id + ':toggles'"
-          :key="id + i + type"
-          v-bind="toggle"
-          @blur="triggerValidation" />
-      </div>
+      <f-toggle-item v-for="(toggle, i) in toggles"
+        v-model="model"
+        :type="type"
+        :disabled="disabled"
+        :name="id + ':toggles'"
+        :key="id + i + type"
+        v-bind="toggle"
+        @blur="triggerValidation" />
     </div>
   </f-field>
 </template>
