@@ -17,6 +17,7 @@ export default {
   },
   setup: (props, { slots, attrs }) => () => [
     h(props.href ? 'a' : 'button', {
+      ...attrs,
       class: {
         'button': true,
         // primary buttons
@@ -31,7 +32,8 @@ export default {
         'button--utility': props.utility && !props.quiet,
         'button--link': props.link,
         'button--pill': props.pill,
-        'button--in-progress': props.loading
+        'button--in-progress': props.loading,
+        [attrs.class]: true
       },
       href: props.href,
       type: props.href ? undefined : attrs.type || 'button'
