@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
-    "@finn-no/fabric-component-classes": "^0.0.28",
+    "@finn-no/fabric-component-classes": "^0.0.29",
     "@finn-no/fabric-vue-utilities": "^0.9.17",
     "scroll-doctor": "^0.9.1"
   },

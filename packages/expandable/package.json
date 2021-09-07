@@ -14,7 +14,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@finn-no/fabric-component-classes": "^0.0.28",
+    "@finn-no/fabric-component-classes": "^0.0.29",
     "@finn-no/fabric-vue-utilities": "^0.9.17",
     "create-v-model": "^2.1.2",
     "element-collapse": "^0.9.1"
