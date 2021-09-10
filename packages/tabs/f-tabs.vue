@@ -1,6 +1,6 @@
 <template>
   <nav :class="{ [contained ? c.wrapperContained : c.wrapperUnderlined]: true }">
-    <div :class="{ [c.tabContainer]: true, [`grid-cols-${numberOfTabs || slotFallback}`]: true }" ref="tabContainer">
+    <div :class="{ [c.tabContainer]: true, [`grid-cols-${numberOfTabs || slotFallback}`]: true }" ref="tabContainer" role="tablist">
       <slot />
       <span v-if="!contained" :class="c.wunderbar" ref="wunderbar" />
     </div>
