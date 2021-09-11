@@ -51,7 +51,7 @@ export default {
     modelValue: Boolean,
     contentId: id
   },
-  emits: ['dismiss', 'left', 'right'],
+  emits: ['dismiss', 'left', 'right', 'shown', 'hidden'],
   setup(props, { emit }) {
     const modalEl = ref(null)
     const contentEl = ref(null)
@@ -73,6 +73,7 @@ export default {
       if (showing) showContent.value = showing
       else showModal.value = showing
       await nextTick()
+      emit(showing ? 'shown' : 'hidden')
     }
 
     // change the modal's border radius when within 2% of full height
