@@ -24,7 +24,7 @@ export default {
         'button--primary': props.primary && !props.negative,
         'button--destructive': props.primary && props.negative,
         // quiet
-        'button--flat': props.secondary && props.quiet,
+        'button--flat': (props.secondary || (!props.negative && !props.utility)) && props.quiet,
         'button--destructive-flat': props.negative && props.quiet,
         'button--utility-flat': props.utility && props.quiet,
         // others
