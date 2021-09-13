@@ -5,4 +5,5 @@ export default {
   install: installer([fModal])
 }
 
+
 export { fModal }
