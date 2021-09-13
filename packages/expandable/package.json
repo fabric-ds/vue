@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-expandable",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "type": "module",
   "module": "dist/expandable.js",
   "exports": "./dist/expandable.js",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@finn-no/fabric-component-classes": "^0.0.29",
-    "@finn-no/fabric-vue-utilities": "^0.9.17",
+    "@finn-no/fabric-vue-utilities": "^0.9.18",
     "create-v-model": "^2.1.2",
     "element-collapse": "^0.9.1"
   },

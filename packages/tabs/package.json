@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-tabs",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "type": "module",
   "module": "dist/tabs.js",
   "exports": "./dist/tabs.js",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@finn-no/fabric-component-classes": "^0.0.29",
-    "@finn-no/fabric-vue-utilities": "^0.9.17",
+    "@finn-no/fabric-vue-utilities": "^0.9.18",
     "create-v-model": "^2.1.2",
     "femtobounce": "^1.0.0"
   },
