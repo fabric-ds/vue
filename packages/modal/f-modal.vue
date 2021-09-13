@@ -38,8 +38,6 @@ import focusLock from '@finn-no/dom-focus-lock-fixed'
 import { id } from '@finn-no/fabric-vue-utilities'
 import { setup as setupScrollLock, teardown as teardownScrollLock } from 'scroll-doctor'
 
-const escape = 27
-
 export default {
   name: 'fModal',
   props: {
