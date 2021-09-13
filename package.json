@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "postinstall": "manypkg check",
+    "prepublish": "yarn build",
     "dev": "yarn lerna run --parallel dev",
     "build": "yarn lerna run build --parallel",
     "site": "yarn build && yarn lerna run site --parallel && yarn run site:cloud",
