@@ -71,7 +71,6 @@ export default {
       if (showing) showContent.value = showing
       else showModal.value = showing
       await nextTick()
-      emit(showing ? 'shown' : 'hidden')
     }
 
     // change the modal's border radius when within 2% of full height
@@ -85,6 +84,7 @@ export default {
       modalEl.value.addEventListener('transitionend', modifyBorderRadius, { passive: true })
       addEventListener('keydown', emitIfEscape, { passive: true })
       setupScrollLock(contentEl.value)
+      emit('shown')
     }
     async function teardownHandlers() {
       // if the modal's parent component is getting unmounted our refs won't exist
@@ -94,6 +94,7 @@ export default {
       }
       removeEventListener('keydown', emitIfEscape)
       teardownScrollLock()
+      emit('hidden')
     }
 
     async function handleShow(showing) {

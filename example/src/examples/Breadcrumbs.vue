@@ -7,7 +7,7 @@
     <f-breadcrumbs>
       <a href="#/foo">Foo</a>
       <a href="#/bar">Bar</a>
-      <a href="#/baz" aria-current="page">Baz</a>
+      <span aria-current="page">Baz</span>
     </f-breadcrumbs>
 
     <section-header label="Documentation" />
