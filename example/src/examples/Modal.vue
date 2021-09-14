@@ -93,11 +93,27 @@
     <docs-table>
       <template #titles>
         <th>name</th>
-        <th>notes</th>
+        <th>when</th>
       </template>
       <tr>
         <td>dismiss</td>
-        <td class="annotation">Emitted when a user presses ESC or clicks outside the dialog</td>
+        <td class="annotation">A user presses ESC or clicks outside the dialog</td>
+      </tr>
+      <tr>
+        <td>left</td>
+        <td class="annotation">The left title-button has been clicked</td>
+      </tr>
+      <tr>
+        <td>right</td>
+        <td class="annotation">The right title-button has been clicked</td>
+      </tr>
+      <tr>
+        <td>shown</td>
+        <td class="annotation">Modal entrance transitions are complete and content has been mounted</td>
+      </tr>
+      <tr>
+        <td>hidden</td>
+        <td class="annotation">Modal exit transitions are complete and content has been torn down or hidden</td>
       </tr>
     </docs-table>
 

@@ -94,6 +94,22 @@
       </tr>
     </docs-table>
 
+    <h4 class="mt-64 mb-16">Events</h4>
+    <docs-table>
+      <template #titles>
+        <th>name</th>
+        <th>when</th>
+      </template>
+      <tr>
+        <td>expand</td>
+        <td class="annotation">Content inside the expandable has been mounted and can be targeted - will fire after any opening animations are complete</td>
+      </tr>
+      <tr>
+        <td>collapse</td>
+        <td class="annotation">Content inside the expandable has been fully torn down or hidden</td>
+      </tr>
+    </docs-table>
+
     <h4 class="mt-64 mb-16">Slots</h4>
     <p class="border-l-8 bg-green-50 border-green-700 p-16 rounded-4 mb-16 text-12">The slotted content areas automatically remove margin from the last element to ensure the correct spacing on all sides.</p>
     <docs-table>

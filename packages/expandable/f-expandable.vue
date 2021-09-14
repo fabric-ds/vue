@@ -44,6 +44,7 @@ export default {
     animated: Boolean,
     ...modelProps({ modelDefault: absentProp })
   },
+  emits: ['expand', 'collapse'],
   setup: (props, { emit, slots }) => {
     const expanded = (props.modelValue === absentProp) ? ref(false) : createModel({ props, emit })
     const contentComponent = props.animated ? expandTransition : 'div'
