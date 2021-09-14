@@ -1,5 +1,7 @@
 import { h } from 'vue'
 
+const AccessibleLoading = h('span', { role: 'progressbar', 'aria-valuenow': 0, 'aria-valuetext': 'Laster...', class: 'sr-only' })
+
 export default {
   name: 'fButton',
   props: {
@@ -38,11 +40,6 @@ export default {
       href: props.href,
       type: props.href ? undefined : attrs.type || 'button'
     }, props.label || (slots.default && slots.default())),
-    props.loading ? h('span', {
-      role: 'progressbar',
-      'aria-valuenow': 0,
-      'aria-valuetext': 'Laster...',
-      class: 'sr-only',
-    }) : null
+    props.loading ? AccessibleLoading : null
   ]
 }
