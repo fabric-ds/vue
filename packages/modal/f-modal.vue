@@ -2,7 +2,7 @@
   <transition name="fade">
     <div :class="c.backdrop" v-if="showModal" @click.self="emitDismiss" ref="backdropEl">
       <transition name="slide">
-        <div v-if="showContent" :class="c.modal" tabindex="-1" aria-modal="true" role="dialog" ref="modalEl">
+        <div v-if="showContent" :class="c.modal" tabindex="-1" aria-modal="true" aria-labelledby="f-modal-title" role="dialog" ref="modalEl">
           <div v-if="$slots.title || title || $slots.right || right" :class="[c.title, headerClasses]">
             <transition-group name="f-modal-title">
               <button v-if="$slots.left || left" @click="$emit('left')" :class="[c.transitionTitle, c.titleButton, c.titleButtonLeft, 'justify-self-start']" key="left" v-bind="left">
@@ -10,7 +10,7 @@
                 <slot name="left" />
               </button>
               <div :class="{ [c.transitionTitle]: true, 'justify-self-center': left, 'col-span-2': !left }" key="title" v-bind="titleAttrs">
-                <p :class="c.titleText" v-if="title">{{ title }}</p>
+                <p id="f-modal-title" :class="c.titleText" v-if="title">{{ title }}</p>
                 <slot name="title" />
               </div>
               <button v-if="$slots.right || right" @click="$emit('right')" :class="[c.transitionTitle, c.titleButton, c.titleButtonRight, 'justify-self-end']" key="right" v-bind="right">
