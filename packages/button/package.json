@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-button",
-  "version": "0.9.24",
+  "version": "0.9.25",
   "type": "module",
   "module": "dist/button.js",
   "exports": "./dist/button.js",
