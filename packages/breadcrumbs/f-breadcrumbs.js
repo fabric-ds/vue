@@ -14,7 +14,10 @@ export default {
     ariaLabel: { type: String, default: 'Her er du' }
   },
   setup: (_, { slots }) => () => h('nav',
-    { class: 'flex space-x-8' },
-    interleave(slots.default(), separator())
+    { ..._, class: 'flex space-x-8', },
+    [
+      h('h2', { class: 'sr-only', }, _.ariaLabel),
+      interleave(slots.default(), separator()),
+    ]
   )
 }
