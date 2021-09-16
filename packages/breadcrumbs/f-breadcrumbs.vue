@@ -1,9 +1,11 @@
 <template>
-  <nav :aria-label="ariaLabel" class="flex space-x-8">
+  <nav :aria-label="ariaLabel">
     <h2 class="sr-only">{{ ariaLabel }}</h2>
-    <breadcrumbify>
-      <slot />
-    </breadcrumbify>
+    <div class="flex space-x-8">
+      <breadcrumbify>
+        <slot />
+      </breadcrumbify>
+    </div>
   </nav>
 </template>
 
