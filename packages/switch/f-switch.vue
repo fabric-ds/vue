@@ -1,7 +1,7 @@
 <template>
   <div class="tap-highlight-transparent">
-    <input type="checkbox" class="sr-only" :id="id" v-model="model" :disabled="disabled" />
-    <label :for="id" :class="{ [c.label]: true, [c.labelDisabled]: disabled }">
+    <input type="checkbox" class="sr-only" :id="id" v-model="model" :disabled="disabled" ref="inputEl" />
+    <div @click="simulateClick" :class="{ [c.label]: true, [c.labelDisabled]: disabled }">
       <div :class="{
         [c.switchTrack]: true,
         [c.switchTrackSelected]: model && !disabled,
@@ -13,11 +13,12 @@
         [c.switchThumbSelected]: model,
         [disabled ? c.switchThumbDisabled : c.switchThumbNotDisabled]: true
       }" />
-    </label>
+    </div>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 import { switchToggle as c } from '@finn-no/fabric-component-classes'
 import { createModel, modelProps } from 'create-v-model'
 import { id } from '@finn-no/fabric-vue-utilities'
@@ -31,8 +32,11 @@ export default {
   },
   setup(props) {
     const model = createModel({ props })
+    const inputEl = ref(null)
 
-    return { model, c }
+    const simulateClick = () => inputEl.value.click()
+
+    return { model, c, inputEl, simulateClick }
   }
 }
 </script>

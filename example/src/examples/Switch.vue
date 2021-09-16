@@ -5,11 +5,11 @@
     <section-header label="Example" />
 
     <div class="mt-16 space-y-32">
-      <f-field label="a switch">
-        <f-switch v-model="model" />
+      <f-field label="a switch" #default="{ labelFor }">
+        <f-switch v-model="model" :id="labelFor" />
       </f-field>
-      <f-field label="a disabled switch">
-        <f-switch v-model="model" disabled />
+      <f-field label="a disabled switch" #default="{ labelFor }">
+        <f-switch v-model="model" disabled :id="labelFor" />
       </f-field>
     </div>
 
@@ -26,8 +26,10 @@ import { fField } from '@finn-no/fabric-vue-forms'
 import { fSwitch } from '@finn-no/fabric-vue-switch'
 import Setup from '../Setup.vue'
 
-const token =
-`<f-switch v-model="model" />`
+const token = `<f-field label="a switch" #default="{ labelFor }">
+  <f-switch v-model="model" :id="labelFor" />
+</f-field>
+`
 
 export default {
   components: { fField, fSwitch, Setup },

@@ -1,7 +1,7 @@
 <template>
   <component :is="as" class="field" :class="{ 'is-invalid': hasErrorMessage, 'is-disabled': disabled, [$attrs.class || '']: true }" :role="role" v-bind="aria">
     <component :is="labelType" v-if="label" class="field-label" :id="labelId" :for="id">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></component>
-    <slot :triggerValidation="triggerValidation" :for="id" :labelId="labelId" />
+    <slot :triggerValidation="triggerValidation" :labelFor="id" :labelId="labelId" />
     <slot name="control" :form="collector" />
     <div class="field-hint">
       <span :id="hintId" v-if="hint" v-html="hint" />
