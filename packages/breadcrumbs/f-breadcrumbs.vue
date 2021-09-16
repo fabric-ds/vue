@@ -1,6 +1,16 @@
+<template>
+  <nav :aria-label="ariaLabel" class="flex space-x-8">
+    <h2 class="sr-only">{{ ariaLabel }}</h2>
+    <breadcrumbify>
+      <slot />
+    </breadcrumbify>
+  </nav>
+</template>
+
+<script>
 import { h, Fragment } from 'vue'
 
-const separator = () => h('span', { ariaHidden: true, class: 'select-none' }, '/')
+const separator = h('span', { ariaHidden: true, class: 'select-none' }, '/')
 // from https://stackoverflow.com/a/55387306/966362
 const interleave = (slot, el) => {
   // check if the default slot is using v-for or just normal elements
@@ -8,13 +18,13 @@ const interleave = (slot, el) => {
   return [].concat(...arr.map(n => [n, el])).slice(0, -1)
 }
 
+const Breadcrumbify = (props, context) => interleave(context.slots.default(), separator)
+
 export default {
   name: 'fBreadcrumbs',
+  components: { Breadcrumbify },
   props: {
     ariaLabel: { type: String, default: 'Her er du' }
-  },
-  setup: (_, { slots }) => () => h('nav',
-    { class: 'flex space-x-8' },
-    interleave(slots.default(), separator())
-  )
+  }
 }
+</script>
