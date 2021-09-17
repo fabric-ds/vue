@@ -89,6 +89,31 @@
       </tr>
     </docs-table>
 
+    <h4 class="mt-64 mb-16">Slots</h4>
+    <p class="border-l-8 bg-green-50 border-green-700 p-16 rounded-4 mb-16 text-12">Note that to dynamically control the left/right slots, one must use the left/right props instead of showing and hiding the slot itself.</p>
+    <docs-table>
+      <template #titles>
+        <th>name</th>
+        <th>use</th>
+      </template>
+      <tr>
+        <td>default</td>
+        <td class="annotation">Content for the modal</td>
+      </tr>
+      <tr>
+        <td>footer</td>
+        <td class="annotation">Footer (button drawer) for the modal - the footer is sticky</td>
+      </tr>
+      <tr>
+        <td>left</td>
+        <td class="annotation">Overrides the default icon (a back arrow)</td>
+      </tr>
+      <tr>
+        <td>right</td>
+        <td class="annotation">Overrides the default icon (an X symbol)</td>
+      </tr>
+    </docs-table>
+
     <h4 class="mt-64 mb-16">Events</h4>
     <docs-table>
       <template #titles>
