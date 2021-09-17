@@ -5,16 +5,16 @@
         <div v-if="showContent" :class="c.modal" tabindex="-1" aria-modal="true" aria-labelledby="f-modal-title" role="dialog" ref="modalEl">
           <div v-if="$slots.title || title || $slots.right || right" :class="[c.title, headerClasses]">
             <transition-group name="f-modal-title">
-              <button v-if="$slots.left || left" @click="$emit('left')" :class="[c.transitionTitle, c.titleButton, c.titleButtonLeft, 'justify-self-start']" key="left" v-bind="left">
-                <svg v-if="!$slots.left" :class="[c.titleButtonIcon, 'transform rotate-90']" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="nonzero" d="M8 2.25a.75.75 0 01.743.648L8.75 3v8.189l3.72-3.72a.75.75 0 011.133.977l-.073.084-5 5a.747.747 0 01-.374.204l-.104.014h-.104a.747.747 0 01-.478-.218l-5-5a.75.75 0 01.976-1.133l.084.073 3.72 3.719V3A.75.75 0 018 2.25z"></path></svg>
+              <button v-if="$slots.left || left" :aria-label="$slots.left ? undefined : 'Tilbake'" @click="$emit('left')" :class="[c.transitionTitle, c.titleButton, c.titleButtonLeft, 'justify-self-start']" key="left" v-bind="left">
+                <svg v-if="!$slots.left" aria-hidden="true" :class="[c.titleButtonIcon, 'transform rotate-90']" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="nonzero" d="M8 2.25a.75.75 0 01.743.648L8.75 3v8.189l3.72-3.72a.75.75 0 011.133.977l-.073.084-5 5a.747.747 0 01-.374.204l-.104.014h-.104a.747.747 0 01-.478-.218l-5-5a.75.75 0 01.976-1.133l.084.073 3.72 3.719V3A.75.75 0 018 2.25z"></path></svg>
                 <slot name="left" />
               </button>
               <div :class="{ [c.transitionTitle]: true, 'justify-self-center': left, 'col-span-2': !left }" key="title" v-bind="titleAttrs">
                 <p id="f-modal-title" :class="c.titleText" v-if="title">{{ title }}</p>
                 <slot name="title" />
               </div>
-              <button v-if="$slots.right || right" @click="$emit('right')" :class="[c.transitionTitle, c.titleButton, c.titleButtonRight, 'justify-self-end']" key="right" v-bind="right">
-                <svg v-if="!$slots.right" :class="c.titleButtonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l6 6-6-6-6 6 6-6zm0 0L6 6l6 6 6-6-6 6z"/></svg>
+              <button v-if="$slots.right || right" :aria-label="$slots.right ? undefined : 'Neste'" @click="$emit('right')" :class="[c.transitionTitle, c.titleButton, c.titleButtonRight, 'justify-self-end']" key="right" v-bind="right">
+                <svg v-if="!$slots.right" aria-hidden="true" :class="c.titleButtonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l6 6-6-6-6 6 6-6zm0 0L6 6l6 6 6-6-6 6z"/></svg>
                 <slot name="right" />
               </button>
             </transition-group>
