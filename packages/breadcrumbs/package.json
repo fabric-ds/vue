@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-breadcrumbs",
-  "version": "0.9.19",
+  "version": "0.9.20",
   "type": "module",
   "module": "dist/breadcrumbs.js",
   "exports": "./dist/breadcrumbs.js",

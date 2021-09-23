@@ -1,6 +1,6 @@
 {
   "name": "@finn-no/fabric-vue-switch",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "type": "module",
   "module": "dist/switch.js",
   "exports": "./dist/switch.js",
