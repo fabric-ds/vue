@@ -7,10 +7,10 @@
       </h1>
 
       <h2 class="mt-32 text-16">Sites</h2>
-      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://opensource.finn.no/fabric-design">Fabric Design</a>
-      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://opensource.finn.no/fabric-css">Fabric CSS</a>
-      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://opensource.finn.no/fabric-react">Fabric React</a>
-      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://opensource.finn.no/fabric-elements">Fabric Elements</a>
+      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://fabric-ds.github.io/design">Fabric Design</a>
+      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://fabric-ds.github.io/css">Fabric CSS</a>
+      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://fabric-ds.github.io/react">Fabric React</a>
+      <a class="h5 block rounded-4 pl-8 py-8 font-normal text-gray-700" href="https://fabric-ds.github.io/elements">Fabric Elements</a>
 
       <h2 class="mt-32 text-16">Components</h2>
       <sidebar-link :to="{ name: 'button' }" label="Button" />
