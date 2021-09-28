@@ -22,7 +22,7 @@ export default {
     bordered: Boolean
   },
   setup: (props) => ({
-    boxClass: computed(() => ({
+    boxClasses: computed(() => ({
       [c.box]: true,
       [c.bleed]: props.bleed,
       'bg-aqua-50': props.info,
