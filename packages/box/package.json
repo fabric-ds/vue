@@ -1,6 +1,6 @@
 {
   "name": "@fabric-ds/vue-box",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "type": "module",
   "module": "dist/box.js",
   "exports": "./dist/box.js",
