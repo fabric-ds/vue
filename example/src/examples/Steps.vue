@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Steps" pkg-name="@finn-no/fabric-vue-steps" compName="fSteps, fStep" />
+    <setup title="Steps" pkg-name="@fabric-ds/vue-steps" compName="fSteps, fStep" />
 
     <section-header label="Example" />
 
@@ -60,7 +60,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { fStep, fSteps } from '@finn-no/fabric-vue-steps'
+import { fStep, fSteps } from '@fabric-ds/vue-steps'
 import { ShowToken, SectionHeader } from '../util.js'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'

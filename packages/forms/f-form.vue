@@ -6,7 +6,7 @@
 
 <script>
 import { watchEffect } from 'vue'
-import { absentProp } from '@finn-no/fabric-vue-utilities'
+import { absentProp } from '@fabric-ds/vue-utilities'
 import { modelProps } from 'create-v-model'
 import { createValidationCollector } from './validation'
 

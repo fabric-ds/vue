@@ -2,7 +2,7 @@ import { createApp, ref } from "vue";
 import App from "./App.vue";
 import Cleave from "cleave-lite";
 import { createRouter, createWebHistory } from "vue-router";
-import ToastInstaller from "@finn-no/fabric-vue-toast";
+import ToastInstaller from "@fabric-ds/vue-toast";
 import { ShowToken, VariantHeading, SectionHeader } from "./util.js";
 import DocsTable from "./DocsTable.vue";
 
@@ -40,7 +40,7 @@ const routes = [
 
 const scrollBehavior = () => ({ top: 0 });
 const router = createRouter({
-  history: createWebHistory('/fabric-vue'),
+  history: createWebHistory('/vue'),
   routes,
   scrollBehavior,
 });

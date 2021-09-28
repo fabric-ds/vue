@@ -39,7 +39,6 @@
 <script setup>
 import { h } from 'vue'
 import { RouterLink } from 'vue-router'
-import { fExpandTransition } from '@finn-no/fabric-vue-expandable'
 
 const SidebarLink = (props) => h(RouterLink, {
   to: props.to,

@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import { toaster as c } from '@finn-no/fabric-component-classes'
+import { toaster as c } from '@fabric-ds/component-classes'
 import { shownToasts } from './controller.js'
 import fToast from './f-toast.vue'
-import { fExpandTransition } from '@finn-no/fabric-vue-expandable'
+import { fExpandTransition } from '@fabric-ds/vue-expandable'
 
 export default {
   name: 'fToastController',

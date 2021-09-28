@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Box" pkg-name="@finn-no/fabric-vue-box" compName="fBox" />
+    <setup title="Box" pkg-name="@fabric-ds/vue-box" compName="fBox" />
 
     <section-header label="Example" />
 
@@ -88,8 +88,8 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
-import { fBox, fClickable } from '@finn-no/fabric-vue-box'
-import { fToggle } from '@finn-no/fabric-vue-forms'
+import { fBox, fClickable } from '@fabric-ds/vue-box'
+import { fToggle } from '@fabric-ds/vue-forms'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

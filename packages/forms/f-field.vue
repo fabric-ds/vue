@@ -14,7 +14,7 @@
 <script>
 import { computed } from 'vue'
 import { createValidation } from './validation'
-import { id } from '@finn-no/fabric-vue-utilities'
+import { id } from '@fabric-ds/vue-utilities'
 import { modelProps } from 'create-v-model'
 
 export const fieldProps = {

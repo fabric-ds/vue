@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { id as key } from '@finn-no/fabric-vue-utilities'
+import { id as key } from '@fabric-ds/vue-utilities'
 
 export default {
   name: 'fWillExpand',

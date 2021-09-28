@@ -20,9 +20,9 @@
 <script>
 import { ref, computed, watch } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
-import { absentProp } from '@finn-no/fabric-vue-utilities'
+import { absentProp } from '@fabric-ds/vue-utilities'
 import expandTransition from './f-expand-transition.js'
-import { expandable as c, box } from '@finn-no/fabric-component-classes'
+import { expandable as c, box } from '@fabric-ds/component-classes'
 
 export default {
   name: 'fExpandable',

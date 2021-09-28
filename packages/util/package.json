@@ -1,5 +1,5 @@
 {
-  "name": "@finn-no/fabric-vue-utilities",
+  "name": "@fabric-ds/vue-utilities",
   "version": "0.9.18",
   "type": "module",
   "module": "dist/util.js",

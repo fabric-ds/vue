@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Breadcrumbs" pkg-name="@finn-no/fabric-vue-breadcrumbs" compName="fBreadcrumbs" />
+    <setup title="Breadcrumbs" pkg-name="@fabric-ds/vue-breadcrumbs" compName="fBreadcrumbs" />
 
     <section-header label="Example" />
 
@@ -32,7 +32,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ShowToken, SectionHeader } from '../util.js'
-import { fBreadcrumbs } from '@finn-no/fabric-vue-breadcrumbs'
+import { fBreadcrumbs } from '@fabric-ds/vue-breadcrumbs'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

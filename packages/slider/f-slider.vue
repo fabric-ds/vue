@@ -20,7 +20,7 @@
 <script>
 import { computed, ref, watch } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
-import { slider as c } from '@finn-no/fabric-component-classes'
+import { slider as c } from '@fabric-ds/component-classes'
 import { useDimensions } from './util.js'
 import { createHandlers } from './handlers.js'
 

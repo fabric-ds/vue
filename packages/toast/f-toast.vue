@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { toast as c } from '@finn-no/fabric-component-classes'
+import { toast as c } from '@fabric-ds/component-classes'
 
 export default {
   name: 'fToast',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Button" pkg-name="@finn-no/fabric-vue-button" compName="fButton" />
+    <setup title="Button" pkg-name="@fabric-ds/vue-button" compName="fButton" />
 
     <section-header label="Example" />
 
@@ -94,7 +94,7 @@
 </template>
 
 <script setup>
-import { fButton } from '@finn-no/fabric-vue-button'
+import { fButton } from '@fabric-ds/vue-button'
 import { ShowToken, SectionHeader } from '../util.js'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'

@@ -19,9 +19,9 @@
 
 <script>
 import { ref } from 'vue'
-import { switchToggle as c } from '@finn-no/fabric-component-classes'
+import { switchToggle as c } from '@fabric-ds/component-classes'
 import { createModel, modelProps } from 'create-v-model'
-import { id } from '@finn-no/fabric-vue-utilities'
+import { id } from '@fabric-ds/vue-utilities'
 
 export default {
   name: 'fSwitch',

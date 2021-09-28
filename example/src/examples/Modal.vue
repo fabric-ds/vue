@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Modal" pkg-name="@finn-no/fabric-vue-modal" compName="fModal" />
+    <setup title="Modal" pkg-name="@fabric-ds/vue-modal" compName="fModal" />
 
     <section-header label="Example" />
 
@@ -167,7 +167,7 @@
 
 <script setup>
 import { ref, reactive, computed } from 'vue'
-import { fModal } from '@finn-no/fabric-vue-modal'
+import { fModal } from '@fabric-ds/vue-modal'
 import Setup from '../Setup.vue'
 
 const heightToggle = ref(false)

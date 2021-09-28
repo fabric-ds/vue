@@ -1,4 +1,4 @@
-import { installer } from '@finn-no/fabric-vue-utilities'
+import { installer } from '@fabric-ds/vue-utilities'
 import fField from './f-field.vue'
 import fInput from './f-input.vue'
 import fSelect from './f-select.vue'

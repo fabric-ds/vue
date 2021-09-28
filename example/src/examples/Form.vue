@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Forms" pkg-name="@finn-no/fabric-vue-forms" compName="fInput, fSelect, fToggle, fForm, fField, fSuffix" />
+    <setup title="Forms" pkg-name="@fabric-ds/vue-forms" compName="fInput, fSelect, fToggle, fForm, fField, fSuffix" />
 
     <section-header label="Example" />
 
@@ -71,8 +71,8 @@
 <script setup>
 import { ref, h } from 'vue'
 import { PropsNotice } from '../util.js'
-import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix } from '@finn-no/fabric-vue-forms'
-import { fButton } from '@finn-no/fabric-vue-button'
+import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix } from '@fabric-ds/vue-forms'
+import { fButton } from '@fabric-ds/vue-button'
 import Setup from '../Setup.vue'
 import FormToggleDocs from './FormToggleDocs.vue'
 import FormFieldDocs from './FormFieldDocs.vue'

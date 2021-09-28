@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Slider" pkg-name="@finn-no/fabric-vue-slider" compName="fSlider" />
+    <setup title="Slider" pkg-name="@fabric-ds/vue-slider" compName="fSlider" />
 
     <section-header label="Example" />
 
@@ -53,7 +53,7 @@
 <script setup>
 import { ref } from 'vue'
 import { ShowToken, SectionHeader } from '../util.js'
-import { fSlider } from '@finn-no/fabric-vue-slider'
+import { fSlider } from '@fabric-ds/vue-slider'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

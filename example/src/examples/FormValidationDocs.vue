@@ -95,8 +95,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fButton } from '@finn-no/fabric-vue-button'
-import { fInput, fSelect, fToggle, fForm, fField, fSuffix } from '@finn-no/fabric-vue-forms'
+import { fButton } from '@fabric-ds/vue-button'
+import { fInput, fSelect, fToggle, fForm, fField, fSuffix } from '@fabric-ds/vue-forms'
 
 const form1 = ref('')
 const form2 = ref('')

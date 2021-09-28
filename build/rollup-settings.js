@@ -10,7 +10,7 @@ const input = './entry.js'
 const defaultExternal = [
   'vue',
   'create-v-model',
-  '@finn-no/fabric-vue-utilities'
+  '@fabric-ds/vue-utilities'
 ]
 const plugins = [
   vue({ postcssPlugins }),

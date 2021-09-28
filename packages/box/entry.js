@@ -1,5 +1,5 @@
-import { installer, fClickable } from '@finn-no/fabric-vue-utilities'
-import fBox from './f-box.js'
+import { installer, fClickable } from '@fabric-ds/vue-utilities'
+import fBox from './f-box.vue'
 
 export default {
   install: installer([fBox, fClickable])

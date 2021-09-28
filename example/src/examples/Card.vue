@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Card" pkg-name="@finn-no/fabric-vue-card" compName="fCard" />
+    <setup title="Card" pkg-name="@fabric-ds/vue-card" compName="fCard" />
 
     <section-header label="Example" />
 
@@ -63,8 +63,8 @@
 <script>
 import { ref } from 'vue'
 import Setup from '../Setup.vue'
-import { fCard } from '@finn-no/fabric-vue-card'
-import { fToggle } from '@finn-no/fabric-vue-forms'
+import { fCard } from '@fabric-ds/vue-card'
+import { fToggle } from '@fabric-ds/vue-forms'
 
 export default {
   components: { Setup, fCard, fToggle },
