@@ -88,8 +88,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
-import { fBox, fClickable } from '@fabric-ds/vue-box'
-import { fToggle } from '@fabric-ds/vue-forms'
+import { fBox, fClickable, fToggle } from '#components'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

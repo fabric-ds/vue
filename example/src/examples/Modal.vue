@@ -167,7 +167,7 @@
 
 <script setup>
 import { ref, reactive, computed } from 'vue'
-import { fModal } from '@fabric-ds/vue-modal'
+import { fModal } from '#components'
 import Setup from '../Setup.vue'
 
 const heightToggle = ref(false)

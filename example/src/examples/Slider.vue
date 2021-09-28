@@ -53,7 +53,7 @@
 <script setup>
 import { ref } from 'vue'
 import { ShowToken, SectionHeader } from '../util.js'
-import { fSlider } from '@fabric-ds/vue-slider'
+import { fSlider } from '#components'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

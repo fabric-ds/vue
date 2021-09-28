@@ -60,7 +60,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { fStep, fSteps } from '@fabric-ds/vue-steps'
+import { fStep, fSteps } from '#components'
 import { ShowToken, SectionHeader } from '../util.js'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'

@@ -16,7 +16,7 @@
       <sidebar-link :to="{ name: 'button' }" label="Button" />
       <sidebar-link :to="{ name: 'slider' }" label="Slider" />
       <sidebar-link :to="{ name: 'switch' }" label="Switch" />
-      <sidebar-link :to="{ name: 'toast' }" label="Toast" />
+      <!-- <sidebar-link :to="{ name: 'toast' }" label="Toast" /> -->
       <sidebar-link :to="{ name: 'modal' }" label="Modal" />
       <sidebar-link :to="{ name: 'breadcrumbs' }" label="Breadcrumbs" />
       <sidebar-link :to="{ name: 'forms' }" label="Forms" />

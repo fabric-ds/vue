@@ -141,8 +141,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
-import { fExpandable, fWillExpand, fExpandTransition } from '@fabric-ds/vue-expandable'
-import { fToggle } from '@fabric-ds/vue-forms'
+import { fExpandable, fWillExpand, fExpandTransition, fToggle } from '#components'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

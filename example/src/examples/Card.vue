@@ -63,8 +63,7 @@
 <script>
 import { ref } from 'vue'
 import Setup from '../Setup.vue'
-import { fCard } from '@fabric-ds/vue-card'
-import { fToggle } from '@fabric-ds/vue-forms'
+import { fCard, fToggle } from '#components'
 
 export default {
   components: { Setup, fCard, fToggle },

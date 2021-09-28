@@ -94,7 +94,7 @@
 </template>
 
 <script setup>
-import { fButton } from '@fabric-ds/vue-button'
+import { fButton } from '#components'
 import { ShowToken, SectionHeader } from '../util.js'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'

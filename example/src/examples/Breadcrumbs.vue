@@ -32,7 +32,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ShowToken, SectionHeader } from '../util.js'
-import { fBreadcrumbs } from '@fabric-ds/vue-breadcrumbs'
+import { fBreadcrumbs } from '#components'
 import Setup from '../Setup.vue'
 import DocsTable from '../DocsTable.vue'
 

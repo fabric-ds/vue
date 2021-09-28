@@ -22,8 +22,7 @@
 
 <script>
 import { ref } from 'vue'
-import { fField } from '@fabric-ds/vue-forms'
-import { fSwitch } from '@fabric-ds/vue-switch'
+import { fField, fSwitch } from '#components'
 import Setup from '../Setup.vue'
 
 const token = `<f-field label="a switch" #default="{ labelFor }">

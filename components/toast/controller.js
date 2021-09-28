@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import { id } from '@fabric-ds/vue-utilities'
+import { id } from '#util'
 
 const toasts = ref([])
 export const shownToasts = computed(() => toasts.value.filter(e => e.value.showing))

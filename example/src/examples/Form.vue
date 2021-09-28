@@ -71,8 +71,7 @@
 <script setup>
 import { ref, h } from 'vue'
 import { PropsNotice } from '../util.js'
-import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix } from '@fabric-ds/vue-forms'
-import { fButton } from '@fabric-ds/vue-button'
+import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix, fButton } from '#components'
 import Setup from '../Setup.vue'
 import FormToggleDocs from './FormToggleDocs.vue'
 import FormFieldDocs from './FormFieldDocs.vue'

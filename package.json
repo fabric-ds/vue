@@ -10,9 +10,9 @@
   },
   "scripts": {
     "prepublish": "yarn build",
-    "dev": "yarn lerna run --parallel dev",
-    "build": "yarn lerna run build --parallel",
-    "site": "yarn build && yarn lerna run site --parallel && yarn run site:cloud",
+    "dev": "cd example && vite",
+    "build": "rollup -c",
+    "site": "npm run build",
     "site:cloud": "cd example/dist && cp index.html 200.html && cp index.html 404.html"
   },
   "keywords": [],
@@ -20,11 +20,11 @@
   "license": "MIT",
   "dependencies": {
     "@fabric-ds/component-classes": "^0.0.31",
+    "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "create-v-model": "^2.1.2",
     "element-collapse": "^0.9.1",
-    "@finn-no/dom-focus-lock-fixed": "^1.0.6",
-    "scroll-doctor": "^0.9.1",
-    "femtobounce": "^1.0.0"
+    "femtobounce": "^1.0.0",
+    "scroll-doctor": "^0.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -32,11 +32,16 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
+    "@vitejs/plugin-vue": "^1.6.2",
     "@vue/compiler-sfc": "^3.2.11",
+    "cleave-lite": "^1.0.0",
+    "drnm": "^0.9.0",
     "rollup": "^2.56.3",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-vue": "^6.0.0",
-    "vue": "^3.2.11"
+    "vite": "^2.5.6",
+    "vue": "^3.2.11",
+    "vue-router": "^4.0.11"
   },
   "publishConfig": {
     "access": "public"
