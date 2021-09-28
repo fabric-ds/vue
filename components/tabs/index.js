@@ -1,4 +1,4 @@
-import { installer } from '@fabric-ds/vue-utilities'
+import { installer } from '#util'
 import fTabs from './f-tabs.vue'
 import fTab from './f-tab.vue'
 import fTabPanel from './f-tab-panel.vue'

@@ -1,4 +1,4 @@
-import { installer } from '@fabric-ds/vue-utilities'
+import { installer } from '#util'
 import fSlider from './f-slider.vue'
 
 export const Slider = { install: installer([fSlider]) }

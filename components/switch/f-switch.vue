@@ -21,7 +21,7 @@
 import { ref } from 'vue'
 import { switchToggle as c } from '@fabric-ds/component-classes'
 import { createModel, modelProps } from 'create-v-model'
-import { id } from '@fabric-ds/vue-utilities'
+import { id } from '#util'
 
 export default {
   name: 'fSwitch',

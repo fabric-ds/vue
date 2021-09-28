@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import { id } from '@fabric-ds/vue-utilities'
+import { id } from '#util'
 import { modelProps, createModel } from 'create-v-model'
 
 export default {

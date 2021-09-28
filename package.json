@@ -5,7 +5,8 @@
   "type": "module",
   "exports": "./dist/fabric-vue.js",
   "imports": {
-    "#util": "./components/util/index.js"
+    "#util": "./components/util/index.js",
+    "#components": "./index.js"
   },
   "scripts": {
     "prepublish": "yarn build",

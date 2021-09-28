@@ -1,4 +1,4 @@
-import { installer } from '@fabric-ds/vue-utilities'
+import { installer } from '#util'
 import fSwitch from './f-switch.vue'
 
 export const Switch = { install: installer([fSwitch]) }

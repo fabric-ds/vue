@@ -1,4 +1,4 @@
-import { installer } from '@fabric-ds/vue-utilities'
+import { installer } from '#util'
 import fExpandable from './f-expandable.vue'
 import fExpandTransition from './f-expand-transition.js'
 import fWillExpand from './f-will-expand.vue'

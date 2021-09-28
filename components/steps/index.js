@@ -1,4 +1,4 @@
-import { installer } from '@fabric-ds/vue-utilities'
+import { installer } from '#util'
 import fStep from './f-step.vue'
 import fSteps from './f-steps.vue'
 
