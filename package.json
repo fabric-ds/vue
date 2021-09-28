@@ -14,24 +14,23 @@
   "keywords": [],
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
-  "workspaces": [
-    "packages/*",
-    "example"
-  ],
   "dependencies": {
+    "@fabric-ds/component-classes": "^0.0.31"
+    "create-v-model": "^2.1.2",
+    "element-collapse": "^0.9.1"
+    "@finn-no/dom-focus-lock-fixed": "^1.0.6",
+    "scroll-doctor": "^0.9.1",
+    "femtobounce": "^1.0.0"
+  },
+  "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
-    "@manypkg/cli": "^0.18.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@vue/compiler-sfc": "^3.2.11",
-    "lerna": "^4.0.0",
-    "postcss": "^8.3.6",
-    "postcss-preset-env": "^6.7.0",
     "rollup": "^2.56.3",
     "rollup-plugin-filesize": "^9.0.2",
-    "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-vue": "^6.0.0",
     "vue": "^3.2.11"
   },

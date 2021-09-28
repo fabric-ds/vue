@@ -1,9 +1,7 @@
 import vue from 'rollup-plugin-vue'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import postcss from 'rollup-plugin-postcss'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel'
-import { plugins as postcssPlugins } from './postcss-settings'
 import { browsers } from './browsers'
 
 const input = './entry.js'
@@ -13,11 +11,10 @@ const defaultExternal = [
   '@fabric-ds/vue-utilities'
 ]
 const plugins = [
-  vue({ postcssPlugins }),
+  vue(),
   getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]] }),
   nodeResolve(),
   commonjs(),
-  postcss(),
 ]
 
 export const getExports = (pkg, { external = [] } = {}) => ({
