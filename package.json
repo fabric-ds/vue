@@ -1,10 +1,13 @@
 {
   "name": "@fabric-ds/vue",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "version": "0.9.0",
+  "description": "Fabric components for Vue 3",
+  "type": "module",
+  "exports": "./dist/fabric-vue.js",
+  "imports": {
+    "#util": "./components/util/index.js"
+  },
   "scripts": {
-    "postinstall": "manypkg check",
     "prepublish": "yarn build",
     "dev": "yarn lerna run --parallel dev",
     "build": "yarn lerna run build --parallel",
@@ -15,9 +18,9 @@
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@fabric-ds/component-classes": "^0.0.31"
+    "@fabric-ds/component-classes": "^0.0.31",
     "create-v-model": "^2.1.2",
-    "element-collapse": "^0.9.1"
+    "element-collapse": "^0.9.1",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "scroll-doctor": "^0.9.1",
     "femtobounce": "^1.0.0"
