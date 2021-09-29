@@ -1,5 +1,4 @@
-import { installer } from '#util'
 import fCard from './f-card.vue'
 
-export const Card = { install: installer([fCard]) }
+export const Card = { install: (app) => app.component(fCard.name, fCard) }
 export { fCard }

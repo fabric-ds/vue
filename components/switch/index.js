@@ -1,5 +1,4 @@
-import { installer } from '#util'
 import fSwitch from './f-switch.vue'
 
-export const Switch = { install: installer([fSwitch]) }
+export const Switch = { install: (app) => app.component(fSwitch.name, fSwitch) }
 export { fSwitch }

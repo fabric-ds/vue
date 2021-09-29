@@ -4,4 +4,3 @@ let _id = 0
 export const id = { default: () => 'f-' + prefix + _id++ }
 export const absentProp = Symbol()
 export { default as fClickable } from './f-clickable'
-export const installer = (components) => (app) => components.forEach(c => app.component(c.name, c))
