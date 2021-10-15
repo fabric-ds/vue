@@ -10,19 +10,22 @@
   },
   "scripts": {
     "dev": "cd example && vite",
-    "build": "rollup -c",
-    "build:eik": "eik=true npm run build",
+    "build": "rm -rf dist && npm run build:npm && npm run build:eik",
+    "build:npm": "rollup -c",
+    "build:eik": "eik=true rollup -c",
+    "publish:eik": "npx @eik/cli publish && npx @eik/cli pkg-alias",
     "site": "npm run site:build && npm run site:cloud",
     "site:build": "cd example && vite build",
     "site:cloud": "cd example/dist && cp index.html 200.html && cp index.html 404.html && cp ../CNAME .",
-    "preversion": "npm run build",
+    "preversion": "npx @eik/cli login && npm run build",
     "version": "npm publish",
-    "postversion": "git push --follow-tags"
+    "postversion": "npm run publish:eik && git push --follow-tags"
   },
   "keywords": [],
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@eik/rollup-plugin": "^4.0.8",
     "@fabric-ds/component-classes": "^0.0.32",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "create-v-model": "^2.1.2",
@@ -53,5 +56,10 @@
   },
   "files": [
     "dist/"
-  ]
+  ],
+  "eik": {
+    "server": "https://assets.finn.no",
+    "files": "./dist/eik",
+    "import-map": "https://assets.finn.no/map/finn/v2"
+  }
 }
