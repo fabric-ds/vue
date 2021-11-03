@@ -1,5 +1,31 @@
 <template>
   <div>
+    <article class="flex gap-16">
+    <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600">
+      <div class="flex items-center">
+        <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true">
+          <f-toggle-item type="radio" v-model="foo" value="foo" class="hidden" />
+        </div>
+        <div class="ml-12">
+          <h3 class="mb-0">Purchase a thing</h3>
+          <p class="mb-0">More info about the thing like a price</p>
+          <f-toggle-item type="radio" v-model="foo" value="foo" class="absolute inset-0 h-full w-full appearance-none cursor-pointer" />
+        </div>
+      </div>
+    </div>
+    <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600">
+      <div class="flex items-center">
+        <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true">
+          <f-toggle-item type="radio" v-model="foo" value="bar" class="hidden" />
+        </div>
+        <div class="ml-12">
+          <h3 class="mb-0">Purchase a thing</h3>
+          <p class="mb-0">More info about the thing like a price</p>
+          <f-toggle-item type="radio" v-model="foo" value="bar" class="absolute inset-0 h-full w-full appearance-none cursor-pointer" />
+        </div>
+      </div>
+    </div>
+    </article>
     <setup title="Card" compName="fCard" />
 
     <div class="space-y-32 md:space-y-0 md:grid grid-cols-3 gap-32">
@@ -60,9 +86,10 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fCard, fToggle } from '#components'
+import { fCard, fToggle, fToggleItem } from '#components'
 
 const selected = ref(false)
 const checkModel = ref(false)
 const radioModel = ref('')
+const foo = ref('')
 </script>

@@ -1,6 +1,6 @@
 <template>
   <input :id="id" v-model="model" v-bind="$attrs" />
-  <label :for="id" v-html="label" />
+  <label :for="id" v-html="label" :class="labelClass" />
 </template>
 
 <script>
@@ -12,6 +12,7 @@ export default {
   props: {
     id,
     label: String,
+    labelClass: String,
     ...modelProps()
   },
   setup: (props, { emit }) => ({
