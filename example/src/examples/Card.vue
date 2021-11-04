@@ -1,31 +1,80 @@
 <template>
   <div>
     <article class="flex gap-16">
-    <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600">
-      <div class="flex items-center">
-        <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true">
-          <f-toggle-item type="radio" v-model="foo" value="foo" class="hidden" />
-        </div>
-        <div class="ml-12">
-          <h3 class="mb-0">Purchase a thing</h3>
-          <p class="mb-0">More info about the thing like a price</p>
-          <f-toggle-item type="radio" v-model="foo" value="foo" class="absolute inset-0 h-full w-full appearance-none cursor-pointer" />
-        </div>
+    <f-card flat class="p-16 flex items-center" :selected="foo === 'foo'">
+      <f-dead-toggle radio v-model="foo" value="foo" />
+      <div class="ml-12">
+        <h3 class="mb-0">
+          <input id="a-foo" v-model="foo" type="radio" value="foo" class="absolute inset-0 h-full w-full appearance-none cursor-pointer focus-ring" />
+          <label for="a-foo">Purchase foo</label>
+        </h3>
+        <p class="mb-0">More info about foo - like a price</p>
       </div>
-    </div>
-    <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600">
-      <div class="flex items-center">
-        <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true">
-          <f-toggle-item type="radio" v-model="foo" value="bar" class="hidden" />
-        </div>
-        <div class="ml-12">
-          <h3 class="mb-0">Purchase a thing</h3>
-          <p class="mb-0">More info about the thing like a price</p>
-          <f-toggle-item type="radio" v-model="foo" value="bar" class="absolute inset-0 h-full w-full appearance-none cursor-pointer" />
-        </div>
+    </f-card>
+    <f-card flat class="p-16 flex items-center" :selected="foo === 'bar'">
+      <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true">
+        <f-toggle-item type="radio" v-model="foo" value="bar" class="hidden" />
       </div>
-    </div>
+      <div class="ml-12">
+        <h3 class="mb-0">
+          <input id="a-bar" v-model="foo" type="radio" value="bar" class="absolute inset-0 h-full w-full appearance-none cursor-pointer focus-ring" />
+          <label for="a-bar">Purchase foo</label>
+        </h3>
+        <p class="mb-0">More info about foo - like a price</p>
+      </div>
+    </f-card>
     </article>
+
+    <!-- <f-foobar class="flex items-center" :selected="foo"> -->
+    <!--   <f-dead-toggle radio v-model="foo" /> -->
+    <!--   <div class="ml-12"> -->
+    <!--     <h3 class="mb-0"> -->
+    <!--       <f-clickable radio v-model="foo">Purchase me!</f-clickable> -->
+    <!--     </h3> -->
+    <!--     <p class="mb-0">More info about foo - like a price</p> -->
+    <!--   </div> -->
+    <!-- </f-foobar> -->
+
+    <!-- <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600"> -->
+    <!--   <div class="flex items-center"> -->
+    <!--     <f-dead-toggle radio v-model="foo" /> -->
+
+    <!--     <div class="ml-12"> -->
+    <!--       <h3 class="mb-0"> -->
+    <!--         <f-clickable radio v-model="foo">Purchase me!</f-clickable> -->
+    <!--       </h3> -->
+    <!--       <p class="mb-0">More info about foo - like a price</p> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600"> -->
+    <!--   <div class="flex items-center"> -->
+    <!--     <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true"> -->
+    <!--       <f-toggle-item type="radio" v-model="foo" value="foo" class="hidden" /> -->
+    <!--     </div> -->
+    <!--     <div class="ml-12"> -->
+    <!--       <h3 class="mb-0"> -->
+    <!--         <input id="a-foo" v-model="foo" type="radio" value="foo" class="absolute inset-0 h-full w-full appearance-none cursor-pointer focus-ring" /> -->
+    <!--         <label for="a-foo">Purchase foo</label> -->
+    <!--       </h3> -->
+    <!--       <p class="mb-0">More info about foo - like a price</p> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+    <!-- <div class="border border-gray-400 rounded-4 p-12 relative hover:bg-aqua-50 hover:border-blue-600"> -->
+    <!--   <div class="flex items-center"> -->
+    <!--     <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true"> -->
+    <!--       <f-toggle-item type="radio" v-model="foo" value="bar" class="hidden" /> -->
+    <!--     </div> -->
+    <!--     <div class="ml-12"> -->
+    <!--       <input id="a-bar" v-model="foo" type="radio" value="bar" class="absolute inset-0 h-full w-full appearance-none cursor-pointer focus-ring" /> -->
+    <!--       <h3 class="mb-0"><label for="a-bar">Purchase bar</label></h3> -->
+    <!--       <p class="mb-0">More info about bar - like a price</p> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+    <!-- </article> -->
     <setup title="Card" compName="fCard" />
 
     <div class="space-y-32 md:space-y-0 md:grid grid-cols-3 gap-32">
@@ -86,7 +135,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fCard, fToggle, fToggleItem } from '#components'
+import { fCard, fToggle, fToggleItem, fDeadToggle } from '#components'
 
 const selected = ref(false)
 const checkModel = ref(false)
