@@ -4,23 +4,15 @@
     <f-card flat class="p-16 flex items-center" :selected="foo === 'foo'">
       <f-dead-toggle radio v-model="foo" value="foo" />
       <div class="ml-12">
-        <h3 class="mb-0">
-          <input id="a-foo" v-model="foo" type="radio" value="foo" class="absolute inset-0 h-full w-full appearance-none cursor-pointer focus-ring" />
-          <label for="a-foo">Purchase foo</label>
-        </h3>
+        <h3 class="mb-0"><f-clickable radio v-model="foo" value="foo">Purchase foo</f-clickable></h3>
         <p class="mb-0">More info about foo - like a price</p>
       </div>
     </f-card>
     <f-card flat class="p-16 flex items-center" :selected="foo === 'bar'">
-      <div class="input-toggle h-24 w-24 pointer-events-none" aria-hidden="true">
-        <f-toggle-item type="radio" v-model="foo" value="bar" class="hidden" />
-      </div>
+      <f-dead-toggle radio v-model="foo" value="bar" />
       <div class="ml-12">
-        <h3 class="mb-0">
-          <input id="a-bar" v-model="foo" type="radio" value="bar" class="absolute inset-0 h-full w-full appearance-none cursor-pointer focus-ring" />
-          <label for="a-bar">Purchase foo</label>
-        </h3>
-        <p class="mb-0">More info about foo - like a price</p>
+        <h3 class="mb-0"><f-clickable radio v-model="foo" value="bar">Purchase bar</f-clickable></h3>
+        <p class="mb-0">More info about bar - like a price</p>
       </div>
     </f-card>
     </article>
@@ -135,7 +127,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fCard, fToggle, fToggleItem, fDeadToggle } from '#components'
+import { fCard, fToggle, fToggleItem, fDeadToggle, fClickable } from '#components'
 
 const selected = ref(false)
 const checkModel = ref(false)
