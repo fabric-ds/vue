@@ -1,6 +1,7 @@
 <template>
   <input :id="id" v-model="model" v-bind="$attrs" />
-  <label :for="id" v-html="label" :class="labelClass" />
+  <label v-if="label" :for="id" v-html="label" :class="labelClass" />
+  <label v-else :for="id" :class="labelClass"><slot /></label>
 </template>
 
 <script>
