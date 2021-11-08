@@ -1281,10 +1281,10 @@
     node-fetch "2.6.5"
     rollup-plugin-import-map "2.2.2"
 
-"@fabric-ds/component-classes@^0.0.32":
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/@fabric-ds/component-classes/-/component-classes-0.0.32.tgz#372a7a7d615d15cdaa9079e8ff193674f1f1395c"
-  integrity sha512-hUMt02sSiiZYBlBWxmlDr1MbyF1jTd0bTVWtD0yodnXFbUHEkH4LUIwfvn24NOC0I+YzGDKm2wSmtGocNZWMug==
+"@fabric-ds/component-classes@^0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@fabric-ds/component-classes/-/component-classes-0.0.33.tgz#3e9574e532cb4d6d0fe7982435940c8d567c15b8"
+  integrity sha512-tV/QRaS744Hq0AHFKwIyu2W//D4uYEhA48C8nfY1Bwnm32g8CE5X+iq8yemv4XlfdHdvrFtHspaYyNAWKaMdzA==
 
 "@finn-no/dom-focus-lock-fixed@^1.0.6":
   version "1.0.6"
