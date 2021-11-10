@@ -1,3 +1,4 @@
+export * from './components/attention'
 export * from './components/box'
 export * from './components/breadcrumbs'
 export * from './components/button'
