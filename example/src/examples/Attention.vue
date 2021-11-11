@@ -1,8 +1,12 @@
 <template>
-  <div class="space-y-16">
+  <div class="relative my-32 h-64">
     <f-attention tooltip />
-    <f-attention popover />
+  </div>
+  <div class="relative my-32 h-64">
     <f-attention callout />
+  </div>
+  <div class="relative my-32 h-64">
+    <f-attention popover />
   </div>
 </template>
 
