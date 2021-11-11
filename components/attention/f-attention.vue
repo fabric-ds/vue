@@ -2,12 +2,12 @@
   <div class="absolute">
     <div :class="wrapperClass">
       <div class="absolute w-full flex justify-center inset-0" style="top: -9px">
-        <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.4142 2.41421L25.1213 8.12132C25.6839 8.68393 26.447 9 27.2426 9L8.75736 9C9.55301 9 10.3161 8.68393 10.8787 8.12132L16.5858 2.41421C17.3668 1.63316 18.6332 1.63316 19.4142 2.41421Z" :fill="`var(${beakBackground})`"/>
-          <path d="M27 8V8C26.3597 8 25.7456 7.74565 25.2929 7.29289L20.1213 2.12132C18.9497 0.949744 17.0503 0.949747 15.8787 2.12132L10.7071 7.29289C10.2544 7.74565 9.64029 8 9 8V8" :stroke="`var(${beakBorder})`" stroke-width="2" stroke-linecap="round"/>
+        <svg width="36" height="9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 9">
+          <path :fill="`var(${beakBackground})`" d="m19.4 2.4 5.7 5.7a3 3 0 0 0 2.1.9H8.8a3 3 0 0 0 2-.9l5.8-5.7a2 2 0 0 1 2.8 0Z"/>
+          <path :stroke="`var(${beakBorder})`" d="M27 8c-.6 0-1.3-.3-1.7-.7L20 2a3 3 0 0 0-4.2 0l-5.2 5.2c-.4.4-1 .7-1.7.7" stroke-width="2" stroke-linecap="round" />
         </svg>
       </div>
-      <p class="mb-0">OMG this is just so much text that it can fill an entire tooltip thing, oh crap not quite enough but now this should be good</p>
+      <div class="last-child:mb-0"><slot /></div>
     </div>
   </div>
 </template>
