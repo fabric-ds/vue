@@ -1,7 +1,7 @@
 <template>
   <div class="absolute">
     <div :class="wrapperClass">
-      <f-attention-arrow v-bind="$props" left />
+      <f-attention-arrow v-bind="$props" top />
       <div class="last-child:mb-0"><slot /></div>
     </div>
   </div>
@@ -9,34 +9,20 @@
 
 <script>
 import { computed, ref } from 'vue'
+import props from './attentionProps.js'
 import fAttentionArrow from './f-attention-arrow.vue'
 
 export default {
   name: 'fAttention',
+  props,
   components: { fAttentionArrow },
-  props: {
-    tooltip: Boolean,
-    popover: Boolean,
-    callout: Boolean,
-    arrowId: String,
-  },
   setup: (props) => ({
     wrapperClass: computed(() => ({
       ['border-2 relative']: true,
       ['bg-gray-700 border-gray-700 text-white rounded-4 py-6 px-8']: props.tooltip,
       ['bg-green-100 border-green-400 py-8 px-16 rounded-8']: props.callout,
       ['bg-white border-white rounded-8 p-16 filter-shadow-20']: props.popover,
-    })),
-    beakBorder: computed(() => {
-      if (props.tooltip) return '--f-gray-700'
-      if (props.callout) return '--f-green-400'
-      if (props.popover) return '--f-white'
-    }),
-    beakBackground: computed(() => {
-      if (props.tooltip) return '--f-gray-700'
-      if (props.callout) return '--f-green-100'
-      if (props.popover) return '--f-white'
-    })
+    }))
   })
 }
 </script>

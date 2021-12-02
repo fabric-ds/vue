@@ -42,5 +42,6 @@ onMounted(async () => {
   console.log({ r })
   popover.value.$el.style.left = `${r.x}px`
   popover.value.$el.style.top = `${r.y}px`
+  arrowEl.style.left = r.middlewareData.arrow.x + 'px'
 })
 </script>
