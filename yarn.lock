@@ -918,6 +918,18 @@
   dependencies:
     tslib "^2.0.3"
 
+"@floating-ui/core@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-0.1.2.tgz#fa4eff308721dccb265f2b617f1cd78541cd5f35"
+  integrity sha512-cEDm4V3g5xCZPdHbWc3hYaDbPybJgudYwxRLFXBj6kThqiXNxWd+M2roShRnvt20BsnDtBR82Yon8JCxKJ1YEw==
+
+"@floating-ui/dom@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-0.1.2.tgz#cdc4496c4960beca2ceed44f299dfdea13057506"
+  integrity sha512-qehIM5lEPwxptqQcvr365tK2V1gh04E40WGcuEnTPRfSkT7BX7bcNGzIGldYkwupE3Yf7HJzEg35dF5xj3AcYg==
+  dependencies:
+    "@floating-ui/core" "^0.1.2"
+
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"

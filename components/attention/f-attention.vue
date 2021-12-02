@@ -1,26 +1,24 @@
 <template>
   <div class="absolute">
     <div :class="wrapperClass">
-      <div class="absolute w-full flex justify-center inset-0" style="top: -9px">
-        <svg width="36" height="9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 9">
-          <path :fill="`var(${beakBackground})`" d="m19.4 2.4 5.7 5.7a3 3 0 0 0 2.1.9H8.8a3 3 0 0 0 2-.9l5.8-5.7a2 2 0 0 1 2.8 0Z"/>
-          <path :stroke="`var(${beakBorder})`" d="M27 8c-.6 0-1.3-.3-1.7-.7L20 2a3 3 0 0 0-4.2 0l-5.2 5.2c-.4.4-1 .7-1.7.7" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </div>
+      <f-attention-arrow v-bind="$props" left />
       <div class="last-child:mb-0"><slot /></div>
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import fAttentionArrow from './f-attention-arrow.vue'
 
 export default {
   name: 'fAttention',
+  components: { fAttentionArrow },
   props: {
     tooltip: Boolean,
     popover: Boolean,
     callout: Boolean,
+    arrowId: String,
   },
   setup: (props) => ({
     wrapperClass: computed(() => ({
