@@ -1,5 +1,5 @@
 <template>
-  <div :class="arrowClass" :style="arrowStyle" :id="arrowId" />
+  <div :class="arrowClass" :style="arrowStyle" />
 </template>
 
 <script>
