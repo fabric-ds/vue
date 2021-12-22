@@ -1,14 +1,15 @@
+<script setup>
+import { routes } from './router'
+</script>
+
 <template>
-  <div v-if="route.name === 'home'" class="grid lg:grid-cols-3 gap-16">
-    <div class="lg:col-span-2">
+  <div class="grid sm:grid-cols-3 gap-16">
+    <nav class="flex flex-col bg-gray-100 p-32 pt-64">
+      <router-link v-for="r in routes" :to="{ name: r.name }" class="field-label">{{ r.name }}</router-link>
+    </nav>
+    <div class="p-64 col-span-2">
       <router-view />
     </div>
-    <div>
-      <f-docs-highlight-box></f-docs-highlight-box>
-    </div>
-  </div>
-  <div v-else>
-    <router-view />
   </div>
 </template>
 
@@ -23,9 +24,3 @@ code {
   color: var(--f-aqua-800);
 }
 </style>
-
-<script setup>
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-</script>
