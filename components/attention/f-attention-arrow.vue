@@ -8,6 +8,7 @@ import { props as attentionProps, opposites, rotation } from './attentionUtil.js
 
 export default {
   name: 'fAttentionArrow',
+  inheritAttrs: false,
   props: {
     ...attentionProps,
     direction: String
