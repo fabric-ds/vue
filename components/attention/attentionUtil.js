@@ -20,3 +20,12 @@ export const props = {
   noArrow: Boolean,
   ...directions.reduce((acc, e) => (acc[e] = Boolean, acc), {})
 }
+
+const middlePosition = 'calc(50% - 7px)'
+const isDirectionVertical = (name) => ['top', 'bottom'].includes(name)
+export const computeCalloutArrow = ({ actualDirection, directionName, arrowEl }) => {
+  actualDirection.value = directionName.value
+  const directionIsVertical = isDirectionVertical(directionName.value)
+  arrowEl.value.$el.style.left = directionIsVertical ? middlePosition : null
+  arrowEl.value.$el.style.top = !directionIsVertical ? middlePosition : null
+}

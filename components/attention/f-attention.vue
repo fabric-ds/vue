@@ -10,19 +10,10 @@
 <script>
 import { watch, computed, ref, onMounted, nextTick } from 'vue'
 import { absentProp } from '#util'
-import { props as attentionProps, directions, sleep } from './attentionUtil.js'
+import { props as attentionProps, directions, computeCalloutArrow, sleep } from './attentionUtil.js'
 import fAttentionArrow from './f-attention-arrow.vue'
 import { computePosition, flip, offset, shift, arrow } from '@floating-ui/dom'
 import { createModel, modelProps } from 'create-v-model'
-
-const middlePosition = 'calc(50% - 7px)'
-const isDirectionVertical = (name) => ['top', 'bottom'].includes(name)
-const computeCalloutArrow = ({ actualDirection, directionName, arrowEl }) => {
-  actualDirection.value = directionName.value
-  const directionIsVertical = isDirectionVertical(directionName.value)
-  arrowEl.value.$el.style.left = directionIsVertical ? middlePosition : null
-  arrowEl.value.$el.style.top = !directionIsVertical ? middlePosition : null
-}
 
 export default {
   name: 'fAttentionItem',
