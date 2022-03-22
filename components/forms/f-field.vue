@@ -1,7 +1,7 @@
 <template>
-  <component :is="as" class="field" :class="{ 'is-invalid': hasErrorMessage, 'is-disabled': disabled, [$attrs.class || '']: true }" :role="role" v-bind="aria">
-    <component :is="labelType" v-if="label" class="field-label" :id="labelId" :for="id">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></component>
-    <slot :triggerValidation="triggerValidation" :labelFor="id" :labelId="labelId" />
+  <component :is="as" class="field" :class="{ 'is-invalid': hasErrorMessage, 'is-disabled': disabled, [$attrs.class || '']: true }" :role="role" v-bind="wrapperAria">
+    <component :is="labelType" v-if="label" class="field-label" :id="labelId" :for="labelFor">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></component>
+    <slot :triggerValidation="triggerValidation" :labelFor="id" :labelId="labelId" :aria="aria" />
     <slot name="control" :form="collector" />
     <div class="field-hint">
       <span :id="hintId" v-if="hint" v-html="hint" />
@@ -43,11 +43,13 @@ export default {
     required: [Boolean, Function],
     disabled: Boolean,
   },
-  setup(props, { attrs, slots }) {
+  setup(props, { slots }) {
 
     const { triggerValidation, valid, validationMsg, hasErrorMessage, collector } = createValidation(props)
 
-    const labelType = computed(() => props.as === 'fieldset' ? 'legend' : 'label')
+    const isFieldset = computed(() => props.as === 'fieldset')
+    const labelType = computed(() => isFieldset.value ? 'legend' : 'label')
+    const labelFor = computed(() => isFieldset.value ? undefined : props.id)
     const labelId = computed(() => (props.label || slots.label) && (props.id + ':label'))
     const hintId = computed(() => props.id + ':hint')
     const errorId = computed(() => hasErrorMessage.value ? props.id + ':error' : undefined)
@@ -58,8 +60,9 @@ export default {
       'aria-invalid': !valid.value || props.invalid || undefined,
       'aria-required': props.required && true
     }))
+    const wrapperAria = computed(() => isFieldset.value ? aria.value : undefined)
 
-    return { triggerValidation, validationMsg, hasErrorMessage, labelType, labelId, hintId, errorId, aria, collector }
+    return { triggerValidation, validationMsg, hasErrorMessage, labelType, labelFor, labelId, hintId, errorId, aria, wrapperAria, collector }
   }
 }
 </script>
