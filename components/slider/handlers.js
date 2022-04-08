@@ -46,6 +46,7 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
     e.stopPropagation()
     e.preventDefault()
   }
+  // we don't return this function, it's called via mouseDown's addEventListener
   function handleMouseUp() {
     sliderPressed.value = false
     window.removeEventListener('touchmove', handleMouseChange, eventOptions)
@@ -62,5 +63,5 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
     position.value = n
   }
 
-  return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleMouseUp, handleClick }
+  return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick }
 }

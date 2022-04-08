@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { slider as c } from '@fabric-ds/component-classes'
 import { useDimensions } from './util.js'
@@ -44,7 +44,11 @@ export default {
   setup(props, { emit, attrs }) {
     const sliderLine = ref(null)
     const thumb = ref(null)
-    const { dimensions } = useDimensions(sliderLine)
+    const dimensions = ref({})
+    const updateDimensions = v => dimensions.value = v
+    const { mountedHook, unmountedHook } = useDimensions(sliderLine)
+    onMounted(() => mountedHook(sliderLine.value, updateDimensions))
+    onBeforeUnmount(unmountedHook)
     const sliderPressed = ref(false)
     const v = createModel({ props, emit })
     const position = ref(v.value)
@@ -69,7 +73,7 @@ export default {
       position.value = props.modelValue
     })
     const thumbPosition = computed(() => ((position.value - props.min) / (props.max - props.min) * 100))
-    const transformValue = computed(() => (thumbPosition.value / 100) * dimensions.value.width) || 0
+    const transformValue = computed(() => (thumbPosition.value / 100) * dimensions.value.width)
     const thumbStyles = computed(() => ({
       transform: 'translateX(' + transformValue.value + 'px)',
     }))
@@ -86,7 +90,7 @@ export default {
       'aria-valuetext': attrs['aria-valuetext']
     }))
 
-    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleMouseUp, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
+    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
 
     return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }

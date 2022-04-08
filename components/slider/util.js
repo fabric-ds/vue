@@ -1,22 +1,19 @@
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-export const useDimensions = (sliderLine) => {
+export const useDimensions = () => {
   let observer
-  const dimensions = ref({})
   // we use boundingClient because other observer attributes don't calculate X offset in a useful way
-  const onResize = entries => {
+  const useOnResize = updateDimensions => entries => {
     const { left, width: w } = entries[0].target.getBoundingClientRect()
-    dimensions.value = { left, width: w - 24 } // so the thumb can't run off the track to the right because Troika's slider is built 'wrong' UI-wise
+    updateDimensions({ left, width: w - 24 }) // so the thumb can't run off the track to the right because Troika's slider is built 'wrong' UI-wise
   }
-  onMounted(() => {
-    dimensions.value = sliderLine.value.getBoundingClientRect()
-    observer = new ResizeObserver(onResize)
-    observer.observe(sliderLine.value)
-  })
-  onBeforeUnmount(() => {
+  const mountedHook = (sliderLineEl, updateDimensions) => {
+    updateDimensions(sliderLineEl.getBoundingClientRect())
+    observer = new ResizeObserver(useOnResize(updateDimensions))
+    observer.observe(sliderLineEl)
+  }
+  const unmountedHook = () => {
     observer.disconnect()
-  })
-  return { dimensions }
+  }
+  return { mountedHook, unmountedHook }
 }
 
 export const validKeys = Object.freeze({
