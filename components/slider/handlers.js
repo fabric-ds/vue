@@ -12,6 +12,10 @@ export const createHandlers = ({ props, emit, step, sliderState, dimensions }) =
 
   const getThumbPosition = () => (sliderState.position - props.min) / (props.max - props.min) * 100
   const getThumbTransform = () => (getThumbPosition() / 100) * sliderState.dimensions.width
+  const getShiftedChange = (n) => {
+    const r = 1.0 / sliderState.step
+    return Math.floor(n * r) / r
+  }
 
   function handleKeyDown(e) {
     const key = e.key
@@ -66,5 +70,5 @@ export const createHandlers = ({ props, emit, step, sliderState, dimensions }) =
     sliderState.position = n
   }
 
-  return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform }
+  return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform, getShiftedChange }
 }

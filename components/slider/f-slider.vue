@@ -54,24 +54,9 @@ export default {
     const position = ref(v.value)
 
     // step is a computed so we can check if props.step is set or not
-    // and only do shiftedChange when set
+    // and only do getShiftedChange when set
     const step = computed(() => props.step || 1)
-    const shiftedChange = (n) => {
-      const r = 1.0 / step.value
-      return Math.floor(n * r) / r
-    }
 
-    watch(position, () => {
-      // prevents shiftedChange when modelValue was set externally
-      if (position.value === props.modelValue) return
-      const n = props.step ? shiftedChange(position.value) : position.value
-      if (v.value === n) return
-      v.value = n
-    })
-    watch(() => props.modelValue, () => {
-      if (sliderPressed.value || (position.value === props.modelValue)) return
-      position.value = props.modelValue
-    })
     const sliderState = {
       get position() { return position.value },
       set position(v) { position.value = v },
@@ -80,10 +65,11 @@ export default {
       get val() { return v.value },
       set val(_v) { v.value = _v },
       get thumbEl() { return thumb.value },
-      get dimensions() { return dimensions.value }
+      get dimensions() { return dimensions.value },
+      get step() { return step.value }
     }
-    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform } = createHandlers({ props, emit, step, sliderState, dimensions })
-    
+    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform, getShiftedChange } = createHandlers({ props, emit, step, sliderState, dimensions })
+
     const thumbPosition = computed(getThumbPosition)
     const transformValue = computed(getThumbTransform)
     const thumbStyles = computed(() => ({
@@ -101,8 +87,18 @@ export default {
       'aria-valuenow': v.value,
       'aria-valuetext': attrs['aria-valuetext']
     }))
-
     
+    watch(position, () => {
+      // prevents shiftedChange when modelValue was set externally
+      if (position.value === props.modelValue) return
+      const n = props.step ? getShiftedChange(position.value) : position.value
+      if (v.value === n) return
+      v.value = n
+    })
+    watch(() => props.modelValue, () => {
+      if (sliderPressed.value || (position.value === props.modelValue)) return
+      position.value = props.modelValue
+    })
 
     return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }
