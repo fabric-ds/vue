@@ -1,6 +1,6 @@
 import { validKeyCodes, validKeys, eventOptions, clamp, roundDecimals } from './util'
 
-export const createHandlers = ({ props, emit, step, position, v, sliderPressed, thumb, dimensions }) => {
+export const createHandlers = ({ props, emit, step, sliderState, thumb, dimensions }) => {
   const clampedChange = (n) => clamp(n, { max: props.max, min: props.min })
   function getCoordinates(e) {
     const { left: offsetLeft, width: trackWidth } = dimensions.value
@@ -16,16 +16,16 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
     e.preventDefault()
     if ([validKeys.left, validKeys.right, validKeys.up, validKeys.down].includes(key)) {
       const direction = [validKeys.right, validKeys.up].includes(key) ? 1 : -1
-      position.value = clampedChange(v.value + (direction * step.value))
+      sliderState.position = clampedChange(sliderState.val + (direction * step.value))
     } else if (key === validKeys.home) {
-      position.value = props.min
+      sliderState.position = props.min
     } else if (key === validKeys.end) {
-      position.value = props.max
+      sliderState.position = props.max
     } else {
       const direction = key === validKeys.pageup ? 1 : -1
       const minStepMultiplier = 2
       const maxStepMultiplier = 50
-      position.value = clampedChange(v.value + (direction * step.value * Math.max(minStepMultiplier, Math.min(maxStepMultiplier, Math.ceil((props.max - props.min) / 10 / step.value)))))
+      sliderState.position = clampedChange(sliderState.val + (direction * step.value * Math.max(minStepMultiplier, Math.min(maxStepMultiplier, Math.ceil((props.max - props.min) / 10 / step.value)))))
     }
   }
   function handleFocus(e) {
@@ -35,7 +35,7 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
     emit('blur', e)
   }
   function handleMouseDown(e) {
-    sliderPressed.value = true
+    sliderState.sliderPressed = true
     if ('touches' in e) {
       window.addEventListener('touchmove', handleMouseChange, eventOptions)
       window.addEventListener('touchend', handleMouseUp, { once: true })
@@ -48,7 +48,7 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
   }
   // we don't return this function, it's called via mouseDown's addEventListener
   function handleMouseUp() {
-    sliderPressed.value = false
+    sliderState.sliderPressed = false
     window.removeEventListener('touchmove', handleMouseChange, eventOptions)
     window.removeEventListener('mousemove', handleMouseChange, eventOptions)
   }
@@ -58,9 +58,9 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
   function handleMouseChange(e) {
     const { value } = getCoordinates(e)
     const n = roundDecimals(value)
-    thumb.value.focus()
-    if (position.value === n) return
-    position.value = n
+    sliderState.thumbEl.focus()
+    if (sliderState.position === n) return
+    sliderState.position = n
   }
 
   return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick }

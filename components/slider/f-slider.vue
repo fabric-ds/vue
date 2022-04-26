@@ -45,8 +45,8 @@ export default {
     const sliderLine = ref(null)
     const thumb = ref(null)
     const dimensions = ref({})
-    const updateDimensions = v => dimensions.value = v
-    const { mountedHook, unmountedHook } = useDimensions(sliderLine)
+    const updateDimensions = _v => dimensions.value = _v
+    const { mountedHook, unmountedHook } = useDimensions()
     onMounted(() => mountedHook(sliderLine.value, updateDimensions))
     onBeforeUnmount(unmountedHook)
     const sliderPressed = ref(false)
@@ -90,7 +90,24 @@ export default {
       'aria-valuetext': attrs['aria-valuetext']
     }))
 
-    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
+    
+    const sliderState = {}
+    Object.defineProperty(sliderState, 'position', {
+      get: () => position.value,
+      set: _v => position.value = _v
+    })
+    Object.defineProperty(sliderState, 'sliderPressed', {
+      get: () => sliderPressed.value,
+      set: _v => sliderPressed.value = _v
+    })
+    Object.defineProperty(sliderState, 'val', {
+      get: () => v.value,
+      set: _v => v.value = _v
+    })
+    Object.defineProperty(sliderState, 'thumbEl', {
+      get: () => thumb.value
+    })
+    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick } = createHandlers({ props, emit, step, sliderState, dimensions })
 
     return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }
