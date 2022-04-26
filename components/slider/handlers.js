@@ -1,6 +1,6 @@
 import { validKeyCodes, validKeys, eventOptions, clamp, roundDecimals } from './util'
 
-export const createHandlers = ({ props, emit, sliderState }) => {
+export const createHandlers = ({ props, sliderState }) => {
   const clampedChange = (n) => clamp(n, { max: props.max, min: props.min })
   function getCoordinates(e) {
     const { left: offsetLeft, width: trackWidth } = sliderState.dimensions
@@ -36,10 +36,10 @@ export const createHandlers = ({ props, emit, sliderState }) => {
     }
   }
   function handleFocus(e) {
-    emit('focus', e)
+    emitFocus(e)
   }
   function handleBlur(e) {
-    emit('blur', e)
+    emitBlur(e)
   }
   function handleMouseDown(e) {
     sliderState.sliderPressed = true
