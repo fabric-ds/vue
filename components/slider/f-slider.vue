@@ -68,7 +68,7 @@ export default {
       get dimensions() { return dimensions.value },
       get step() { return step.value }
     }
-    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform, getShiftedChange } = createHandlers({ props, emit, step, sliderState, dimensions })
+    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform, getShiftedChange } = createHandlers({ props, emit, sliderState })
 
     const thumbPosition = computed(getThumbPosition)
     const transformValue = computed(getThumbTransform)
