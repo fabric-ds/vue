@@ -1,6 +1,6 @@
 import { validKeyCodes, validKeys, eventOptions, clamp, roundDecimals } from './util'
 
-export const createHandlers = ({ props, emit, step, sliderState, thumb, dimensions }) => {
+export const createHandlers = ({ props, emit, step, sliderState, dimensions }) => {
   const clampedChange = (n) => clamp(n, { max: props.max, min: props.min })
   function getCoordinates(e) {
     const { left: offsetLeft, width: trackWidth } = dimensions.value
@@ -9,6 +9,9 @@ export const createHandlers = ({ props, emit, step, sliderState, thumb, dimensio
     const value = props.min + left * (props.max - props.min)
     return { value }
   }
+
+  const getThumbPosition = () => (sliderState.position - props.min) / (props.max - props.min) * 100
+  const getThumbTransform = () => (getThumbPosition() / 100) * sliderState.dimensions.width
 
   function handleKeyDown(e) {
     const key = e.key
@@ -63,5 +66,5 @@ export const createHandlers = ({ props, emit, step, sliderState, thumb, dimensio
     sliderState.position = n
   }
 
-  return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick }
+  return { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform }
 }

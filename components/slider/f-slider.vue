@@ -72,8 +72,20 @@ export default {
       if (sliderPressed.value || (position.value === props.modelValue)) return
       position.value = props.modelValue
     })
-    const thumbPosition = computed(() => ((position.value - props.min) / (props.max - props.min) * 100))
-    const transformValue = computed(() => (thumbPosition.value / 100) * dimensions.value.width)
+    const sliderState = {
+      get position() { return position.value },
+      set position(v) { position.value = v },
+      get sliderPressed() { return sliderPressed.value },
+      set sliderPressed(v) { sliderPressed.value = v },
+      get val() { return v.value },
+      set val(_v) { v.value = _v },
+      get thumbEl() { return thumb.value },
+      get dimensions() { return dimensions.value }
+    }
+    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform } = createHandlers({ props, emit, step, sliderState, dimensions })
+    
+    const thumbPosition = computed(getThumbPosition)
+    const transformValue = computed(getThumbTransform)
     const thumbStyles = computed(() => ({
       transform: 'translateX(' + transformValue.value + 'px)',
     }))
@@ -91,23 +103,6 @@ export default {
     }))
 
     
-    const sliderState = {}
-    Object.defineProperty(sliderState, 'position', {
-      get: () => position.value,
-      set: _v => position.value = _v
-    })
-    Object.defineProperty(sliderState, 'sliderPressed', {
-      get: () => sliderPressed.value,
-      set: _v => sliderPressed.value = _v
-    })
-    Object.defineProperty(sliderState, 'val', {
-      get: () => v.value,
-      set: _v => v.value = _v
-    })
-    Object.defineProperty(sliderState, 'thumbEl', {
-      get: () => thumb.value
-    })
-    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick } = createHandlers({ props, emit, step, sliderState, dimensions })
 
     return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }
