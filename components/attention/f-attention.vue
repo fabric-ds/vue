@@ -40,9 +40,9 @@ export default {
     const arrowEl = ref(null)
     const actualDirection = ref(directionName.value)
     const recompute = async () => {
-      if (!model.value) return
-      await nextTick()
-      if (props.callout) return computeCalloutArrow({ directionName, arrowEl, actualDirection })
+      if (!model.value) return // we're not currently showing the element, no reason to recompute
+      await nextTick() // wait for DOM to settle before computing
+      if (props.callout) return computeCalloutArrow({ directionName, arrowEl, actualDirection }) // we don't move the callout box, only its arrow
       const position = await computePosition(props.targetEl, props.attentionEl.value, {
         placement: directionName.value,
         middleware: [
