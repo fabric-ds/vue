@@ -22,7 +22,6 @@ export const props = {
 const middlePosition = 'calc(50% - 7px)'
 const isDirectionVertical = (name) => [TOP, BOTTOM].includes(name)
 export const computeCalloutArrow = ({ actualDirection, directionName, arrowEl }) => {
-  console.log({ actualDirection })
   actualDirection = directionName
   const directionIsVertical = isDirectionVertical(directionName)
   arrowEl.style.left = directionIsVertical ? middlePosition : null
