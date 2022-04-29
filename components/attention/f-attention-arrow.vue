@@ -4,13 +4,14 @@
 
 <script>
 import { computed } from 'vue'
-import { props as attentionProps, opposites, rotation } from './attentionUtil.js'
+import AttentionProps from './attentionProps.js'
+import { opposites, rotation } from './logic.js'
 
 export default {
   name: 'fAttentionArrow',
   inheritAttrs: false,
   props: {
-    ...attentionProps,
+    ...AttentionProps,
     direction: String
   },
   setup: (props) => {

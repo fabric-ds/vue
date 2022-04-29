@@ -1,5 +1,27 @@
 import { computePosition, flip, offset, shift, arrow } from '@floating-ui/dom'
-import { computeCalloutArrow } from './attentionUtil.js'
+
+const TOP = 'top'
+const BOTTOM = 'bottom'
+const LEFT = 'left'
+const RIGHT = 'right'
+export const opposites = {
+  [TOP]: BOTTOM,
+  [BOTTOM]: TOP,
+  [LEFT]: RIGHT,
+  [RIGHT]: LEFT
+}
+export const directions = [TOP, BOTTOM, LEFT, RIGHT]
+export const rotation = { [LEFT]: -45, [TOP]: 45, [RIGHT]: 135, [BOTTOM]: -135 }
+
+const middlePosition = 'calc(50% - 7px)'
+const isDirectionVertical = (name) => [TOP, BOTTOM].includes(name)
+const computeCalloutArrow = ({ actualDirection, directionName, arrowEl }) => {
+  actualDirection = directionName
+  const directionIsVertical = isDirectionVertical(directionName)
+  arrowEl.style.left = directionIsVertical ? middlePosition : null
+  arrowEl.style.top = !directionIsVertical ? middlePosition : null
+}
+
 
 export const useRecompute = (state) => async () => {
   if (!state.isShowing) return // we're not currently showing the element, no reason to recompute

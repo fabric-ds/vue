@@ -10,15 +10,15 @@
 <script>
 import { watch, computed, ref, onMounted, nextTick } from 'vue'
 import { absentProp } from '#util'
-import { props as attentionProps, directions } from './attentionUtil.js'
 import fAttentionArrow from './f-attention-arrow.vue'
+import AttentionProps from './attentionProps.js'
 import { createModel, modelProps } from 'create-v-model'
-import { useRecompute } from './logic.js'
+import { useRecompute, directions } from './logic.js'
 
 export default {
   name: 'fAttentionItem',
   props: {
-    ...attentionProps,
+    ...AttentionProps,
     ...modelProps({ modelDefault: absentProp }),
     targetEl: Object,
     attentionClass: [Object, String],
