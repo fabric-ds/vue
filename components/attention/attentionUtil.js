@@ -11,8 +11,6 @@ export const opposites = {
 export const directions = [TOP, BOTTOM, LEFT, RIGHT]
 export const rotation = { [LEFT]: -45, [TOP]: 45, [RIGHT]: 135, [BOTTOM]: -135 }
 
-export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
 export const props = {
   tooltip: Boolean,
   popover: Boolean,
@@ -24,8 +22,9 @@ export const props = {
 const middlePosition = 'calc(50% - 7px)'
 const isDirectionVertical = (name) => [TOP, BOTTOM].includes(name)
 export const computeCalloutArrow = ({ actualDirection, directionName, arrowEl }) => {
-  actualDirection.value = directionName.value
-  const directionIsVertical = isDirectionVertical(directionName.value)
-  arrowEl.value.$el.style.left = directionIsVertical ? middlePosition : null
-  arrowEl.value.$el.style.top = !directionIsVertical ? middlePosition : null
+  console.log({ actualDirection })
+  actualDirection = directionName
+  const directionIsVertical = isDirectionVertical(directionName)
+  arrowEl.style.left = directionIsVertical ? middlePosition : null
+  arrowEl.style.top = !directionIsVertical ? middlePosition : null
 }

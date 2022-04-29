@@ -10,10 +10,10 @@
 <script>
 import { watch, computed, ref, onMounted, nextTick } from 'vue'
 import { absentProp } from '#util'
-import { props as attentionProps, directions, computeCalloutArrow, sleep } from './attentionUtil.js'
+import { props as attentionProps, directions } from './attentionUtil.js'
 import fAttentionArrow from './f-attention-arrow.vue'
-import { computePosition, flip, offset, shift, arrow } from '@floating-ui/dom'
 import { createModel, modelProps } from 'create-v-model'
+import { useRecompute } from './logic.js'
 
 export default {
   name: 'fAttentionItem',
@@ -39,33 +39,24 @@ export default {
     const model = (props.modelValue === absentProp) ? ref(true) : createModel({ props, emit })
     const arrowEl = ref(null)
     const actualDirection = ref(directionName.value)
-    const recompute = async () => {
-      if (!model.value) return // we're not currently showing the element, no reason to recompute
-      await nextTick() // wait for DOM to settle before computing
-      if (props.callout) return computeCalloutArrow({ directionName, arrowEl, actualDirection }) // we don't move the callout box, only its arrow
-      const position = await computePosition(props.targetEl, props.attentionEl.value, {
-        placement: directionName.value,
-        middleware: [
-          flip(),
-          offset(8),
-          shift({ padding: 16 }),
-          arrow({ element: props.noArrow ? undefined : arrowEl.value.$el })
-        ]
-      })
-      actualDirection.value = position.placement
-      Object.assign(props.attentionEl.value.style, {
-        left: '0',
-        top: '0',
-        transform: `translate3d(${Math.round(position.x)}px, ${Math.round(position.y)}px, 0)`
-      })
-      let { x, y } = position.middlewareData.arrow
-      arrowEl.value.$el.style.left = x ? (x + 'px') : null
-      arrowEl.value.$el.style.top = y ? (y + 'px') : null
+    const attentionState = {
+      get isShowing() { return model.value },
+      get isCallout() { return props.callout },
+      get actualDirection() { return actualDirection.value },
+      set actualDirection(v) { actualDirection.value = v},
+      get directionName() { return directionName.value },
+      get arrowEl() { return arrowEl.value.$el },
+      get attentionEl() { return props.attentionEl.value },
+      set attentionEl(v) { props.attentionEl.value = v },
+      get targetEl() { return props.targetEl },
+      get waitForDOM() { return nextTick },
+      get noArrow() { return props.noArrow }
     }
+    const recompute = useRecompute(attentionState)
 
     onMounted(async () =>  {
       watch(() => [props.top, props.bottom, props.left, props.right], recompute)
-      watch(model, recompute, { immediate: props.callout })
+      watch(model, recompute, { immediate: props.callout }) // if we have a callout, we want to compute the arrow position as soon as we mount
     })
 
     return { wrapperClass, attentionRef: props.attentionEl, arrowEl, actualDirection, model }
