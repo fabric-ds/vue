@@ -1,21 +1,26 @@
 <template>
   <div>
     <setup title="Alert" compName="fAlert" />
-    <f-alert v-model="showing" v-bind="alertProps[current]">
-      <p>This is the message text that can be short or a little bit long</p>
-      <f-button small>Primary CTA</f-button>
-      <f-button small quiet>Secondary CTA</f-button>
-    </f-alert>
-    <div class="mt-32 space-y-16">
-      <f-button utility small @click="showing = !showing">Toggle show/hide</f-button>
-      <f-select label="Alert type" v-model="current">
-        <option value="negative">Negative</option>
-        <option value="positive">Positive</option>
-        <option value="warning">Warning</option>
-        <option value="neutral">Neutral</option>
-        <option value="info">Info</option>
-      </f-select>
-    </div>
+    <div class="h-4" />
+    <section class="space-y-32">
+      <div>
+        <f-alert v-model="showing" v-bind="alertProps[current]">
+          <p>This is the message text that can be short or a little bit long</p>
+          <f-button small>Primary CTA</f-button>
+          <f-button small quiet>Secondary CTA</f-button>
+        </f-alert>
+      </div>
+      <div class="space-y-16">
+        <f-button utility small @click="showing = !showing">Toggle show/hide</f-button>
+        <f-select label="Alert type" v-model="current">
+          <option value="negative">Negative</option>
+          <option value="positive">Positive</option>
+          <option value="warning">Warning</option>
+          <option value="neutral">Neutral</option>
+          <option value="info">Info</option>
+        </f-select>
+      </div>
+    </section>
 
     <section-header label="Documentation" />
 
