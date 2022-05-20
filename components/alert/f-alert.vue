@@ -27,7 +27,6 @@
 
 <script>
 import { computed } from 'vue'
-import { fExpandable } from '#components'
 import { fExpandTransition } from '#generics'
 import { createModel, modelProps } from 'create-v-model'
 
