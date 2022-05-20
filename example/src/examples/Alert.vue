@@ -6,8 +6,10 @@
       <div>
         <f-alert v-model="showing" v-bind="alertProps[current]">
           <p>This is the message text that can be short or a little bit long</p>
-          <f-button small>Primary CTA</f-button>
-          <f-button small quiet>Secondary CTA</f-button>
+          <div class="space-x-8">
+            <f-button small>Primary CTA</f-button>
+            <f-button small quiet>Secondary CTA</f-button>
+          </div>
         </f-alert>
       </div>
       <div class="space-y-16">
@@ -60,7 +62,9 @@ const showing = ref(true)
 const token =
 `<f-alert negative title="I am a title"
   <p>I am an excellent message for the user.</p>
-  <f-button small>Primary CTA</f-button>
-  <f-button small quiet>Secondary CTA</f-button>
+  <div class="space-x-8">
+    <f-button small>Primary CTA</f-button>
+    <f-button small quiet>Secondary CTA</f-button>
+  </div>
 </f-alert>`
 </script>
