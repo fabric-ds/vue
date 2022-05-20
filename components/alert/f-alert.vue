@@ -45,7 +45,7 @@ export default {
     ...possibleColorBooleans.reduce((acc, k) => (acc[k] = Boolean, acc), {}),
     ...modelProps(),
   },
-  components: { fExpandable, fExpandTransition },
+  components: { fExpandTransition },
   setup: (props, emit) => {
     const model = createModel({ props, emit })
     const activeType = computed(() => possibleColorBooleans.find(e => props[e]))
