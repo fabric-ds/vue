@@ -60,7 +60,7 @@ const alertProps = {
 const current = ref('negative')
 const showing = ref(true)
 const token =
-`<f-alert negative title="I am a title"
+`<f-alert v-model="showAlert" negative title="I am a title">
   <p>I am an excellent message for the user.</p>
   <div class="space-x-8">
     <f-button small>Primary CTA</f-button>
