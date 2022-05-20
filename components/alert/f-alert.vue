@@ -34,7 +34,7 @@ const colorMap = {
   negative: 'red',
   positive: 'green',
   warning: 'yellow',
-  info: 'blue',
+  info: 'aqua',
   neutral: 'bluegray'
 }
 const possibleColorBooleans = Object.keys(colorMap)
