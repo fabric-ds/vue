@@ -48,8 +48,10 @@ export default {
   components: { fExpandTransition },
   setup: (props, emit) => {
     const model = createModel({ props, emit })
-    const activeType = computed(() => possibleColorBooleans.find(e => props[e]))
-    const activeColor = computed(() => colorMap[activeType.value])
+    const activeColor = computed(() => {
+      const activeType = possibleColorBooleans.find(e => props[e])
+      return colorMap[activeType]
+    })
     const fillVar = computed(() => `var(--f-${activeColor.value}-600)`)
     const wrapperStyle = computed(() => ({ borderLeftColor: fillVar.value }))
     const wrapperClass = computed(() => ({

@@ -34,27 +34,35 @@
 <script setup>
 import { fAlert, fButton, fSelect } from '#components'
 import { ref } from 'vue'
+const randomElementFrom = arr => arr[Math.floor(Math.random()*arr.length)]
 
+const sentences = [
+  `there are zombies in mah Cheerios`,
+  `there is peanut butter on the ceiling`,
+  `this lamp has a lot of cheese`,
+  `there are tiny robots in my socks`
+]
+const sentence = randomElementFrom(sentences)
 const alertProps = {
   negative: {
     negative: true,
-    title: 'Oh no there are zombies in mah Cheerios!'
+    title: `Oh no ${sentence}!`
   },
   positive: {
     positive: true,
-    title: 'Hooray there are zombies in mah Cheerios!'
+    title: `Hooray ${sentence}!`
   },
   warning: {
     warning: true,
-    title: 'Maybe there are zombies in mah Cheerios?'
+    title: `Maybe ${sentence}?`
   },
   neutral: {
     neutral: true,
-    title: 'Meh, there are zombies in mah Cheerios.'
+    title: `Meh, ${sentence} again.`
   },
   info: {
     info: true,
-    title: 'Just so you know, there are zombies in mah Cheerios.'
+    title: `Just so you know, ${sentence}.`
   }
 }
 const current = ref('negative')
