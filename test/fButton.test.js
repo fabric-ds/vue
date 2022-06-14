@@ -6,6 +6,7 @@ const label =  'Hello Fabric'
 
 describe('button', () => {
   assert.ok(fButton)
+  assert.ok(fButton.name)
 
   it('label/smoke', () => {
     const wrapper = mount(fButton, { props: { label } })

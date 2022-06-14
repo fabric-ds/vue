@@ -10,6 +10,10 @@
 </template>
 
 <script>
+export default { name: 'fBreadcrumbs' }
+</script>
+
+<script setup>
 import { h, Fragment } from 'vue'
 
 const separator = h('span', { ariaHidden: true, class: 'select-none' }, '/')
@@ -22,11 +26,7 @@ const interleave = (slot, el) => {
 
 const Breadcrumbify = (_, context) => interleave(context.slots.default(), separator)
 
-export default {
-  name: 'fBreadcrumbs',
-  components: { Breadcrumbify },
-  props: {
-    ariaLabel: { type: String, default: 'Her er du' }
-  }
-}
+defineProps({
+  ariaLabel: { type: String, default: 'Her er du ' }
+})
 </script>
