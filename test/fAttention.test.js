@@ -1,7 +1,10 @@
-import { describe, it, assert } from 'vitest'
+import { describe, it, assert, afterEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fAttention } from '#components'
 import { ref, nextTick } from 'vue'
+
+// I don't known if the workaround with attachTo breaks anything so I'm making sure to cleanup here
+afterEach(() => { document.body.innerHTML = '' })
 
 describe('attention', () => {
   assert.ok(fAttention)
@@ -27,11 +30,10 @@ describe('attention', () => {
       components: { fAttention },
       setup: () => ({ model })
     }
-    // TODO: use isVisible after submitting bug, seems broke?
-    const wrapper = mount(CalloutFixture)
-    assert.include(wrapper.attributes().style, 'display: none')
+    const wrapper = mount(CalloutFixture, { attachTo: document.body })
+    assert.notOk(wrapper.isVisible())
     model.value = true
     await nextTick()
-    assert.equal(wrapper.attributes().style, undefined)
+    assert.ok(wrapper.isVisible())
   })
 })

@@ -11,7 +11,7 @@ describe('button group', () => {
   it('works', () => {
     const ButtonGroupFixture = {
       template: `
-        <f-button-group outline>
+        <f-button-group outlined>
           <f-button-group-item>
             <f-clickable label href="#/foo">Foo</f-clickable>
           </f-button-group-item>
@@ -26,6 +26,7 @@ describe('button group', () => {
     const anchor = wrapper.get('a')
     assert.include(anchor.attributes().href, '#/foo')
     assert.equal(anchor.text(), 'Foo')
-    // TODO: find the button-group-item component and check to see if provide went through?
+    const groupItem = wrapper.getComponent(fButtonGroupItem)
+    assert.include(groupItem.classes(), 'border-gray-300') // providing the outlined prop succeeded
   })
 })
