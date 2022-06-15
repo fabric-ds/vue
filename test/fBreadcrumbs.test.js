@@ -16,6 +16,7 @@ describe('breadcrumbs', () => {
     const wrapper = mount(fBreadcrumbs, { slots: { default: defaultSlot } })
     const html = wrapper.get('nav')
     assert.include(wrapper.text(), 'Foo/Bar/Baz')
+    assert.include(wrapper.html(), 'class="select-none"')
     assert.ok(html.attributes()['aria-label'])
   })
 })
