@@ -13,6 +13,11 @@ describe('card', () => {
     assert.equal(wrapper.text(), 'Hello Fabric')
     cardClasses.card.split(' ').forEach(c => assert.include(wrapper.classes(), c))
   })
-  it('can emit another DOM element', () => {
+  it('cards any DOM element', () => {
+    const defaultSlot = '<h1>Hello Fabric</h1>'
+    const as = 'section'
+    const wrapper = mount(fCard, { props: { as }, slots: { default: defaultSlot } })
+    const html = wrapper.get(as)
+    assert.ok(html.html())
   })
 })
