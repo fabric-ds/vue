@@ -4,7 +4,6 @@ import { fClickable, fDeadToggle, fExpandTransition, fToggleItem } from '#compon
 
 describe('generics', () => {
   [fClickable, fDeadToggle, fExpandTransition, fToggleItem].forEach(comp => {
-    assert.ok(comp)
     assert.ok(comp.name)
   })
 

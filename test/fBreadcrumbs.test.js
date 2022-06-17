@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils'
 import { fBreadcrumbs } from '#components'
 
 describe('breadcrumbs', () => {
-  assert.ok(fBreadcrumbs)
   assert.ok(fBreadcrumbs.name)
 
   it('v-for slot children', () => {

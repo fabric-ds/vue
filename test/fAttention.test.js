@@ -7,7 +7,6 @@ import { ref, nextTick } from 'vue'
 afterEach(() => { document.body.innerHTML = '' })
 
 describe('attention', () => {
-  assert.ok(fAttention)
   assert.ok(fAttention.name)
 
   it('callout', () => {

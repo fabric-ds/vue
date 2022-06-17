@@ -3,9 +3,7 @@ import { mount } from '@vue/test-utils'
 import { fButtonGroup, fButtonGroupItem, fClickable } from '#components'
 
 describe('button group', () => {
-  assert.ok(fButtonGroup)
   assert.ok(fButtonGroup.name)
-  assert.ok(fButtonGroupItem)
   assert.ok(fButtonGroupItem.name)
 
   it('works', () => {

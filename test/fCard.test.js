@@ -4,7 +4,6 @@ import { fCard } from '#components'
 import { card as cardClasses } from '@fabric-ds/css/component-classes'
 
 describe('card', () => {
-  assert.ok(fCard)
   assert.ok(fCard.name)
 
   it('is such a card', () => {

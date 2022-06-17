@@ -4,7 +4,6 @@ import { fBox } from '#components'
 import { box as boxClasses } from '@fabric-ds/css/component-classes'
 
 describe('box', () => {
-  assert.ok(fBox)
   assert.ok(fBox.name)
 
   it('boxes', () => {

@@ -4,7 +4,6 @@ import { fAlert } from '#components'
 import { ref, nextTick } from 'vue'
 
 describe('alert', () => {
-  assert.ok(fAlert)
   assert.ok(fAlert.name)
 
   it('alerts', () => {

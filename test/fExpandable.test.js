@@ -4,7 +4,6 @@ import { fExpandable } from '#components'
 import { nextTick } from 'vue'
 
 describe('expandable', () => {
-  assert.ok(fExpandable)
   assert.ok(fExpandable.name)
 
   it('can mount expanded', () => {
