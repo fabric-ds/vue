@@ -25,12 +25,13 @@ describe('modal', () => {
     }
     const wrapper = mount(ModalFixture)
     await nextTick() // have to wait for the modal to mount/animate
-    assert.notOk(wrapper.find('[data-test="wrapper"]').exists())
+    assert.notOk(wrapper.find('[data-test="backdrop"]').exists())
     model.value = true
-    await nextTick() // have to wait for the modal to mount/animate
-    await nextTick() // have to wait for the modal to mount/animate
-    assert.ok(wrapper.find('[data-test="wrapper"]').exists())
-    // assert.equal(wrapper.text(), 'Hello Fabric')
+    await nextTick() // since we're waiting for the modal to start from 'closed' we have to wait moar
+    await nextTick()
+    await nextTick()
+    assert.ok(wrapper.find('[data-test="backdrop"]').exists())
+    assert.ok(wrapper.find('#f-modal-title').exists())
   })
   it('has a title', async () => {
     const defaultSlot = '<h1>Hello Fabric</h1>'
