@@ -6,7 +6,6 @@ import SidebarLinks from './SidebarLinks.vue'
 import { sidebarConfig } from './sidebar-config.js'
 
 const expanded = ref(false)
-
 </script>
 
 <template>
@@ -26,7 +25,7 @@ const expanded = ref(false)
     <aside id="sidebar" :class="{ expanded, modalShowing }" class="sidebar z-50 fixed inset-0 bg-gray-100 border-r border-gray-200 divide-y divide-gray-200">
       <f-box><h1 class="h4">Fabric Vue</h1></f-box>
       <sidebar-links v-for="group in sidebarConfig" :start-open="group.startOpen" :title="group.title">
-        <router-link v-for="link in group.links" :to="link.to">{{ link.title }}</router-link>
+        <router-link v-for="link in group.links" :to="link.to" @click="expanded = false">{{ link.title }}</router-link>
       </sidebar-links>
     </aside>
   </div>

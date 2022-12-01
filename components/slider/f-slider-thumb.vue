@@ -18,7 +18,7 @@ export default { name: 'fSliderThumb' }
 </script>
 
 <script setup>
-import { computed, ref, watch, useAttrs } from 'vue'
+import { computed, ref, watch, useAttrs, inject } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { slider as c } from '@fabric-ds/css/component-classes'
 import { createHandlers } from './logic'
@@ -28,11 +28,13 @@ const props = defineProps({
   min: Number,
   max: Number,
   step: Number,
-  dimensions: Object,
   disabled: Boolean,
   ...modelProps()
 })
 const emit = defineEmits(['focus', 'blur', 'thumb-change'])
+// inject dimensions instead of using it as a prop because Vue's ref-unwrapping makes things messy
+const dimensions = inject('dimensions')
+const controller = inject('slider-controller')
 
 const thumb = ref(null)
 const v = createModel({ props, emit })
@@ -50,7 +52,7 @@ const sliderState = {
   set sliderPressed(v) { sliderPressed.value = v },
   get val() { return v.value },
   get thumbEl() { return thumb.value },
-  get dimensions() { return props.dimensions },
+  get dimensions() { return dimensions.value },
   get step() { return step.value },
   emitFocus(v) { emit('focus', v) },
   emitBlur(v) { emit('blur', v) }
@@ -58,6 +60,11 @@ const sliderState = {
 
 const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform, getShiftedChange } = createHandlers({ props, sliderState })
 
+controller.registerThumb({
+  handleClick
+})
+
+// TODO - can use the thumb-interface with parent for this instead?
 const emitThumbUpdate = (v) => emit('thumb-change', v)
 const thumbPosition = computed(getThumbPosition)
 watch(thumbPosition, emitThumbUpdate)

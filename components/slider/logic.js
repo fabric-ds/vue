@@ -1,13 +1,14 @@
-import { validKeyCodes, validKeys, eventOptions, clamp, roundDecimals, } from "./helpers.js";
+export * from './helpers.js'
+import { validKeyCodes, validKeys, eventOptions, safeClamp, clamp, roundDecimals, } from "./helpers.js";
+export function computeValueFromEvent({ dimensions, min, max, evt }) {
+    const { left: offsetLeft, width: trackWidth } = dimensions;
+    const clientX = "touches" in e ? evt.touches[0].clientX : evt.clientX;
+    const left = safeClamp(((clientX - offsetLeft - 16) / trackWidth), { min: 0, max: 1 })
+    const value = min + left * (max - min);
+    return roundDecimals(value);
+}
 export function createHandlers({ props, sliderState, }) {
     const clampedChange = (n) => clamp(n, { max: props.max, min: props.min });
-    function getCoordinates(e) {
-        const { left: offsetLeft, width: trackWidth } = sliderState.dimensions;
-        const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-        let left = Math.min(Math.max((clientX - offsetLeft - 16) / trackWidth, 0), 1) || 0;
-        const value = props.min + left * (props.max - props.min);
-        return { value };
-    }
     const getThumbPosition = () => ((sliderState.position - props.min) / (props.max - props.min)) * 100;
     const getThumbTransform = () => (getThumbPosition() / 100) * sliderState.dimensions.width;
     const getShiftedChange = (n) => {
@@ -63,13 +64,12 @@ export function createHandlers({ props, sliderState, }) {
     function handleClick(e) {
         handleMouseChange(e);
     }
-    function handleMouseChange(e) {
-        const { value } = getCoordinates(e);
-        const n = roundDecimals(value);
+    function handleMouseChange(evt) {
+        const value = computeValueFromEvent({ evt, min: props.min, max: props.max, dimensions: sliderState.dimensions });
         sliderState.thumbEl?.focus();
-        if (sliderState.position === n)
+        if (sliderState.position === value)
             return;
-        sliderState.position = n;
+        sliderState.position = value;
     }
     return {
         handleKeyDown,
@@ -82,3 +82,4 @@ export function createHandlers({ props, sliderState, }) {
         getShiftedChange,
     };
 }
+
