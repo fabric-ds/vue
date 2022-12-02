@@ -1,0 +1,201 @@
+:root {
+  --f-white: var(--d-bluegray-900);
+  --f-gray-700: var(--d-white);
+  --f-blue-600: var(--d-blue-500);
+  --f-blue-200: var(--d-blue-800);
+  --f-aqua-50: var(--d-aqua-700);
+  --f-aqua-100: var(--d-aqua-800);
+  --f-aqua-200: var(--d-aqua-900);
+}
+.input-toggle input[type=checkbox]+label:before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23181a1f' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m4 8 3 3 5.5-6'/%3E%3C/svg%3E")
+}
+
+.button {
+  --f-blue-50: var(--d-blue-900);
+  --f-gray-800: var(--d-gray-100);
+  --f-gray-300: var(--d-gray-400);
+  --f-white: var(--d-gray-800);
+  --f-red-600: var(--d-red-700);
+}
+.button--pill {
+  --f-bluegray-600: var(--d-bluegray-200);
+  --f-blue-600-rgb: 154, 193, 254;
+}
+.button--pill:hover {
+  border-color: #fff4;
+}
+.button--in-progress {
+  background-image: linear-gradient(135deg,rgba(40,40,40,1) 25%,rgba(60,60,60,1) 0,rgba(60,60,60,1) 50%,rgba(40,40,40,1) 0,rgba(40,40,40,1) 75%,rgba(60,60,60,1) 0,rgba(60,60,60,1))!important;
+}
+
+/* pill */
+button.inline-flex.items-center.py-8.focus-ring.text-12.transition-all {
+  --f-blue-700: var(--d-blue-400);
+  --f-blue-800: var(--d-blue-300);
+  --f-gray-50: var(--d-gray-800);
+  --f-gray-100: var(--d-gray-700);
+  --f-gray-200: var(--d-gray-600);
+  --f-gray-300: var(--d-gray-500);
+  --f-gray-400: var(--d-gray-400);
+  --f-gray-500: var(--d-gray-300);
+  --f-gray-600: var(--d-gray-200);
+  --f-gray-700: var(--d-gray-100);
+}
+
+.f-button-group {
+  --f-gray-50: var(--d-gray-800);
+  --f-gray-100: var(--d-gray-700);
+  --f-gray-200: var(--d-gray-600);
+  --f-gray-300: var(--d-gray-500);
+  --f-gray-400: var(--d-gray-400);
+  --f-gray-500: var(--d-gray-300);
+  --f-gray-600: var(--d-gray-200);
+  --f-gray-700: var(--d-gray-100);
+}
+
+/* alerts */
+div.border.rounded-4.border-l-4:has(div.flex) {
+  --f-red-50: var(--d-red-900);
+  --f-red-300: var(--d-red-600);
+  --f-red-600: var(--d-red-700);
+  --f-green-50: var(--d-green-900);
+  --f-green-300: var(--d-green-600);
+  --f-green-600: var(--d-green-700);
+  --f-yellow-50: var(--d-yellow-900);
+  --f-yellow-300: var(--d-yellow-600);
+  --f-yellow-600: var(--d-yellow-700);
+  --f-aqua-50: var(--d-aqua-900);
+  --f-aqua-300: var(--d-aqua-600);
+  --f-aqua-600: var(--d-aqua-700);
+}
+
+/* modal */
+.f-modal-backdrop {
+  background-color: rgba(59, 67, 83, 0.75);
+}
+
+/* steps */
+.f-step .rounded-full {
+  --f-bluegray-300: var(--d-bluegray-600);
+}
+.step-line {
+  --f-bluegray-300: var(--d-bluegray-600);
+}
+
+/* tag */
+div.py-4.px-8.border.rounded-4.inline-flex.last-child\:mb-0 {
+  --f-green-100: var(--d-green-700);
+  --f-yellow-100: var(--d-yellow-700);
+  --f-red-100: var(--d-red-700);
+  --f-bluegray-300: var(--d-bluegray-700);
+  --f-aqua-50: var(--d-aqua-800);
+  --f-aqua-200: var(--d-aqua-600);
+}
+
+/* box */
+/* info is already handled, this handles neutral - no real good way to handle others without handling everything */
+.group.block.relative.break-words.last-child\:mb-0.p-16.rounded-8 {
+  --f-bluegray-50: var(--d-bluegray-700);
+  --f-aqua-400: var(--d-aqua-600);
+}
+
+/* card */
+.f-card {
+  --f-shadow: 0 1px 6px rgba(var(--f-gray-700-rgb),.16),0 1px 1px rgba(var(--f-gray-700-rgb),.24)
+}
+.f-card:hover {
+  --f-gray-50: var(--d-gray-700);
+}
+
+/* input */
+.input {
+  --f-red-600: var(--d-red-400) !important;
+}
+.field-label {
+  --f-red-600: var(--d-red-400);
+}
+
+/* vue docs thing */
+.sidebar {
+  --f-gray-100: var(--d-gray-800);
+  --f-gray-200: var(--d-gray-700);
+}
+.controls {
+  --f-gray-100: var(--d-gray-800);
+  --f-gray-200: var(--d-gray-700);
+}
+
+:root {
+  --d-blue-50: #eff5ff;
+  --d-blue-100: #e1edfe;
+  --d-blue-200: #c2dafe;
+  --d-blue-300: #9ac1fe;
+  --d-blue-400: #5c9cff;
+  --d-blue-500: #2b7eff;
+  --d-blue-600: #0063fb;
+  --d-blue-700: #244eb3;
+  --d-blue-800: #223474;
+  --d-blue-900: #191D3A;
+  --d-aqua-50: #f1f9ff;
+  --d-aqua-100: #e0f6ff;
+  --d-aqua-200: #b6f0ff;
+  --d-aqua-300: #66e0ff;
+  --d-aqua-400: #06befb;
+  --d-aqua-500: #03a3dd;
+  --d-aqua-600: #0386bf;
+  --d-aqua-700: #1e648a;
+  --d-aqua-800: #1d435a;
+  --d-aqua-900: #15242f;
+  --d-green-50: #ebfff6;
+  --d-green-100: #cdfee5;
+  --d-green-200: #9efcd1;
+  --d-green-300: #67eeb8;
+  --d-green-400: #2ee69f;
+  --d-green-500: #18c884;
+  --d-green-600: #059e6f;
+  --d-green-700: #1d7454;
+  --d-green-800: #1b4d39;
+  --d-green-900: #14291f;
+  --d-yellow-50: #fff8e6;
+  --d-yellow-100: #fff5c8;
+  --d-yellow-200: #feef90;
+  --d-yellow-300: #fae76b;
+  --d-yellow-400: #ffe11f;
+  --d-yellow-500: #eeb61b;
+  --d-yellow-600: #d5840b;
+  --d-yellow-700: #9b621e;
+  --d-yellow-800: #654118;
+  --d-yellow-900: #352310;
+  --d-red-50: #fff5f5;
+  --d-red-100: #ffefef;
+  --d-red-200: #ffd1d1;
+  --d-red-300: #ff9999;
+  --d-red-400: #ff5844;
+  --d-red-500: #fa270f;
+  --d-red-600: #d91f0a;
+  --d-red-700: #9e2216;
+  --d-red-800: #681d11;
+  --d-red-900: #38140B;
+  --d-bluegray-50: #f8fafc;
+  --d-bluegray-100: #f1f4f9;
+  --d-bluegray-200: #e1e6ee;
+  --d-bluegray-300: #c3ccd9;
+  --d-bluegray-400: #9ba8ba;
+  --d-bluegray-500: #6f7d90;
+  --d-bluegray-600: #4d586f;
+  --d-bluegray-700: #3b4353;
+  --d-bluegray-800: #292d38;
+  --d-bluegray-900: #181a1f;
+  --d-gray-50: #fafafa;
+  --d-gray-100: #f4f4f5;
+  --d-gray-200: #e4e4e7;
+  --d-gray-300: #d4d4d8;
+  --d-gray-400: #a1a1aa;
+  --d-gray-500: #71717a;
+  --d-gray-600: #52525b;
+  --d-gray-700: #3f3f46;
+  --d-gray-800: #27272a;
+  --d-gray-900: #18181b;
+  --d-white: #fff;
+}
