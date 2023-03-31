@@ -1,0 +1,1 @@
+/*eslint-disable*/export const messages=JSON.parse("{\"You are here\":\"Her er du\"}");
