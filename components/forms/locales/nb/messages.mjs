@@ -1,0 +1,1 @@
+/*eslint-disable*/export const messages=JSON.parse("{\"Magnifying glass\":\"Forstørrelsesglass\",\" (optional)\":\" (valgfritt)\",\"Mandatory field\":\"Må fylles ut\"}");
