@@ -33,7 +33,7 @@ export default { name: 'fAlert' }
 import { computed } from 'vue'
 import { fExpandTransition } from '#generics'
 import { createModel, modelProps } from 'create-v-model'
-import { colorMap, possibleColorBooleans, colorBooleanProps } from './logic.js'
+import { colorMap, possibleColorBooleans } from './logic.js'
 
 const props = defineProps({
   title: String,
@@ -41,7 +41,10 @@ const props = defineProps({
     type: String,
     default: 'alert'
   },
-  ...colorBooleanProps,
+  positive: Boolean,
+  negative: Boolean,
+  warning: Boolean,
+  info: Boolean,
   ...modelProps(),
 })
 const emit = defineEmits(['update:modelValue'])
