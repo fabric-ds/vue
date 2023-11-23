@@ -5,4 +5,3 @@ export const colorMap = {
   info: 'aqua'
 }
 export const possibleColorBooleans = Object.keys(colorMap)
-export const colorBooleanProps = possibleColorBooleans.reduce((acc, k) => (acc[k] = Boolean, acc), {})

@@ -1,9 +1,7 @@
 import vue from 'rollup-plugin-vue'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import { getBabelOutputPlugin } from '@rollup/plugin-babel'
 import eik from '@eik/rollup-plugin';
-import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import pkg from './package.json';
 
@@ -13,12 +11,8 @@ const commonPlugins = [
   replace({
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),
-  getBabelOutputPlugin({
-    presets: [['@babel/preset-env', { targets: browsers, bugfixes: true }]],
-  }),
   nodeResolve(),
   commonjs(),
-  terser(),
 ];
 
 export default [
